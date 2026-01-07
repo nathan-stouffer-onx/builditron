@@ -14,7 +14,7 @@ protected:
     }
 };
 
-TEST_F(tile_cache_test, tile_cache_capacity)
+TEST_F(tile_cache_test, capacity)
 {
     tile_cache::ref().set_capacity(2);
     ASSERT_EQ(2, tile_cache::ref().get_capacity()) << "failed to set or get capacity";
