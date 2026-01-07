@@ -32,6 +32,18 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: bootstrap vcpkg (windows)
+        if: runner.os == 'Windows'
+        run: ./${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.bat
+
+      - name: bootstrap vcpkg (mac)
+        if: runner.os != 'Windows'
+        run: ./${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.sh
+
 
       # Use this to set up an open ssh debugging session with CI
       # - name: Setup ssh session
