@@ -4,8 +4,15 @@
 
 #include <lucid/scalar.hpp>
 
+#include <engine/brain.hpp>
+
 namespace onyx
 {
+
+    void shutdown()
+    {
+        engine::brain::shutdown();
+    }
 
     int add(int lhs, int rhs)
     {
@@ -15,6 +22,7 @@ namespace onyx
     void add_layer(std::string const& str)
     {
         styling::layer layer = nlohmann::json::parse(str);
+        engine::brain::ref().add_layer(layer);
     }
 
 }
