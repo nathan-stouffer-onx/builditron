@@ -9,7 +9,7 @@ add_executable(engine-tests ${ENGINE_TEST_FILES})
 # add private headers for complete testing
 target_include_directories(engine-tests
     PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../src/viewer/engine/include/private"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../src/engine/include/private"
 )
 
 # add directory structure to IDEs

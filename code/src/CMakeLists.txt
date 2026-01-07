@@ -1,2 +1,3 @@
-add_subdirectory(viewer)
-add_subdirectory(samples)
+add_subdirectory(styling)
+add_subdirectory(engine)
+add_subdirectory(onyx)
