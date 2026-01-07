@@ -1,4 +1,4 @@
-name: build
+name: tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  tests:
+  library:
     runs-on: ${{ matrix.host.image }}
     strategy:
       # Cancel all in-progress and queued jobs in the matrix if any job in the matrix fails
