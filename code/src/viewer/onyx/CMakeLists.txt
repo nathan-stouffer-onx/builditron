@@ -23,11 +23,13 @@ add_library(onyx ${ONYX_FILES})
 
 target_include_directories(onyx
     PUBLIC
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
 )
 
 # add dependencies
 target_link_libraries(onyx
     PUBLIC
-    lucid
+        lucid
+    PRIVATE
+        styling
 )

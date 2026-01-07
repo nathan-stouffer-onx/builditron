@@ -14,4 +14,9 @@ TEST(onyx, add)
     ASSERT_EQ(6, onyx::add(1, 5)) << "failed 1 + 5";
 }
 
+TEST(onyx, add_layer)
+{
+    onyx::add_layer(R"({ "type": "line" })");
+}
+
 }
