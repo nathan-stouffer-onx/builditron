@@ -12,7 +12,8 @@
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "cl.exe",
-                "CMAKE_CXX_COMPILER": "cl.exe"
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
             }
         },
         {
@@ -24,7 +25,8 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "C:/ProgramData/chocolatey/bin/gcc.exe",
                 "CMAKE_CXX_COMPILER": "C:/ProgramData/chocolatey/bin/g++.exe",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
             }
         },
         {
@@ -36,7 +38,8 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "/opt/homebrew/bin/aarch64-apple-darwin24-gcc-15",
                 "CMAKE_CXX_COMPILER": "/opt/homebrew/bin/aarch64-apple-darwin24-g++-15",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
             }
         },
         {
@@ -48,7 +51,8 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "/usr/bin/clang",
                 "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
             }
         }
     ],
