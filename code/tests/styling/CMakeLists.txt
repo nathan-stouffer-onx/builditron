@@ -12,7 +12,7 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${STYLING_TEST_FILES})
 target_link_libraries(styling-tests PRIVATE styling GTest::gtest_main)
 
 # set up cpp files with precompiled headers
-target_precompile_headers(lucid-tests PRIVATE <vector> <gtest/gtest.h>)
+target_precompile_headers(styling-tests PRIVATE <vector> <gtest/gtest.h>)
 
 include(GoogleTest)
 
