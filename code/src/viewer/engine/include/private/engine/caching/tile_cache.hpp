@@ -1,13 +1,16 @@
 #pragma once
 
-namespace onyx::engine
+namespace onyx::engine::caching
 {
 
 class tile_cache
 {
 public:
 
-    tile_cache();
+    static tile_cache& ref();
+    static void shutdown();
+
+public:
 
     void update();
 
@@ -15,6 +18,10 @@ public:
     size_t get_capacity() const { return m_capacity; }
 
 private:
+
+    static tile_cache* s_instance;
+    tile_cache();
+    ~tile_cache();
 
     size_t m_capacity;
 

@@ -1,5 +1,7 @@
 #include "engine/brain.hpp"
 
+#include "engine/caching/tile_cache.hpp"
+
 namespace onyx::engine
 {
 
@@ -18,8 +20,15 @@ void brain::shutdown()
     s_instance = nullptr;
 }
 
-brain::brain() = default;
-brain::~brain() = default;
+brain::brain()
+{
+    caching::tile_cache::ref();
+}
+
+brain::~brain()
+{
+    caching::tile_cache::shutdown();
+}
 
 void brain::add_layer(styling::layer const& layer) {}
 

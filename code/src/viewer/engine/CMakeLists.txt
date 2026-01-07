@@ -1,5 +1,6 @@
 set(ENGINE_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/engine/brain.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/engine/caching/tile_cache.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/include/private/engine/caching/tile_cache.hpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/engine/brain.hpp"
 )
