@@ -40,6 +40,9 @@
 # debug information files
 *.dwo
 
+# Mac files
+.DS_STORE
+
 build/
 .build/
 out/
