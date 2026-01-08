@@ -38,11 +38,11 @@ jobs:
 
       - name: bootstrap vcpkg (windows)
         if: runner.os == 'Windows'
-        run: ./${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.bat
+        run: /${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.bat
 
       - name: bootstrap vcpkg (mac)
         if: runner.os != 'Windows'
-        run: ./${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.sh
+        run: ${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.sh
 
 
       # Use this to set up an open ssh debugging session with CI
