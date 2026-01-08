@@ -54,6 +54,7 @@ jobs:
         id: strings
         shell: bash
         run: |
+          echo "deps-dir=${{ github.workspace }}/code/deps" >> "$GITHUB_OUTPUT"
           echo "src-dir=${{ github.workspace }}/code/src" >> "$GITHUB_OUTPUT"
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
@@ -65,6 +66,7 @@ jobs:
           -G "${{ matrix.host.generator }}"
           -S ${{ github.workspace }}
           -B ${{ steps.strings.outputs.build-output-dir }}
+          -DCMAKE_TOOLCHAIN_FILE=${{ steps.strings.outputs.build-output-dir }}/vcpkg/scripts/buildsystems/vcpkg.cmake
           -DCMAKE_CXX_COMPILER=${{ matrix.host.cpp_compiler }}
           -DCMAKE_C_COMPILER=${{ matrix.host.c_compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
