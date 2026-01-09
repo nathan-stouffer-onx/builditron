@@ -63,7 +63,7 @@ jobs:
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
-          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
+          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
           max-size: 500M
 
       - name: bootstrap vcpkg (windows)
