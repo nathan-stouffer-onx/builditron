@@ -14,3 +14,5 @@ target_link_libraries(macos-sample
     PRIVATE
     onyx
 )
+
+add_dependencies(macos-sample shadertron)
