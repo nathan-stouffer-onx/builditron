@@ -6,6 +6,13 @@ set(SHADERS_FILES
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${SHADERS_FILES})
 
+cmrc_add_resource_library(
+    shaders_json
+    NAMESPACE shaders_json
+    WHENCE .
+    assets/shaders/json/TiledPseudoRasters/Plinth.json
+)
+
 add_library(shaders ${SHADERS_FILES})
 
 find_package(nlohmann_json CONFIG REQUIRED)
@@ -17,5 +24,7 @@ target_include_directories(shaders
 
 target_link_libraries(shaders
     PUBLIC
-    nlohmann_json::nlohmann_json
+        nlohmann_json::nlohmann_json
+    PRIVATE
+        shaders_json
 )

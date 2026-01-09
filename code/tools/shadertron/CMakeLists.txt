@@ -5,8 +5,6 @@ set(SHADERTRON_FILES
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${SHADERTRON_FILES})
 
-file(CREATE_LINK "${CMAKE_CURRENT_SOURCE_DIR}/../../src/shaders/assets" "${CMAKE_CURRENT_BINARY_DIR}/assets" SYMBOLIC)
-
 add_executable(shadertron ${SHADERTRON_FILES})
 
 # add dependencies

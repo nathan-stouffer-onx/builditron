@@ -1,5 +1,12 @@
 include(FetchContent)
 
+FetchContent_Declare(
+  cmrc
+  GIT_REPOSITORY https://github.com/vector-of-bool/cmrc.git
+  GIT_TAG 2.0.1
+)
+FetchContent_MakeAvailable(cmrc)
+
 # set up lucid target
 add_library(lucid INTERFACE)
 target_include_directories(lucid INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/lucid/include/interface")
