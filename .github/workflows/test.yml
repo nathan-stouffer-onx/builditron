@@ -39,7 +39,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Compute vcpkg SHA (submodule)
+      - name: Compute vcpkg SHA
         shell: bash
         run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
 
