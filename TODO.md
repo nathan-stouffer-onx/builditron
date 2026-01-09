@@ -3,7 +3,7 @@
 - [ ] write documentation
 - [ ] maybe bundle shaders?
 - [ ] figure out presets
-- [ ] cache builds
+- [ ] cache builds on GHA
 - [ ] add ios project
 - [ ] add android project
 - [ ] add web project
