@@ -14,15 +14,3 @@ target_link_libraries(macos-sample
     PRIVATE
     onyx
 )
-
-# ensure shadertron is built before windows-sample is linked (build order)
-add_dependencies(macos-sample shadertron)
-
-add_custom_command(
-    TARGET macos-sample
-    POST_BUILD
-    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/assets/shaders"
-    COMMAND ${CMAKE_COMMAND} -E echo "Running shadertron"
-    COMMAND "$<TARGET_FILE:shadertron>"
-    VERBATIM
-)
