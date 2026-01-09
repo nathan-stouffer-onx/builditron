@@ -10,33 +10,64 @@
 namespace onyx::shadertron
 {
 
-static constexpr std::string c_base_directory = "shaders";
+namespace fs = std::filesystem;
 
-void touch_directory(std::string const& path)
+void touch_directory(fs::path const& path)
 {
-    if (!std::filesystem::exists(path))
+    if (!fs::exists(path))
     {
-        std::filesystem::create_directory(path);
+        fs::create_directory(path);
     }
 }
 
 void generate(bool clean_first)
 {
+    fs::path base = "shaders";
+
     if (clean_first)
     {
-        std::filesystem::remove_all(c_base_directory);
+        fs::remove_all(base);
     }
 
-    std::filesystem::remove_all(c_base_directory + "/src");
+    touch_directory(base);
+    touch_directory(base / "src");
+    touch_directory(base / "assemble-cache");
 
-    touch_directory(c_base_directory);
-    touch_directory(c_base_directory + "/src");
+    for (fs::directory_entry const& entry : fs::directory_iterator(base / "src"))
+    {
+        if (entry.is_regular_file())
+        {
+            fs::path cached = base / "assemble-cache" / entry.path().filename();
+            fs::remove(cached);
+            fs::rename(entry.path(), cached);
+        }
+    }
 
     std::vector<shaders::pair> pairs = shaders::generate();
     for (shaders::pair const& pair : pairs)
     {
-        std::ofstream file(c_base_directory + "/src/" + pair.filename);
-        file << pair.contents; 
+        fs::path cached_path = base / "assemble-cache" / pair.filename;
+        std::string cached;
+        if (fs::exists(cached_path))
+        {
+            std::ifstream file(cached_path, std::ios::binary);
+            file.seekg(0, std::ios::end);
+            cached.resize(file.tellg());
+            file.seekg(0, std::ios::beg);
+            file.read(cached.data(), cached.size());
+        }
+
+        fs::path target = base / "src" / pair.filename;
+        if (cached != pair.contents)
+        {
+            std::cout << "[" << pair.filename << "]" << std::endl;
+            std::ofstream file(target);
+            file << pair.contents;
+        }
+        else
+        {
+            fs::rename(cached_path, target);
+        }
     }
 }
 
