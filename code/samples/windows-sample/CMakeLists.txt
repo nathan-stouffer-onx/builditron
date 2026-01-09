@@ -14,3 +14,5 @@ target_link_libraries(windows-sample
     PRIVATE
     onyx
 )
+
+add_dependencies(windows-sample shadertron)

@@ -1,0 +1,22 @@
+{
+    "inputs": [
+        {
+            "name": "position",
+            "type": "VEC3"
+        },
+        {
+            "name": "style_coords",
+            "type": "VEC2"
+        }
+    ],
+    "transfers": [
+        {
+            "name": "world_position",
+            "type": "VEC3"
+        },
+        {
+            "name": "color",
+            "type": "VEC4"
+        }
+    ]
+}

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include <styling/layers/layer.hpp>
 
 namespace onyx::engine
@@ -13,6 +15,10 @@ public:
     static void shutdown();
 
     void add_layer(styling::layer const& layer);
+
+    std::string load_roboto();
+
+    bool load_shaders();
 
 private:
 
