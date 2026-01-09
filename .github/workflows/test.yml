@@ -43,6 +43,12 @@ jobs:
         shell: bash
         run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
 
+      - name: Cache vcpkg downloads
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VCPKG_ROOT }}/downloads
+          key: vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}
+
       - name: Cache vcpkg binaries
         uses: actions/cache@v4
         with:
