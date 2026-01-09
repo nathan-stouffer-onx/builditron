@@ -9,6 +9,8 @@ add_executable(lucid-tests ${LUCID_TEST_FILES})
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${LUCID_TEST_FILES})
 
+find_package(GTest CONFIG REQUIRED)
+
 target_link_libraries(lucid-tests PRIVATE lucid GTest::gtest_main)
 
 # set up cpp files with precompiled headers
