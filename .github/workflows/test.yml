@@ -21,13 +21,19 @@ jobs:
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         host:
           # cl configurations
-          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2022, generator: Visual Studio 17 2022 }
-          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2025, generator: Visual Studio 17 2022 }
+          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2022, generator: Visual Studio 17 2022, vcpkg_triplet: x64-windows       }
+          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2025, generator: Visual Studio 17 2022, vcpkg_triplet: x64-windows       }
           # clang++ configurations
-          - { cpp_compiler: clang++,    c_compiler: clang,    image: macos-14,     generator: Unix Makefiles        } # GHA docs say this is version 15.0.0
+          - { cpp_compiler: clang++,    c_compiler: clang,    image: macos-14,     generator: Unix Makefiles,        vcpkg_triplet: arm64-osx         } # GHA docs say this is version 15.0.0
           # g++ configurations
-          - { cpp_compiler: g++,        c_compiler: gcc,      image: windows-2022, generator: MinGW Makefiles       } # GHA docs say this is version 12.2.0
-          - { cpp_compiler: g++,        c_compiler: gcc,      image: macos-14,     generator: Unix Makefiles        }
+          - { cpp_compiler: g++,        c_compiler: gcc,      image: windows-2022, generator: MinGW Makefiles,       vcpkg_triplet: x64-mingw-dynamic } # GHA docs say this is version 12.2.0
+          - { cpp_compiler: g++,        c_compiler: gcc,      image: macos-14,     generator: Unix Makefiles,        vcpkg_triplet: arm64-osx         }
+    
+    env:
+      VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
+      VCPKG_BINARY_CACHE: ${{ github.workspace }}/.vcpkg_binary_cache
+      VCPKG_BINARY_SOURCES: clear;files,${{ github.workspace }}/.vcpkg_binary_cache,readwrite
+      VCPKG_FEATURE_FLAGS: manifests,binarycaching
 
     steps:
       - name: checkout
@@ -35,6 +41,20 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+
+      - name: Compute vcpkg SHA (submodule)
+        shell: bash
+        run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Cache vcpkg binaries
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VCPKG_BINARY_CACHE }}
+          key: >
+            vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}
+            -triplet:${{ matrix.host.vcpkg_triplet }}
+            -vcpkg:${{ env.VCPKG_SHA }}
+            -manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: bootstrap vcpkg (windows)
         if: runner.os == 'Windows'
