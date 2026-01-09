@@ -8,4 +8,6 @@ set(CXX_STANDARD_REQUIRED ON)
 # set so Visual Studio generates filters corresponding to folders
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+enable_testing()
+
 add_subdirectory(code)
