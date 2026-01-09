@@ -74,6 +74,10 @@ jobs:
         if: runner.os != 'Windows'
         run: ${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.sh -disableMetrics
 
+      - name: Setup MSVC dev environment
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+
       # Use this to set up an open ssh debugging session with CI
       # - name: Setup ssh session
       #   uses: lhotari/action-upterm@v1
