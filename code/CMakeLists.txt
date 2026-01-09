@@ -8,8 +8,6 @@ add_subdirectory(deps)
 add_subdirectory(src)
 add_subdirectory(tools)
 
-if(BUILD_TESTS)
-    add_subdirectory(tests)
-endif()
+add_subdirectory(tests)
 
 add_subdirectory(samples)
