@@ -31,6 +31,5 @@ target_link_libraries(onyx
     PUBLIC
         lucid
     PRIVATE
-        styling
         engine
 )

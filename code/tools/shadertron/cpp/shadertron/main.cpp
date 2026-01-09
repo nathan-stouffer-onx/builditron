@@ -32,7 +32,7 @@ void generate(bool clean_first) // TODO (stouff) respect the clean_first argumen
     std::vector<shaders::pair> pairs = shaders::generate();
     for (shaders::pair const& pair : pairs)
     {
-        
+        // TODO (stouff) actually write the files
     }
 }
 

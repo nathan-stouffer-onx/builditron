@@ -37,7 +37,7 @@ std::vector<pair> generate()
 {
     std::vector<pair> pairs;
 
-    auto fs = cmrc::shaders_json::get_filesystem();
+    auto fs = cmrc::shaders_json::get_filesystem(); 
 
     // add handwritten shaders
     {

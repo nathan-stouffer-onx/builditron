@@ -31,6 +31,7 @@ target_link_libraries(engine
     PUBLIC
         lucid
         styling
+        shaders
     PRIVATE
         engine_assets
 )
