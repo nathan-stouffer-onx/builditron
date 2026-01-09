@@ -11,4 +11,5 @@ add_executable(shadertron ${SHADERTRON_FILES})
 target_link_libraries(shadertron
     PRIVATE
     shaders
+    CLI11::CLI11
 )

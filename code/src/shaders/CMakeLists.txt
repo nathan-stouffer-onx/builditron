@@ -1,5 +1,7 @@
 set(SHADERS_FILES
+    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/shaders/generate.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/shaders/load.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaders/generate.hpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaders/load.hpp"
 )
 
@@ -11,6 +13,8 @@ cmrc_add_resource_library(
     NAMESPACE shaders_json
     WHENCE .
     assets/shaders/json/TiledPseudoRasters/Plinth.json
+    assets/shaders/handwritten/Fog.vs.sc
+    assets/shaders/handwritten/Fog.fs.sc
 )
 
 add_library(shaders ${SHADERS_FILES})
