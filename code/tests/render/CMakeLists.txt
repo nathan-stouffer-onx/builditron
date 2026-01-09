@@ -1,5 +1,3 @@
-enable_testing()
-
 set(RENDER_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/render/line_layer_render_test.cpp"
 )

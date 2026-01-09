@@ -1,5 +1,3 @@
-enable_testing()
-
 set(LUCID_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/lucid/scalar_tests.cpp"
 )

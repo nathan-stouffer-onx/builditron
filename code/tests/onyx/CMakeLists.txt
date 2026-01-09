@@ -1,5 +1,3 @@
-enable_testing()
-
 set(ONYX_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/onyx/onyx_tests.cpp"
 )

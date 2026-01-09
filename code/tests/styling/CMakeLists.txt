@@ -1,5 +1,3 @@
-enable_testing()
-
 set(STYLING_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/styling/parse/layer_json_tests.cpp"
 )
