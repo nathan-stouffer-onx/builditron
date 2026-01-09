@@ -71,15 +71,15 @@ std::vector<pair> generate()
             vertex_output += name;
         }
 
-        pairs.emplace_back(
+        pairs.push_back({
             "Plinth.vs.sc",
             "$input " + vertex_input + "\n$output " + vertex_output
-        );
+        });
 
-        pairs.emplace_back(
+        pairs.emplace_back({
             "Plinth.fs.sc",
             "$input " + vertex_output
-        );
+        });
     }
 
     return pairs;
