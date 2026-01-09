@@ -76,7 +76,7 @@ std::vector<pair> generate()
             "$input " + vertex_input + "\n$output " + vertex_output
         });
 
-        pairs.emplace_back({
+        pairs.push_back({
             "Plinth.fs.sc",
             "$input " + vertex_output
         });
