@@ -13,4 +13,6 @@ namespace onyx
 
     std::string load_roboto();
 
+    bool load_shaders();
+
 }

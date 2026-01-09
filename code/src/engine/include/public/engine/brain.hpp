@@ -18,6 +18,8 @@ public:
 
     std::string load_roboto();
 
+    bool load_shaders();
+
 private:
 
     static brain* s_instance;

@@ -46,7 +46,7 @@ std::vector<pair> generate()
 
     // add generated shaders
     {
-        nlohmann::json plinth = shaders::load();
+        nlohmann::json plinth = shaders::load_components();
 
         std::string vertex_input;
         std::string vertex_output;

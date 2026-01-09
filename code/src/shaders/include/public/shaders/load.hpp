@@ -5,6 +5,8 @@
 namespace onyx::shaders
 {
 
-nlohmann::json load();
+nlohmann::json load_components();
+
+bool load_shaders();
 
 }

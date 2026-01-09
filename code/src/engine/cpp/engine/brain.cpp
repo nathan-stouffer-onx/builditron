@@ -1,5 +1,7 @@
 #include "engine/brain.hpp"
 
+#include <shaders/load.hpp>
+
 #include "engine/caching/tile_cache.hpp"
 #include "engine/symbols/fonts/load.hpp"
 
@@ -36,6 +38,11 @@ void brain::add_layer(styling::layer const& layer) {}
 std::string brain::load_roboto()
 {
     return symbols::load_roboto();
+}
+
+bool brain::load_shaders()
+{
+    return shaders::load_shaders();
 }
 
 }

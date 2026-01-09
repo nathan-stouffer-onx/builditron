@@ -7,7 +7,7 @@ namespace onyx::shaders
 
 TEST(shaders, load)
 {
-    nlohmann::json shader = load();
+    nlohmann::json shader = load_components();
     ASSERT_EQ(2, shader["inputs"].size()) << "failed to load correct number of inputs";
 }
 
