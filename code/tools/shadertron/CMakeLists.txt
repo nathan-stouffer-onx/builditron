@@ -17,7 +17,7 @@ target_link_libraries(shadertron
 add_custom_command(
     TARGET shadertron
     POST_BUILD
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../samples/assets/shaders"
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../samples/assets"
     COMMAND ${CMAKE_COMMAND} -E echo "Running shadertron"
     COMMAND "$<TARGET_FILE:shadertron>"
     VERBATIM

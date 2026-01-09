@@ -1,5 +1,6 @@
-#include <iostream>
+#include <filesystem>
 #include <fstream>
+#include <iostream>
 
 #include <CLI/CLI.hpp>
 
@@ -8,6 +9,8 @@
 
 namespace onyx::shadertron
 {
+
+static constexpr char c_directory[] = "shaders";
 
 void log(nlohmann::json const& component)
 {
@@ -25,16 +28,26 @@ void log(nlohmann::json const& component)
     std::cout << " ]" << std::endl;
 }
 
-void generate(bool clean_first) // TODO (stouff) respect the clean_first argument
+void generate(bool clean_first)
 {
+    if (clean_first)
+    {
+        std::filesystem::remove_all(c_directory);
+    }
+
+    if (!std::filesystem::exists(c_directory))
+    {
+        std::filesystem::create_directory(c_directory);
+    }
+
     nlohmann::json component = shaders::load();
     log(component);
 
     std::vector<shaders::pair> pairs = shaders::generate();
     for (shaders::pair const& pair : pairs)
     {
-        std::ofstream file(pair.filename);
-        file << pair.contents;
+        std::ofstream file(std::string(c_directory) + "/" + pair.filename);
+        file << pair.contents; 
     }
 }
 
