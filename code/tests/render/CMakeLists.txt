@@ -11,6 +11,8 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${RENDER_TEST_FILES})
 
 file(CREATE_LINK "${CMAKE_CURRENT_SOURCE_DIR}/assets" "${CMAKE_CURRENT_BINARY_DIR}/assets" SYMBOLIC)
 
+find_package(GTest CONFIG REQUIRED)
+
 target_link_libraries(render-tests PRIVATE onyx GTest::gtest_main)
 
 # set up cpp files with precompiled headers
