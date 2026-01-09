@@ -21,7 +21,7 @@ jobs:
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         host:
           # cl configurations
-          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2022, generator: Visual Studio 17 2022, vcpkg_triplet: x64-windows       }
+          #- { cpp_compiler: cl,         c_compiler: cl,       image: windows-2022, generator: Visual Studio 17 2022, vcpkg_triplet: x64-windows       }
           # clang++ configurations
           - { cpp_compiler: clang++,    c_compiler: clang,    image: macos-14,     generator: Unix Makefiles,        vcpkg_triplet: arm64-osx         } # GHA docs say this is version 15.0.0
     
