@@ -1,5 +1,6 @@
 add_subdirectory(lucid)
 add_subdirectory(styling)
+add_subdirectory(shaders)
 add_subdirectory(engine)
 add_subdirectory(onyx)
 
