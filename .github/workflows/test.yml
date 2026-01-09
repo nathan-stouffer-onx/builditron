@@ -88,9 +88,9 @@ jobs:
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
           if [[ "${RUNNER_OS}" == "Windows" ]]; then
-            echo "compiler-cache"=sccache >> "$GITHUB_OUTPUT"
+            echo "compiler-cacher"=sccache >> "$GITHUB_OUTPUT"
           else
-            echo "compiler-cache"=ccache >> "$GITHUB_OUTPUT"
+            echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
           fi
 
       - name: Configure CMake
@@ -106,8 +106,8 @@ jobs:
           -DCMAKE_CXX_COMPILER=${{ matrix.host.cpp_compiler }}
           -DCMAKE_C_COMPILER=${{ matrix.host.c_compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cache }}
-          -DCMAKE_CXX_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cache }}
+          -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
+          -DCMAKE_CXX_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
 
       - name: Build
         # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
