@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include <CLI/CLI.hpp>
 
@@ -32,7 +33,8 @@ void generate(bool clean_first) // TODO (stouff) respect the clean_first argumen
     std::vector<shaders::pair> pairs = shaders::generate();
     for (shaders::pair const& pair : pairs)
     {
-        // TODO (stouff) actually write the files
+        std::ofstream file(pair.filename);
+        file << pair.contents;
     }
 }
 
