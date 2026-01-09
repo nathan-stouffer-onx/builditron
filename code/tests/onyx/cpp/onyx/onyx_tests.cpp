@@ -19,4 +19,9 @@ TEST(onyx, add_layer)
     onyx::add_layer(R"({ "type": "line" })");
 }
 
+TEST(onyx, load_roboto)
+{
+    ASSERT_EQ("I am roboto", load_roboto()) << "failed to load roboto font";
+}
+
 }

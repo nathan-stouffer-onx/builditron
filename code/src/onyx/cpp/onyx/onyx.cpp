@@ -25,4 +25,9 @@ namespace onyx
         engine::brain::ref().add_layer(layer);
     }
 
+    std::string load_roboto()
+    {
+        return engine::brain::ref().load_roboto();
+    }
+
 }

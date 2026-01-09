@@ -11,4 +11,6 @@ namespace onyx
 
     void add_layer(std::string const& str);
 
+    std::string load_roboto();
+
 }
