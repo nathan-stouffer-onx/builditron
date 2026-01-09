@@ -20,14 +20,14 @@ void load_handwritten(std::vector<pair>& pairs, cmrc::embedded_filesystem const&
         std::string path = prefix + name + ".vs.sc";
         auto file = fs.open(path);
         std::string str(file.begin(), file.end());
-        pairs.emplace_back(name + ".vs.sc", str);
+        pairs.push_back({ name + ".vs.sc", str });
     }
     // fragment
     {
         std::string path = prefix + name + ".fs.sc";
         auto file = fs.open(path);
         std::string str(file.begin(), file.end());
-        pairs.emplace_back(name + ".fs.sc", str);
+        pairs.push_back({ name + ".fs.sc", str });
     }
 }
 
