@@ -86,7 +86,12 @@ jobs:
           echo "deps-dir=${{ github.workspace }}/code/deps" >> "$GITHUB_OUTPUT"
           echo "src-dir=${{ github.workspace }}/code/src" >> "$GITHUB_OUTPUT"
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
-          echo "compiler-cache"=ccache >> "$GITHUB_OUTPUT"
+
+          if [[ "${RUNNER_OS}" == "Windows" ]]; then
+            echo "compiler-cache"=sccache >> "$GITHUB_OUTPUT"
+          else
+            echo "compiler-cache"=ccache >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
