@@ -2,6 +2,7 @@ enable_testing()
 
 set(ENGINE_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/engine/caching/tile_cache_tests.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/engine/symbols/fonts/load_tests.cpp"
 )
 
 add_executable(engine-tests ${ENGINE_TEST_FILES})
