@@ -1,3 +1,7 @@
+include(CTest)
+
+find_package(GTest CONFIG REQUIRED)
+
 add_subdirectory(lucid)
 add_subdirectory(styling)
 add_subdirectory(shaders)

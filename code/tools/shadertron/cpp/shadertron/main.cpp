@@ -60,7 +60,7 @@ void generate(bool clean_first)
         fs::path target = base / "src" / pair.filename;
         if (cached != pair.contents)
         {
-            std::cout << "[" << pair.filename << "]" << std::endl;
+            std::cout << "[gen: " << pair.filename << "]" << std::endl;
             std::ofstream file(target);
             file << pair.contents;
         }

@@ -1,5 +1,3 @@
-enable_testing()
-
 set(SHADERS_TEST_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/cpp/shaders/load_tests.cpp"
 )
