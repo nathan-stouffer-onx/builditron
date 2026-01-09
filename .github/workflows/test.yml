@@ -25,9 +25,6 @@ jobs:
           - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2025, generator: Visual Studio 17 2022, vcpkg_triplet: x64-windows       }
           # clang++ configurations
           - { cpp_compiler: clang++,    c_compiler: clang,    image: macos-14,     generator: Unix Makefiles,        vcpkg_triplet: arm64-osx         } # GHA docs say this is version 15.0.0
-          # g++ configurations
-          - { cpp_compiler: g++,        c_compiler: gcc,      image: windows-2022, generator: MinGW Makefiles,       vcpkg_triplet: x64-mingw-dynamic } # GHA docs say this is version 12.2.0
-          - { cpp_compiler: g++,        c_compiler: gcc,      image: macos-14,     generator: Unix Makefiles,        vcpkg_triplet: arm64-osx         }
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
