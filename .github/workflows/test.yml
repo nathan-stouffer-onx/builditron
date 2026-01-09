@@ -48,7 +48,7 @@ jobs:
         with:
           path: ${{ env.VCPKG_ROOT }}/downloads
           key: vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
-          restore_keys: |
+          restore-keys: |
             vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}
 
       - name: Cache vcpkg binaries
