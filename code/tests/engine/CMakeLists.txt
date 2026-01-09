@@ -16,8 +16,6 @@ target_include_directories(engine-tests
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${ENGINE_TEST_FILES})
 
-find_package(GTest CONFIG REQUIRED)
-
 target_link_libraries(engine-tests PRIVATE engine GTest::gtest_main)
 
 # set up cpp files with precompiled headers

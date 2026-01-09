@@ -11,8 +11,6 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${ONYX_TEST_FILES})
 
 target_include_directories(onyx-tests PRIVATE "include/private")
 
-find_package(GTest CONFIG REQUIRED)
-
 target_link_libraries(onyx-tests PRIVATE onyx GTest::gtest_main)
 
 # set up cpp files with precompiled headers
