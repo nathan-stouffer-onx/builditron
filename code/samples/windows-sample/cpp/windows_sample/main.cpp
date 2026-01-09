@@ -69,6 +69,12 @@ int run()
         }
     }
 
+    // load roboto font
+    {
+        std::string roboto = onyx::load_roboto();
+        std::cout << "Roboto font: " << roboto << std::endl;
+    }
+
     return 0;
 }
 
