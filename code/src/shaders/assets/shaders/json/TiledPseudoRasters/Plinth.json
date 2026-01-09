@@ -1,0 +1,12 @@
+{
+    "inputs": [
+        {
+            "name": "position",
+            "type": "VEC3"
+        },
+        {
+            "name": "style",
+            "type": "VEC2"
+        }
+    ]
+}
