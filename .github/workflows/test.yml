@@ -92,9 +92,9 @@ jobs:
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
           if [[ "${RUNNER_OS}" == "Windows" ]]; then
-            echo "compiler-cacher"=sccache >> "$GITHUB_OUTPUT"
+            echo "compiler-cacher"=$(which sccache) >> "$GITHUB_OUTPUT"
           else
-            echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
+            echo "compiler-cacher"=$(which ccache) >> "$GITHUB_OUTPUT"
           fi
 
       - name: Configure CMake
