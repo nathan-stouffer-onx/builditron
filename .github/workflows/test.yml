@@ -62,6 +62,14 @@ jobs:
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
+        if: runner.os != 'Windows'
+        with:
+          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
+          max-size: 500M
+
+      - name: sccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        if: runner.os == 'Windows'
         with:
           key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
           max-size: 500M
