@@ -1,6 +1,4 @@
-cmake_minimum_required(VERSION 3.22)
-
-cmake_policy(SET CMP0141 NEW)
+cmake_minimum_required(VERSION 3.31)
 
 project(builditron VERSION 0.0.0 DESCRIPTION "A map viewer" LANGUAGES CXX)
 
