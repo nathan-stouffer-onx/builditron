@@ -1,3 +1,22 @@
 # builditron
 
 An experiment in a better build system for the viewer.
+This is meant to be a project with all the build complexity of the viewer but very little of the code complexity.
+I am experimenting with some aspects of CMake to see how the viewer's build process could be improved.
+
+## Highlights
+
+* Transitive dependencies
+    * CMake preserves transitive dependencies. This makes for much less verbose project configuration.
+* Private headers/dependencies
+    * We can be very specific about what headers/dependencies are exposed from a particular library. This improves modularization and build times (since they are not extraneously included). Additionally, it means the API library can be quite specific about what is exposed to the clients.
+* Integration with vcpkg
+    * CMake is quite easy to integrate with vcpkg and it monitors changes to the dependency file. This automates changes in dependencies and avoids bugs where developers need to manually update.
+* Embedded assets
+    * CMake has easy tooling for embedding static assets directly into a library. This sidesteps the need for filesystem access which can be awkward on mobile platforms
+* Build configurations
+    * CMake provides 4 build configurations out of the box: `Debug`, `Release`, `MinSizeRel`, and `RelWithDebInfo`. This makes local debugging easier and lays groundwork for easily posting multiple versions of our package for debugging on the clients
+* Simpler cloud build
+    * By simplifying the build process, we also enable a simpler cloudbuild (either CircleCI or GHA). We can matrix the build on the build configuration.
+* Faster cloud build
+    * CMake has integration with other tooling that makes caching quite effective in the cloud. Caching vcpkg results is trivial (something we have now with some complexity). Using CMake would also unlock a tool called ccache that caches compiled object files across cloud runs and improves build times in the cloud.
