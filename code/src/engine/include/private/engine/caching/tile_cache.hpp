@@ -9,7 +9,7 @@ class tile_cache
 {
 public:
 
-    static tile_cache& ref(); 
+    static tile_cache& ref();
     static void shutdown();
 
 public:
