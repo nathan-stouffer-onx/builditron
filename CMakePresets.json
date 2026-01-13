@@ -6,13 +6,35 @@
       "hidden": true,
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
-        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
       }
+    },
+    {
+        "name": "deps",
+        "hidden": true,
+        "inherits": "base",
+        "toolchainFile": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    {
+        "name": "deps-win",
+        "hidden": true,
+        "inherits": "deps",
+        "cacheVariables": {
+            "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+        }
+    },
+    {
+        "name": "deps-mac",
+        "hidden": true,
+        "inherits": "deps",
+        "cacheVariables": {
+            "VCPKG_TARGET_TRIPLET": "arm64-osx"
+        }
     },
     {
       "name": "env-win-msvc-vs",
       "hidden": true,
+      "inherits": "deps-win",
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
       "cacheVariables": {
@@ -23,6 +45,7 @@
     {
       "name": "env-mac-clang-ninja",
       "hidden": true,
+      "inherits": "deps-mac",
       "generator": "Ninja",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang",
@@ -31,23 +54,23 @@
     },
     {
       "name": "targ-win",
-      "inherits": ["base", "env-win-msvc-vs"]
+      "inherits": "env-win-msvc-vs"
     },
     {
       "name": "targ-mac-debug",
-      "inherits": ["base", "env-mac-clang-ninja"]
+      "inherits": "env-mac-clang-ninja"
     },
     {
       "name": "targ-mac-relwithdebinfo",
-      "inherits": ["base", "env-mac-clang-ninja"]
+      "inherits": "env-mac-clang-ninja"
     },
     {
       "name": "targ-mac-release",
-      "inherits": ["base", "env-mac-clang-ninja"]
+      "inherits": "env-mac-clang-ninja"
     },
     {
       "name": "targ-mac-minsizerel",
-      "inherits": ["base", "env-mac-clang-ninja"]
+      "inherits": "env-mac-clang-ninja"
     }
   ],
   "buildPresets": [
