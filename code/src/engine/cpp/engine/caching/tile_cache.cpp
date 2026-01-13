@@ -22,6 +22,6 @@ tile_cache::tile_cache() : m_capacity(1 << 15) {}
 
 tile_cache::~tile_cache() = default;
 
-void tile_cache::update() {}
+void tile_cache::update() {} 
 
 }
