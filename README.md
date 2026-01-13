@@ -7,7 +7,8 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
 ## Highlights
 
 * Transitive dependencies
-    * CMake preserves transitive dependencies. This makes for much less verbose project configuration.
+    * CMake preserves transitive dependencies.
+    This makes for much less verbose project configuration.
 * Private headers/dependencies
     * We can be very specific about what headers/dependencies are exposed from a particular library.
     This improves modularization and build times (since they are not extraneously included).
