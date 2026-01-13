@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.25)
 
 project(builditron VERSION 0.0.0 DESCRIPTION "A map viewer" LANGUAGES CXX)
 
