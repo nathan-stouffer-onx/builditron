@@ -122,6 +122,12 @@ jobs:
           -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
           -DCMAKE_CXX_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
 
+      - name: Show one cl command line
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          ninja -C "${{ steps.strings.outputs.build-output-dir }}" -t commands | head -n 30
+
       - name: Build
         # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
         run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
