@@ -11,6 +11,7 @@
         },
         {
             "name": "Visual Studio Professional 2022 Release - amd64",
+            "inherits": "base",
             "displayName": "Visual Studio Professional 2022 Release - amd64",
             "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
             "generator": "Visual Studio 17 2022",
@@ -25,6 +26,7 @@
         },
         {
             "name": "GCC 11.2.0 x86_64-w64-mingw32",
+            "inherits": "base",
             "displayName": "GCC 11.2.0 x86_64-w64-mingw32",
             "description": "Using compilers: C = C:\\ProgramData\\chocolatey\\bin\\gcc.exe, CXX = C:\\ProgramData\\chocolatey\\bin\\g++.exe",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
@@ -37,6 +39,7 @@
         },
         {
             "name": "Clang 17.0.0 arm64-apple-darwin25.1.0",
+            "inherits": "base",
             "displayName": "Clang 17.0.0 arm64-apple-darwin25.1.0",
             "description": "Using compilers: C = /usr/bin/clang, CXX = /usr/bin/clang++",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
