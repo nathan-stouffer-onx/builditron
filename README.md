@@ -27,5 +27,5 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
     We can matrix the workflow on the build configuration and reduce verbosity.
 * Faster cloud build
     * CMake has integration with other tooling that makes caching quite effective in the cloud.
-    Caching vcpkg results is trivial (something we have now with some complexity).
+    Caching vcpkg results is trivial (something we have now but with some complexity).
     Using CMake would also unlock a tool called ccache that caches compiled object files across cloud runs and improves build times in the cloud.
