@@ -5,6 +5,6 @@
 namespace onyx::engine::symbols
 {
 
-std::string load_roboto(); 
+std::string load_roboto();
 
 }
