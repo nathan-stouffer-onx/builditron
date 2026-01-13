@@ -29,13 +29,22 @@
         "CMAKE_CXX_COMPILER": "clang++"
       }
     },
-    { "name": "targ-win", "inherits": ["base", "env-win-msvc-vs"] },
-    { "name": "targ-mac-debug", "inherits": ["base", "env-mac-clang-ninja"] },
+    {
+      "name": "targ-win",
+      "inherits": ["base", "env-win-msvc-vs"]
+    },
+    {
+      "name": "targ-mac-debug",
+      "inherits": ["base", "env-mac-clang-ninja"]
+    },
     {
       "name": "targ-mac-relwithdebinfo",
       "inherits": ["base", "env-mac-clang-ninja"]
     },
-    { "name": "targ-mac-release", "inherits": ["base", "env-mac-clang-ninja"] },
+    {
+      "name": "targ-mac-release",
+      "inherits": ["base", "env-mac-clang-ninja"]
+    },
     {
       "name": "targ-mac-minsizerel",
       "inherits": ["base", "env-mac-clang-ninja"]
