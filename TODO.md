@@ -1,9 +1,9 @@
 # TODO
 
 - [ ] write documentation
-- [ ] maybe bundle shaders?
 - [ ] figure out presets
-- [ ] cache object files on GHA
+- [ ] figure out host build
+- [ ] maybe bundle shaders?
 - [ ] add ios project
 - [ ] add android project
 - [ ] add web project
