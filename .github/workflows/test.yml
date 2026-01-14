@@ -21,9 +21,9 @@ jobs:
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         host:
           # cl configurations
-          - { cpp_compiler: cl,         c_compiler: cl,       image: windows-2022, generator: Ninja,          vcpkg_triplet: x64-windows }
+          - { image: windows-2022, preset_prefix: targ-win-gha }
           # clang++ configurations
-          - { cpp_compiler: clang++,    c_compiler: clang,    image: macos-14,     generator: Unix Makefiles, vcpkg_triplet: arm64-osx   } # GHA docs say this is version 15.0.0
+          - { image: macos-14,     preset_prefix: targ-mac }
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
@@ -41,6 +41,24 @@ jobs:
       - name: Compute vcpkg SHA
         shell: bash
         run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      # Use this to set up an open ssh debugging session with CI
+      # - name: Setup ssh session
+      #   uses: lhotari/action-upterm@v1
+
+      - name: Set reusable strings
+        # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
+        id: strings
+        shell: bash
+        run: |
+          echo "configure-preset=${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}" >> "$GITHUB_OUTPUT"
+          echo "build-preset=${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}" >> "$GITHUB_OUTPUT"
+
+          if [[ "${RUNNER_OS}" == "Windows" ]]; then
+            echo "compiler-cacher"=sccache >> "$GITHUB_OUTPUT"
+          else
+            echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Cache vcpkg downloads
         uses: actions/cache@v4
@@ -87,44 +105,18 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
 
-      # Use this to set up an open ssh debugging session with CI
-      # - name: Setup ssh session
-      #   uses: lhotari/action-upterm@v1
-
-      - name: Set reusable strings
-        # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
-        id: strings
-        shell: bash
-        run: |
-          echo "deps-dir=${{ github.workspace }}/code/deps" >> "$GITHUB_OUTPUT"
-          echo "src-dir=${{ github.workspace }}/code/src" >> "$GITHUB_OUTPUT"
-          echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
-
-          if [[ "${RUNNER_OS}" == "Windows" ]]; then
-            echo "compiler-cacher"=sccache >> "$GITHUB_OUTPUT"
-          else
-            echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
           cmake
-          -G "${{ matrix.host.generator }}"
-          -S ${{ github.workspace }}
-          -B ${{ steps.strings.outputs.build-output-dir }}
-          -DCMAKE_TOOLCHAIN_FILE=${{ steps.strings.outputs.deps-dir }}/vcpkg/scripts/buildsystems/vcpkg.cmake
-          -DVCPKG_TARGET_TRIPLET=${{ matrix.host.vcpkg_triplet }}
-          -DCMAKE_CXX_COMPILER=${{ matrix.host.cpp_compiler }}
-          -DCMAKE_C_COMPILER=${{ matrix.host.c_compiler }}
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          --preset ${{ steps.strings.outputs.configure-preset }}
           -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
           -DCMAKE_CXX_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
 
       - name: Build
         # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
-        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+        run: cmake --build --preset ${{ steps.strings.outputs.build-preset }}
 
       - name: Test
         working-directory: ${{ steps.strings.outputs.build-output-dir }}

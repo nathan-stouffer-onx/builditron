@@ -10,32 +10,43 @@
       }
     },
     {
-        "name": "deps",
-        "hidden": true,
-        "inherits": "base",
-        "toolchainFile": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      "name": "deps",
+      "hidden": true,
+      "inherits": "base",
+      "toolchainFile": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     {
-        "name": "deps-win",
-        "hidden": true,
-        "inherits": "deps",
-        "cacheVariables": {
-            "VCPKG_TARGET_TRIPLET": "x64-windows-static"
-        }
+      "name": "deps-win",
+      "hidden": true,
+      "inherits": "deps",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+      }
     },
     {
-        "name": "deps-mac",
-        "hidden": true,
-        "inherits": "deps",
-        "cacheVariables": {
-            "VCPKG_TARGET_TRIPLET": "arm64-osx"
-        }
+      "name": "deps-mac",
+      "hidden": true,
+      "inherits": "deps",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-osx"
+      }
     },
     {
       "name": "env-win-msvc-vs",
       "hidden": true,
       "inherits": "deps-win",
       "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "env-win-msvc-ninja",
+      "hidden": true,
+      "inherits": "deps-win",
+      "generator": "Ninja",
       "architecture": "x64",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl",
@@ -57,58 +68,114 @@
       "inherits": "env-win-msvc-vs"
     },
     {
-      "name": "targ-mac-debug",
-      "inherits": "env-mac-clang-ninja"
+        "name": "targ-win-gha-Debug",
+        "inherits": "env-win-msvc-ninja",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Debug"
+        }
     },
     {
-      "name": "targ-mac-relwithdebinfo",
-      "inherits": "env-mac-clang-ninja"
+        "name": "targ-win-gha-RelWithDebInfo",
+        "inherits": "env-win-msvc-ninja",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+        }
     },
     {
-      "name": "targ-mac-release",
-      "inherits": "env-mac-clang-ninja"
+        "name": "targ-win-gha-Release",
+        "inherits": "env-win-msvc-ninja",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Release"
+        }
     },
     {
-      "name": "targ-mac-minsizerel",
-      "inherits": "env-mac-clang-ninja"
+        "name": "targ-win-gha-MinSizeRel",
+        "inherits": "env-win-msvc-ninja",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "MinSizeRel"
+        }
+    },
+    {
+      "name": "targ-mac-Debug",
+      "inherits": "env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "targ-mac-RelWithDebInfo",
+      "inherits": "env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "targ-mac-Release",
+      "inherits": "env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "targ-mac-MinSizeRel",
+      "inherits": "env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
     }
   ],
   "buildPresets": [
     {
-      "name": "targ-win-debug",
+      "name": "targ-win-Debug",
       "configurePreset": "targ-win",
       "configuration": "Debug"
     },
     {
-      "name": "targ-win-relwithdebinfo",
+      "name": "targ-win-RelWithDebInfo",
       "configurePreset": "targ-win",
       "configuration": "RelWithDebInfo"
     },
     {
-      "name": "targ-win-release",
+      "name": "targ-win-Release",
       "configurePreset": "targ-win",
       "configuration": "Release"
     },
     {
-      "name": "targ-win-minsizerel",
+      "name": "targ-win-MinSizeRel",
       "configurePreset": "targ-win",
       "configuration": "MinSizeRel"
     },
     {
-      "name": "targ-mac-debug",
-      "configurePreset": "targ-mac-debug"
+      "name": "targ-win-gha-Debug",
+      "configurePreset": "targ-win-gha-Debug"
     },
     {
-      "name": "targ-mac-relwithdebinfo",
-      "configurePreset": "targ-mac-relwithdebinfo"
+      "name": "targ-win-gha-RelWithDebInfo",
+      "configurePreset": "targ-win-gha-RelWithDebInfo"
     },
     {
-      "name": "targ-mac-release",
-      "configurePreset": "targ-mac-release"
+      "name": "targ-win-gha-Release",
+      "configurePreset": "targ-win-gha-Release"
     },
     {
-      "name": "targ-mac-minsizerel",
-      "configurePreset": "targ-mac-minsizerel"
+      "name": "targ-win-gha-MinSizeRel",
+      "configurePreset": "targ-win-gha-MinSizeRel"
+    },
+    {
+      "name": "targ-mac-Debug",
+      "configurePreset": "targ-mac-Debug"
+    },
+    {
+      "name": "targ-mac-RelWithDebInfo",
+      "configurePreset": "targ-mac-RelWithDebInfo"
+    },
+    {
+      "name": "targ-mac-Release",
+      "configurePreset": "targ-mac-Release"
+    },
+    {
+      "name": "targ-mac-MinSizeRel",
+      "configurePreset": "targ-mac-MinSizeRel"
     }
   ]
 }
