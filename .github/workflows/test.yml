@@ -73,8 +73,7 @@ jobs:
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
           key: >
-            vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}
-            -triplet:${{ matrix.host.vcpkg_triplet }}
+            vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
             -vcpkg:${{ env.VCPKG_SHA }}
             -manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
@@ -82,7 +81,7 @@ jobs:
         uses: hendrikmuhs/ccache-action@v1.2
         if: runner.os != 'Windows'
         with:
-          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
+          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
           max-size: 500M
 
       - name: sccache
@@ -90,7 +89,7 @@ jobs:
         if: runner.os == 'Windows'
         with:
           variant: sccache
-          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.generator }}-${{ matrix.host.cpp_compiler }}-${{ matrix.host.vcpkg_triplet }}
+          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
           max-size: 500M
 
       - name: bootstrap vcpkg (windows)
