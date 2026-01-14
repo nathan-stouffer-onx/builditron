@@ -20,10 +20,8 @@ jobs:
         # windows-2022: https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         host:
-          # cl configurations
           - { image: windows-2022, preset_prefix: targ-win-gha }
-          # clang++ configurations
-          - { image: macos-14,     preset_prefix: targ-mac }
+          - { image: macos-14,     preset_prefix: targ-mac     }
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
@@ -47,7 +45,7 @@ jobs:
       #   uses: lhotari/action-upterm@v1
 
       - name: Set reusable strings
-        # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
+        # Turn repeated input strings (such as the presets) into step outputs. These step outputs can be used throughout the workflow file.
         id: strings
         shell: bash
         run: |
@@ -108,13 +106,11 @@ jobs:
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
-          cmake
-          --preset ${{ steps.strings.outputs.configure-preset }}
+          cmake --preset ${{ steps.strings.outputs.configure-preset }}
           -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
           -DCMAKE_CXX_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
 
       - name: Build
-        # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
         run: cmake --build --preset ${{ steps.strings.outputs.build-preset }}
 
       - name: Test
