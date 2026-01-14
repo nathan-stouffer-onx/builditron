@@ -47,7 +47,6 @@
       "hidden": true,
       "inherits": "deps-win",
       "generator": "Ninja",
-      "architecture": "x64",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl",
         "CMAKE_CXX_COMPILER": "cl"
