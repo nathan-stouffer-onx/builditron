@@ -8,15 +8,12 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E echo "Generating shaders"
   COMMAND "$<TARGET_FILE:shadertron>" generate
 
-  COMMAND ${CMAKE_COMMAND} -E echo "Compiling shaders"
-  # TODO (stouff) actually compile
-
   COMMAND ${CMAKE_COMMAND} -E echo "Packing shaders"
   COMMAND ${CMAKE_COMMAND} -E make_directory "generated"
-  COMMAND "$<TARGET_FILE:shadertron>" pack -i shaders/glsl -o ${GEN_CPP}
+  COMMAND "$<TARGET_FILE:shadertron>" pack -i shaders/src -o ${GEN_CPP}
 
   DEPENDS shadertron
-  COMMENT "Generating, compiling, and packing shaders"
+  COMMENT "Generating and packing shaders"
   VERBATIM
 )
 

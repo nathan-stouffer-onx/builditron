@@ -73,12 +73,11 @@ void generate(bool clean_first)
 
 void pack(bool clean_first, std::string const& input_directory, std::string const& output_filename)
 {
-    fs::path base = "shaders";  // TODO (stouff) set this up as a parameter
-
     std::ofstream file(output_filename);
 
     std::string header = 
 R"(
+#include <algorithm>
 #include <vector>
 
 namespace onyx::shaderblobs
@@ -95,14 +94,34 @@ struct file_range
 };
 
 static std::vector<file_range> s_file_ranges;
-static std::vector<uint8_t> s_bytes;
+static std::vector<uint8_t> s_file_bytes;
 )";
+
+std::string file_ranges = "\nstatic std::vector<file_range> s_file_ranges = \n{";
+    std::string file_bytes = "\nstatic std::vector<uint8_t> s_file_bytes = \n{";
+
+    {
+        namespace fs = std::filesystem;
+        for (auto& entry : fs::directory_iterator(input_directory))
+        {
+            if (entry.is_regular_file())
+            {
+                file_bytes += "\n    0x00,";
+            }
+        }
+    }
+
+    file_ranges += "\n};\n";
+    file_bytes += "\n};\n";
 
     std::string load_func =
 R"(
 std::string load(std::string const& filename)
 {
-    auto found = std::find_if(s_file_ranges.begin(), s_file_ranges.end(), [&filename] (file_range const& range) { return range.filename == filename; });
+    auto found = std::find_if(s_file_ranges.begin(), s_file_ranges.end(),
+        [&filename] (file_range const& range) { return range.filename == filename; }
+    );
+
     if (found == s_file_ranges.end())
     {
         return "";
@@ -110,7 +129,7 @@ std::string load(std::string const& filename)
     else
     {
         file_range const& range = *found;
-        return std::string(s_bytes[range.begin], range.size);
+        return std::string(s_file_bytes[range.begin], range.size);
     }
 }
 )";
@@ -122,6 +141,8 @@ R"(
     file << header;
     file << index_struct;
     file << load_func;
+    file << file_ranges;
+    file << file_bytes;
     file << footer;
 }
 
