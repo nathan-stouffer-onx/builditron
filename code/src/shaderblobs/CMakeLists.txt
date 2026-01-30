@@ -1,5 +1,5 @@
 set(GEN_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
-set(GEN_CPP "${GEN_DIR}/shaderblobs.cpp")
+set(GEN_CPP "${GEN_DIR}/load.cpp")
 
 add_custom_command(
   OUTPUT "${GEN_CPP}"
@@ -21,13 +21,18 @@ add_custom_command(
 )
 
 set(SHADERBLOBS_FILES
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/shaderblobs.hpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/load.hpp"
     "${GEN_CPP}"
 )
 
 add_custom_target(generate_shaderblobs DEPENDS "${GEN_CPP}")
 
 add_library(shaderblobs ${SHADERBLOBS_FILES})
+
+target_include_directories(shaderblobs
+    PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
+)
 
 # Ensure generation happens before library compilation in all generators/IDEs
 add_dependencies(shaderblobs generate_shaderblobs)

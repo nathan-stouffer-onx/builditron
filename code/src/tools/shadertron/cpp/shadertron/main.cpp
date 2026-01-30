@@ -96,7 +96,6 @@ struct file_range
 
 static std::vector<file_range> s_file_ranges;
 static std::vector<uint8_t> s_bytes;
-
 )";
 
     std::string load_func =
