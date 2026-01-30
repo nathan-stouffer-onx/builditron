@@ -71,15 +71,108 @@ void generate(bool clean_first)
     }
 }
 
+void pack(bool clean_first, std::string const& input_directory, std::string const& output_filename)
+{
+    fs::path base = "shaders";  // TODO (stouff) set this up as a parameter
+
+    std::ofstream file(output_filename);
+
+    std::string header = 
+R"(
+#include <vector>
+
+namespace onyx::shaderblobs
+{
+)";
+
+    std::string index_struct = 
+R"(
+struct file_range
+{
+    std::string filename;
+    size_t begin;
+    size_t size;
+};
+
+static std::vector<file_range> s_file_ranges;
+static std::vector<uint8_t> s_bytes;
+
+)";
+
+    std::string load_func =
+R"(
+std::string load(std::string const& filename)
+{
+    auto found = std::find_if(s_file_ranges.begin(), s_file_ranges.end(), [&filename] (file_range const& range) { return range.filename == filename; });
+    if (found == s_file_ranges.end())
+    {
+        return "";
+    }
+    else
+    {
+        file_range const& range = *found;
+        return std::string(s_bytes[range.begin], range.size);
+    }
+}
+)";
+
+    std::string footer = 
+R"(
+})";
+
+    file << header;
+    file << index_struct;
+    file << load_func;
+    file << footer;
+}
+
+enum class types
+{
+    generate,
+    pack,
+};
+
 int main(int argc, char* argv[])
 {
     CLI::App app("shadertron is a tool that generates shaders from families of json components.", "shadertron");
+    app.require_subcommand(1);
 
+    types type;
     bool clean_first = false;
+    std::string input_directory;
+    std::string output_filename;
+
+    // add generate subcommand
+    {
+        CLI::App* generate = app.add_subcommand("generate", "Generate shaders from json");
+        generate->callback([&type] { type = types::generate; });
+    }
+
+    // add pack subcommand
+    {
+        CLI::App* pack = app.add_subcommand("pack", "Pack generated shaders into a single cpp file");
+        pack->callback([&type] { type = types::pack; });
+
+        pack->add_option("-i,--input_directory", input_directory, "Name of the input directory to pack")
+            ->required();
+
+        pack->add_option("-o,--output_file", output_filename, "Name of generated output file containing packed shaders")
+            ->required();
+    }
+
     app.add_option("-c,--clean-first", clean_first, "Indicates whether or not the existing output directory should be cleaned first")
         ->capture_default_str();
 
-    generate(clean_first);
+    CLI11_PARSE(app, argc, argv);
+
+    if (type == types::generate)
+    {
+        generate(clean_first);
+    }
+    else if (type == types::pack)
+    {
+        pack(clean_first, input_directory, output_filename);
+    }
 
     return 0;
 }
