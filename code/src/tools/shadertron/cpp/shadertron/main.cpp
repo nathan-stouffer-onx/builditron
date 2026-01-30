@@ -71,79 +71,22 @@ void generate(bool clean_first)
     }
 }
 
-void pack(bool clean_first, std::string const& input_directory, std::string const& output_filename)
+void pack(bool clean_first, std::string const& input_dir, std::filesystem::path const& output_dir)
 {
-    std::ofstream file(output_filename);
-
-    std::string header = 
-R"(
-#include <algorithm>
-#include <vector>
-
-namespace onyx::shaderblobs
-{
-)";
-
-    std::string index_struct = 
-R"(
-struct file_range
-{
-    std::string filename;
-    size_t begin;
-    size_t size;
-};
-
-static std::vector<file_range> s_file_ranges;
-static std::vector<uint8_t> s_file_bytes;
-)";
-
-std::string file_ranges = "\nstatic std::vector<file_range> s_file_ranges = \n{";
-    std::string file_bytes = "\nstatic std::vector<uint8_t> s_file_bytes = \n{";
+    std::ofstream file_ranges(output_dir / "shaderblobs_ranges.inc");
+    std::ofstream file_bytes(output_dir / "shaderblobs_bytes.inc");
 
     {
         namespace fs = std::filesystem;
-        for (auto& entry : fs::directory_iterator(input_directory))
+        for (auto& entry : fs::directory_iterator(input_dir))
         {
             if (entry.is_regular_file())
             {
-                file_bytes += "\n    0x00,";
+                file_ranges << "\n    { \"name\" },";
+                file_bytes  << "\n    0x00,";
             }
         }
     }
-
-    file_ranges += "\n};\n";
-    file_bytes += "\n};\n";
-
-    std::string load_func =
-R"(
-std::string load(std::string const& filename)
-{
-    auto found = std::find_if(s_file_ranges.begin(), s_file_ranges.end(),
-        [&filename] (file_range const& range) { return range.filename == filename; }
-    );
-
-    if (found == s_file_ranges.end())
-    {
-        return "";
-    }
-    else
-    {
-        file_range const& range = *found;
-        return std::string(s_file_bytes[range.begin], range.size);
-    }
-}
-)";
-
-    std::string footer = 
-R"(
-})";
-
-    file << header;
-    file << index_struct;
-    file << load_func;
-    file << file_ranges;
-    file << file_bytes;
-    file << footer;
 }
 
 enum class types
@@ -159,8 +102,8 @@ int main(int argc, char* argv[])
 
     types type;
     bool clean_first = false;
-    std::string input_directory;
-    std::string output_filename;
+    std::string input_dir;
+    std::string output_dir;
 
     // add generate subcommand
     {
@@ -173,10 +116,10 @@ int main(int argc, char* argv[])
         CLI::App* pack = app.add_subcommand("pack", "Pack generated shaders into a single cpp file");
         pack->callback([&type] { type = types::pack; });
 
-        pack->add_option("-i,--input_directory", input_directory, "Name of the input directory to pack")
+        pack->add_option("-i,--input_dir", input_dir, "Name of the input directory to pack")
             ->required();
 
-        pack->add_option("-o,--output_file", output_filename, "Name of generated output file containing packed shaders")
+        pack->add_option("-o,--output_dir", output_dir, "Name of generated output directory containing packed shaders")
             ->required();
     }
 
@@ -191,7 +134,7 @@ int main(int argc, char* argv[])
     }
     else if (type == types::pack)
     {
-        pack(clean_first, input_directory, output_filename);
+        pack(clean_first, input_dir, output_dir);
     }
 
     return 0;
