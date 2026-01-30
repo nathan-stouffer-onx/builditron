@@ -36,4 +36,5 @@ target_link_libraries(engine
         shaders
     PRIVATE
         engine_assets
+        shaderblobs
 )
