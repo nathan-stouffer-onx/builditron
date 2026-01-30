@@ -5,14 +5,14 @@
 namespace onyx
 {
 
-    void shutdown();
+void shutdown();
 
-    int add(int lhs, int rhs);
+int add(int lhs, int rhs);
 
-    void add_layer(std::string const& str);
+void add_layer(std::string const& str);
 
-    std::string load_roboto();
+std::string load_roboto();
 
-    bool load_shaders();
+bool load_programs();
 
 }
