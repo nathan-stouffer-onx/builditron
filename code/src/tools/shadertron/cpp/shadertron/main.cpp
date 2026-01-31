@@ -77,13 +77,47 @@ void pack(bool clean_first, std::string const& input_dir, std::filesystem::path 
     std::ofstream file_bytes(output_dir / "shaderblobs_bytes.inc");
 
     {
+        size_t count = 0;
         namespace fs = std::filesystem;
         for (auto& entry : fs::directory_iterator(input_dir))
         {
             if (entry.is_regular_file())
             {
-                file_ranges << "\n    { \"name\" },";
-                file_bytes  << "\n    0x00,";
+                std::string contents;
+                {
+                    std::ifstream file(entry.path(), std::ios::binary);
+                    file.seekg(0, std::ios::end);
+                    contents.resize(file.tellg());
+                    file.seekg(0, std::ios::beg);
+                    file.read(contents.data(), contents.size());
+                }
+
+                // add file range
+                {
+                    file_ranges << "\n{ ";
+                    file_ranges << entry.path().filename();
+                    file_ranges << ", " << count;
+                    file_ranges << ", " << contents.size();
+                    file_ranges << " },";
+                }
+
+                // add file bytes
+                {
+                    file_bytes << "\n// " << entry.path().filename();
+                    file_bytes  << "\n";
+                    for (unsigned char byte : contents)
+                    {
+                        file_bytes
+                            << "0x"
+                            << std::hex
+                            << std::setw(2)
+                            << std::setfill('0')
+                            << static_cast<int>(byte)
+                            << ", ";
+                    }
+                }
+
+                count += contents.size();
             }
         }
     }

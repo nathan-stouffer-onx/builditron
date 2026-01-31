@@ -17,7 +17,7 @@ static std::vector<file_range> s_file_ranges =
 #include "shaderblobs_ranges.inc"
 };
 
-static std::vector<uint8_t> s_file_bytes =
+static std::vector<char> s_file_bytes =
 {
 #include "shaderblobs_bytes.inc"
 };
@@ -35,7 +35,7 @@ std::string load(std::string const& filename)
     else
     {
         file_range const& range = *found;
-        return std::string(s_file_bytes[range.begin], range.size);
+        return std::string(s_file_bytes.data() + range.begin, range.size);
     }
 }
 
