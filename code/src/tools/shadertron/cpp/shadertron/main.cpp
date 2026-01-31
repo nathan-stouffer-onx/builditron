@@ -94,7 +94,7 @@ void pack(bool clean_first, std::string const& input_dir, std::filesystem::path 
 
                 // add file range
                 {
-                    file_ranges << "\n{ ";
+                    file_ranges << "\nfile_range{ ";
                     file_ranges << entry.path().filename();
                     file_ranges << ", " << count;
                     file_ranges << ", " << contents.size();
