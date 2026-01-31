@@ -1,5 +1,7 @@
+#include "shaderblobs/load.hpp"
 
 #include <algorithm>
+#include <string>
 #include <vector>
 
 namespace onyx::shaderblobs
