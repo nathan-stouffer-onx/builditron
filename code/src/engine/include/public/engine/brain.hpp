@@ -18,7 +18,7 @@ public:
 
     std::string load_roboto();
 
-    bool load_shaders();
+    bool load_programs();
 
 private:
 

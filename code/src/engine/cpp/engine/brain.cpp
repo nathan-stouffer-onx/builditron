@@ -3,6 +3,7 @@
 #include <shaders/load.hpp>
 
 #include "engine/caching/tile_cache.hpp"
+#include "engine/rendering/program.hpp"
 #include "engine/symbols/fonts/load.hpp"
 
 namespace onyx::engine
@@ -40,9 +41,9 @@ std::string brain::load_roboto()
     return symbols::load_roboto();
 }
 
-bool brain::load_shaders()
+bool brain::load_programs()
 {
-    return shaders::load_shaders();
+    return rendering::load_programs();
 }
 
 }

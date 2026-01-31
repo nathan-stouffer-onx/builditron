@@ -75,9 +75,9 @@ int run()
         std::cout << "Roboto font: " << roboto << std::endl;
     }
 
-    // load shaders
+    // load programs
     {
-        std::cout << "Loaded shaders: " << onyx::load_shaders() << std::endl;
+        std::cout << "Loaded programs: " << onyx::load_programs() << std::endl;
     }
 
     return 0;

@@ -1,6 +1,5 @@
 #include "shaders/load.hpp"
 
-#include <filesystem>
 #include <fstream>
 
 #include <cmrc/cmrc.hpp>
@@ -17,13 +16,6 @@ nlohmann::json load_components()
     auto file = fs.open("assets/shaders/json/TiledPseudoRasters/Plinth.json");
     std::string str(file.begin(), file.end());
     return nlohmann::json::parse(str);
-}
-
-bool load_shaders()
-{
-    namespace fs = std::filesystem;
-    std::string base = "assets/shaders/src/Plinth";
-    return fs::exists(base + ".vs.sc") && fs::exists(base + ".fs.sc");
 }
 
 }
