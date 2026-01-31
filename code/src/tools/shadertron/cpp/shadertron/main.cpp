@@ -94,16 +94,16 @@ void pack(bool clean_first, std::string const& input_dir, std::filesystem::path 
 
                 // add file range
                 {
-                    file_ranges << "\nfile_range{ ";
+                    file_ranges << "{ ";
                     file_ranges << entry.path().filename();
                     file_ranges << ", " << count;
                     file_ranges << ", " << contents.size();
-                    file_ranges << " },";
+                    file_ranges << " },\n";
                 }
 
                 // add file bytes
                 {
-                    file_bytes << "\n// " << entry.path().filename();
+                    file_bytes << "// " << entry.path().filename();
                     file_bytes  << "\n";
                     for (unsigned char byte : contents)
                     {
@@ -115,6 +115,7 @@ void pack(bool clean_first, std::string const& input_dir, std::filesystem::path 
                             << static_cast<int>(byte)
                             << ", ";
                     }
+                    file_bytes  << "\n";
                 }
 
                 count += contents.size();
