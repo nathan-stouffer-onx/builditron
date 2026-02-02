@@ -24,4 +24,9 @@ TEST(onyx, load_roboto)
     ASSERT_EQ("I am roboto", load_roboto()) << "failed to load roboto font";
 }
 
+TEST(onyx, load_programs)
+{
+    ASSERT_TRUE(load_programs()) << "failed to load programs";
+}
+
 }

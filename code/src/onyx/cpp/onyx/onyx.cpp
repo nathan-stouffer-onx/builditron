@@ -9,30 +9,30 @@
 namespace onyx
 {
 
-    void shutdown()
-    {
-        engine::brain::shutdown();
-    }
+void shutdown()
+{
+    engine::brain::shutdown();
+}
 
-    int add(int lhs, int rhs)
-    {
-        return lucid::add(lhs, rhs);
-    }
+int add(int lhs, int rhs)
+{
+    return lucid::add(lhs, rhs);
+}
 
-    void add_layer(std::string const& str)
-    {
-        styling::layer layer = nlohmann::json::parse(str);
-        engine::brain::ref().add_layer(layer);
-    }
+void add_layer(std::string const& str)
+{
+    styling::layer layer = nlohmann::json::parse(str);
+    engine::brain::ref().add_layer(layer);
+}
 
-    std::string load_roboto()
-    {
-        return engine::brain::ref().load_roboto();
-    }
+std::string load_roboto()
+{
+    return engine::brain::ref().load_roboto();
+}
 
-    bool load_shaders()
-    {
-        return engine::brain::ref().load_shaders();
-    }
+bool load_programs()
+{
+    return engine::brain::ref().load_programs();
+}
 
 }

@@ -16,9 +16,11 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
 * Integration with vcpkg
     * CMake is quite easy to integrate with vcpkg and it monitors changes to the dependency file.
     This automates changes in dependencies and avoids bugs where developers need to manually update.
-* Embedded assets
+* Embedded static assets
     * CMake has easy tooling for embedding static assets directly into a library.
     This sidesteps the need for filesystem access which can be awkward on mobile platforms
+* Embedded dynamic assets
+    * CMake has infrastructure that allows executables to be ran at configure and build time to produce files that can be included in the application binary.
 * Build configurations
     * CMake provides 4 build configurations out of the box: `Debug`, `Release`, `MinSizeRel`, and `RelWithDebInfo`.
     This makes local debugging easier and lays groundwork for easily posting multiple versions of our package for debugging on the clients
