@@ -1,6 +1,6 @@
 set(GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
-set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 set(GENERATED_BYTES "${GENERATED_DIR}/shaderblobs_bytes.inc")
+set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 
 add_custom_command(
   OUTPUT "${GENERATED_RANGES}" "${GENERATED_BYTES}"
@@ -23,7 +23,7 @@ set(SHADERBLOBS_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/load.hpp"
 )
 
-add_custom_target(generate_shaderblobs DEPENDS "${GENERATED_RANGES}" "${GENERATED_BYTES}")
+add_custom_target(generate_shaderblobs DEPENDS "${GENERATED_BYTES}" "${GENERATED_RANGES}")
 
 add_library(shaderblobs ${SHADERBLOBS_FILES})
 
