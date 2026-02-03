@@ -1,3 +1,4 @@
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <random>
@@ -59,6 +60,7 @@ int run()
             if (!ostream.is_open())
             {
                 std::cout << "Failed to open seed file" << std::endl;
+                std::cout << "Working directory: " << std::filesystem::current_path() << std::endl;
                 return 1;
             }
             else
