@@ -2,7 +2,7 @@
 
 #include <shaderblobs/load.hpp>
 
-namespace onyx::shaderblobs
+namespace mapitron::shaderblobs
 {
 
 TEST(shaderblobs, load)

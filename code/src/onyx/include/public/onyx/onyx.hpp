@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace onyx
+namespace mapitron
 {
 
 void shutdown();

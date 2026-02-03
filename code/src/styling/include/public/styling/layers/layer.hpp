@@ -1,6 +1,6 @@
 #pragma once
 
-namespace onyx::styling
+namespace mapitron::styling
 {
 
 struct layer

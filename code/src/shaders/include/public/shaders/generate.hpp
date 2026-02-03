@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace onyx::shaders
+namespace mapitron::shaders
 {
 
 struct pair

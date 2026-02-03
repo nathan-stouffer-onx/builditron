@@ -2,7 +2,7 @@
 
 #include <nlohmann/json.hpp>
 
-namespace onyx::shaders
+namespace mapitron::shaders
 {
 
 nlohmann::json load_components();

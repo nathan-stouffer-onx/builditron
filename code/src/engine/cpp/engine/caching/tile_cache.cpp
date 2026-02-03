@@ -1,6 +1,6 @@
 #include "engine/caching/tile_cache.hpp"
 
-namespace onyx::engine::caching
+namespace mapitron::engine::caching
 {
 
 tile_cache* tile_cache::s_instance = nullptr;

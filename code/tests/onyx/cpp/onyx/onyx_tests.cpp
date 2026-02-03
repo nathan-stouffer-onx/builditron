@@ -2,29 +2,29 @@
 
 #include <gtest/gtest.h>
 
-#include <onyx/onyx.hpp>
+#include <mapitron/mapitron.hpp>
 
-namespace onyx
+namespace mapitron
 {
 
-TEST(onyx, add)
+TEST(mapitron, add)
 {
-    ASSERT_EQ(0, onyx::add(0, 0)) << "failed 0 + 0";
-    ASSERT_EQ(6, onyx::add(5, 1)) << "failed 5 + 1";
-    ASSERT_EQ(6, onyx::add(1, 5)) << "failed 1 + 5";
+    ASSERT_EQ(0, mapitron::add(0, 0)) << "failed 0 + 0";
+    ASSERT_EQ(6, mapitron::add(5, 1)) << "failed 5 + 1";
+    ASSERT_EQ(6, mapitron::add(1, 5)) << "failed 1 + 5";
 }
 
-TEST(onyx, add_layer)
+TEST(mapitron, add_layer)
 {
-    onyx::add_layer(R"({ "type": "line" })");
+    mapitron::add_layer(R"({ "type": "line" })");
 }
 
-TEST(onyx, load_roboto)
+TEST(mapitron, load_roboto)
 {
     ASSERT_EQ("I am roboto", load_roboto()) << "failed to load roboto font";
 }
 
-TEST(onyx, load_programs)
+TEST(mapitron, load_programs)
 {
     ASSERT_TRUE(load_programs()) << "failed to load programs";
 }

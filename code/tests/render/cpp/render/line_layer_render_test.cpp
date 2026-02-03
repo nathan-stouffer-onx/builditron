@@ -3,9 +3,9 @@
 
 #include <gtest/gtest.h>
 
-#include <onyx/onyx.hpp>
+#include <mapitron/mapitron.hpp>
 
-namespace onyx
+namespace mapitron
 {
 
 TEST(render, line_layer)

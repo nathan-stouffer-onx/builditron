@@ -6,7 +6,7 @@
 #include "engine/rendering/program.hpp"
 #include "engine/symbols/fonts/load.hpp"
 
-namespace onyx::engine
+namespace mapitron::engine
 {
 
 brain* brain::s_instance = nullptr;

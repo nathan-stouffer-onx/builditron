@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace onyx::engine::symbols
+namespace mapitron::engine::symbols
 {
 
 std::string load_roboto();

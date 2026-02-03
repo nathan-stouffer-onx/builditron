@@ -12,5 +12,5 @@ add_executable(macos-sample ${MACOS_SAMPLE_FILES})
 # add dependencies
 target_link_libraries(macos-sample
     PRIVATE
-    onyx
+    mapitron
 )

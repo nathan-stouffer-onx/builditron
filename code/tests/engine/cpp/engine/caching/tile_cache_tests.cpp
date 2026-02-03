@@ -2,7 +2,7 @@
 
 #include <engine/caching/tile_cache.hpp>
 
-namespace onyx::engine::caching
+namespace mapitron::engine::caching
 {
 
 class tile_cache_test : public ::testing::Test

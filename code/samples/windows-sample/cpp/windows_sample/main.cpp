@@ -4,16 +4,16 @@
 
 #include <Windows.h>
 
-#include <onyx/onyx.hpp>
+#include <mapitron/mapitron.hpp>
 
 int run()
 {
     // call add
-    std::cout << "8 + 3 = " << onyx::add(8, 3) << std::endl;
+    std::cout << "8 + 3 = " << mapitron::add(8, 3) << std::endl;
 
     // call add_layer
     std::cout << "Adding layer" << std::endl;
-    onyx::add_layer(R"({ "type": "fill" })");
+    mapitron::add_layer(R"({ "type": "fill" })");
     std::cout << "Added layer" << std::endl;
 
     // load token
@@ -71,13 +71,13 @@ int run()
 
     // load roboto font
     {
-        std::string roboto = onyx::load_roboto();
+        std::string roboto = mapitron::load_roboto();
         std::cout << "Roboto font: " << roboto << std::endl;
     }
 
     // load programs
     {
-        std::cout << "Loaded programs: " << onyx::load_programs() << std::endl;
+        std::cout << "Loaded programs: " << mapitron::load_programs() << std::endl;
     }
 
     return 0;

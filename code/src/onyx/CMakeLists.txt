@@ -1,33 +1,33 @@
-set(ONYX_FILES
-    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/onyx/onyx.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/onyx/onyx.hpp"
+set(MAPITRON_FILES
+    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/mapitron/mapitron.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron.hpp"
 )
 
 # TODO use some strategy similar to this to add platform-specific code
 # if (WIN32)
-#     list(APPEND ONYX_FILES
-#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/onyx/onyx_windows.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/onyx/onyx_windows.hpp"
+#     list(APPEND MAPITRON_FILES
+#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/mapitron/mapitron_windows.cpp"
+#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron_windows.hpp"
 #     )
 # elseif (APPLE)
-#     list(APPEND ONYX_FILES
-#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/onyx/onyx_macos.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/onyx/onyx_macos.hpp"
+#     list(APPEND MAPITRON_FILES
+#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/mapitron/mapitron_macos.cpp"
+#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron_macos.hpp"
 #     )
 # endif()
 
 # add directory structure to IDEs
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${ONYX_FILES})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${MAPITRON_FILES})
 
-add_library(onyx ${ONYX_FILES})
+add_library(mapitron ${MAPITRON_FILES})
 
-target_include_directories(onyx
+target_include_directories(mapitron
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
 )
 
 # add dependencies
-target_link_libraries(onyx
+target_link_libraries(mapitron
     PUBLIC
         lucid
     PRIVATE

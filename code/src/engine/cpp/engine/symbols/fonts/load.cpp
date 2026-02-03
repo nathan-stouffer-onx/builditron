@@ -4,7 +4,7 @@
 
 CMRC_DECLARE(engine_assets);
 
-namespace onyx::engine::symbols
+namespace mapitron::engine::symbols
 {
 
 std::string load_roboto()

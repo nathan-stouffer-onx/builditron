@@ -4,7 +4,7 @@
 
 #include <shaderblobs/load.hpp>
 
-namespace onyx::engine::rendering
+namespace mapitron::engine::rendering
 {
 
 bool load_programs()
