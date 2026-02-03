@@ -14,7 +14,13 @@ target_link_libraries(render-tests PRIVATE mapitron GTest::gtest_main)
 # set up cpp files with precompiled headers
 target_precompile_headers(render-tests PRIVATE <vector> <gtest/gtest.h>)
 
+add_custom_command(TARGET render-tests POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E create_symlink
+    "${CMAKE_CURRENT_SOURCE_DIR}/assets"
+    "$<TARGET_FILE_DIR:render-tests>/assets"
+)
+
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(render-tests)
+gtest_discover_tests(render-tests WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
