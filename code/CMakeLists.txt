@@ -7,6 +7,6 @@ endif()
 
 add_subdirectory(deps)
 add_subdirectory(src)
-# add_subdirectory(tools) TODO (stouff) move tools back to this directory once host and target are separated
+add_subdirectory(tools)
 add_subdirectory(tests)
 add_subdirectory(samples)
