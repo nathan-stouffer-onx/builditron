@@ -1,4 +1,4 @@
-#include "onyx/onyx.hpp"
+#include "mapitron/mapitron.hpp"
 
 #include <styling/parse/layer_json.hpp>
 
@@ -6,7 +6,7 @@
 
 #include <engine/brain.hpp>
 
-namespace onyx
+namespace mapitron
 {
 
 void shutdown()

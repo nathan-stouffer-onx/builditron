@@ -2,7 +2,7 @@
 
 #include <engine/symbols/fonts/load.hpp>
 
-namespace onyx::engine::symbols
+namespace mapitron::engine::symbols
 {
 
 TEST(symbols, load_roboto)

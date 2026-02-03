@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-namespace onyx::engine::caching
+namespace mapitron::engine::caching
 {
 
 class tile_cache

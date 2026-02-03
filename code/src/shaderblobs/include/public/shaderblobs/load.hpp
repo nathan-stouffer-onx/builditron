@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace onyx::shaderblobs
+namespace mapitron::shaderblobs
 {
 
 std::string load(std::string const& filename);

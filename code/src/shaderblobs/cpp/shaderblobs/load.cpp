@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace onyx::shaderblobs
+namespace mapitron::shaderblobs
 {
 
 struct file_range

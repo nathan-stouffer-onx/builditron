@@ -2,7 +2,7 @@
 
 #include <shaders/load.hpp>
 
-namespace onyx::shaders
+namespace mapitron::shaders
 {
 
 TEST(shaders, load)

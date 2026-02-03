@@ -7,7 +7,7 @@
 #include <shaders/generate.hpp>
 #include <shaders/load.hpp>
 
-namespace onyx::shadertron
+namespace mapitron::shadertron
 {
 
 namespace fs = std::filesystem;
@@ -179,5 +179,5 @@ int main(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
-    return onyx::shadertron::main(argc, argv);
+    return mapitron::shadertron::main(argc, argv);
 }

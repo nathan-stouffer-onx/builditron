@@ -12,5 +12,5 @@ add_executable(windows-sample ${WINDOWS_SAMPLE_FILES})
 # add dependencies
 target_link_libraries(windows-sample
     PRIVATE
-    onyx
+    mapitron
 )

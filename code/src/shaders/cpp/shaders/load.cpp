@@ -6,7 +6,7 @@
 
 CMRC_DECLARE(shaders_json);
 
-namespace onyx::shaders
+namespace mapitron::shaders
 {
 
 nlohmann::json load_components()

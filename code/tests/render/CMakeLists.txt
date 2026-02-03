@@ -9,7 +9,7 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${RENDER_TEST_FILES})
 
 file(CREATE_LINK "${CMAKE_CURRENT_SOURCE_DIR}/assets" "${CMAKE_CURRENT_BINARY_DIR}/assets" SYMBOLIC)
 
-target_link_libraries(render-tests PRIVATE onyx GTest::gtest_main)
+target_link_libraries(render-tests PRIVATE mapitron GTest::gtest_main)
 
 # set up cpp files with precompiled headers
 target_precompile_headers(render-tests PRIVATE <vector> <gtest/gtest.h>)

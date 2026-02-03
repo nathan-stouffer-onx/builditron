@@ -2,7 +2,7 @@
 
 #include <styling/parse/layer_json.hpp>
 
-namespace onyx::styling
+namespace mapitron::styling
 {
 
 TEST(styling, parse_layer)
