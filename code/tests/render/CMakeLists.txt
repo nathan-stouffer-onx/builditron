@@ -7,18 +7,20 @@ add_executable(render-tests ${RENDER_TEST_FILES})
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${RENDER_TEST_FILES})
 
-file(CREATE_LINK "${CMAKE_CURRENT_SOURCE_DIR}/assets" "${CMAKE_CURRENT_BINARY_DIR}/assets" SYMBOLIC)
-
 target_link_libraries(render-tests PRIVATE mapitron GTest::gtest_main)
 
 # set up cpp files with precompiled headers
 target_precompile_headers(render-tests PRIVATE <vector> <gtest/gtest.h>)
 
-add_custom_command(TARGET render-tests POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E create_symlink
-    "${CMAKE_CURRENT_SOURCE_DIR}/assets"
-    "$<TARGET_FILE_DIR:render-tests>/assets"
-)
+if(CMAKE_GENERATOR_IS_MULTI_CONFIG)
+  add_custom_command(TARGET render-tests POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E create_symlink
+      "${CMAKE_CURRENT_SOURCE_DIR}/assets"
+      "$<TARGET_FILE_DIR:render-tests>/assets"
+  )
+else()
+  file(CREATE_LINK "${CMAKE_CURRENT_SOURCE_DIR}/assets" "${CMAKE_CURRENT_BINARY_DIR}/assets" SYMBOLIC)
+endif()
 
 include(GoogleTest)
 
