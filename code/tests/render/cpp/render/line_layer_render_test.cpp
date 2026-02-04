@@ -1,4 +1,5 @@
 #include <chrono>
+#include <filesystem>
 #include <fstream>
 
 #include <gtest/gtest.h>
@@ -16,7 +17,7 @@ TEST(render, line_layer)
     std::ifstream fstream(filename);
     if (!fstream.is_open())
     {
-        FAIL() << "Failed to open " << filename;
+        FAIL() << "Failed to open " << filename << " -- cwd: " << std::filesystem::current_path();
     }
     else
     {
