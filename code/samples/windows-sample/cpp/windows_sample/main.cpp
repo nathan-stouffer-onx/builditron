@@ -1,3 +1,4 @@
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <random>
@@ -21,7 +22,7 @@ int run()
         std::ifstream fstream("assets/secrets/token.txt");
         if (!fstream.is_open())
         {
-            std::cout << "Failed to open token file" << std::endl;
+            std::cout << "Failed to open token file (working directory: " << std::filesystem::current_path() << ")" << std::endl;
             return 1;
         }
         else
@@ -58,7 +59,7 @@ int run()
             std::ofstream ostream(filename);    // scope closes the file
             if (!ostream.is_open())
             {
-                std::cout << "Failed to open seed file" << std::endl;
+                std::cout << "Failed to open seed file (working directory: " << std::filesystem::current_path() << ")" << std::endl;
                 return 1;
             }
             else
