@@ -36,32 +36,32 @@
       "inherits": "targ-env-win-msvc-vs"
     },
     {
-        "name": "targ-win-ninja-Debug",
-        "inherits": "targ-env-win-msvc-ninja",
-        "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "Debug"
-        }
+      "name": "targ-win-ninja-Debug",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
     },
     {
-        "name": "targ-win-ninja-RelWithDebInfo",
-        "inherits": "targ-env-win-msvc-ninja",
-        "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-        }
+      "name": "targ-win-ninja-RelWithDebInfo",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
     },
     {
-        "name": "targ-win-ninja-Release",
-        "inherits": "targ-env-win-msvc-ninja",
-        "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "Release"
-        }
+      "name": "targ-win-ninja-Release",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
     },
     {
-        "name": "targ-win-ninja-MinSizeRel",
-        "inherits": "targ-env-win-msvc-ninja",
-        "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "MinSizeRel"
-        }
+      "name": "targ-win-ninja-MinSizeRel",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
     }
   ],
   "buildPresets": [

@@ -2,6 +2,7 @@
   "version": 8,
   "include": [
     "presets/base.json",
+    "presets/host-win.json",
     "presets/targ-win.json",
     "presets/targ-mac.json"
   ]

@@ -1,0 +1,70 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "host-deps-win",
+      "hidden": true,
+      "inherits": "host-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "host-env-win-msvc-ninja",
+      "hidden": true,
+      "inherits": "host-deps-win",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "host-win-ninja-Debug",
+      "inherits": "host-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "host-win-ninja-RelWithDebInfo",
+      "inherits": "host-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "host-win-ninja-Release",
+      "inherits": "host-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "host-win-ninja-MinSizeRel",
+      "inherits": "host-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-win-ninja-Debug",
+      "configurePreset": "host-win-ninja-Debug"
+    },
+    {
+      "name": "host-win-ninja-RelWithDebInfo",
+      "configurePreset": "host-win-ninja-RelWithDebInfo"
+    },
+    {
+      "name": "host-win-ninja-Release",
+      "configurePreset": "host-win-ninja-Release"
+    },
+    {
+      "name": "host-win-ninja-MinSizeRel",
+      "configurePreset": "host-win-ninja-MinSizeRel"
+    }
+  ]
+}
