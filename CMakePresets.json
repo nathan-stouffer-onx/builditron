@@ -63,7 +63,7 @@
       }
     },
     {
-      "name": "targ-win",
+      "name": "targ-win-vs",
       "inherits": "env-win-msvc-vs"
     },
     {
@@ -125,23 +125,23 @@
   ],
   "buildPresets": [
     {
-      "name": "targ-win-Debug",
-      "configurePreset": "targ-win",
+      "name": "targ-win-vs-Debug",
+      "configurePreset": "targ-win-vs",
       "configuration": "Debug"
     },
     {
-      "name": "targ-win-RelWithDebInfo",
-      "configurePreset": "targ-win",
+      "name": "targ-win-vs-RelWithDebInfo",
+      "configurePreset": "targ-win-vs",
       "configuration": "RelWithDebInfo"
     },
     {
-      "name": "targ-win-Release",
-      "configurePreset": "targ-win",
+      "name": "targ-win-vs-Release",
+      "configurePreset": "targ-win-vs",
       "configuration": "Release"
     },
     {
-      "name": "targ-win-MinSizeRel",
-      "configurePreset": "targ-win",
+      "name": "targ-win-vs-MinSizeRel",
+      "configurePreset": "targ-win-vs",
       "configuration": "MinSizeRel"
     },
     {
