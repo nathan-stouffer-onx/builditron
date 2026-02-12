@@ -67,28 +67,28 @@
       "inherits": "env-win-msvc-vs"
     },
     {
-        "name": "targ-win-gha-Debug",
+        "name": "targ-win-ninja-Debug",
         "inherits": "env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug"
         }
     },
     {
-        "name": "targ-win-gha-RelWithDebInfo",
+        "name": "targ-win-ninja-RelWithDebInfo",
         "inherits": "env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "RelWithDebInfo"
         }
     },
     {
-        "name": "targ-win-gha-Release",
+        "name": "targ-win-ninja-Release",
         "inherits": "env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Release"
         }
     },
     {
-        "name": "targ-win-gha-MinSizeRel",
+        "name": "targ-win-ninja-MinSizeRel",
         "inherits": "env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "MinSizeRel"
@@ -145,20 +145,20 @@
       "configuration": "MinSizeRel"
     },
     {
-      "name": "targ-win-gha-Debug",
-      "configurePreset": "targ-win-gha-Debug"
+      "name": "targ-win-ninja-Debug",
+      "configurePreset": "targ-win-ninja-Debug"
     },
     {
-      "name": "targ-win-gha-RelWithDebInfo",
-      "configurePreset": "targ-win-gha-RelWithDebInfo"
+      "name": "targ-win-ninja-RelWithDebInfo",
+      "configurePreset": "targ-win-ninja-RelWithDebInfo"
     },
     {
-      "name": "targ-win-gha-Release",
-      "configurePreset": "targ-win-gha-Release"
+      "name": "targ-win-ninja-Release",
+      "configurePreset": "targ-win-ninja-Release"
     },
     {
-      "name": "targ-win-gha-MinSizeRel",
-      "configurePreset": "targ-win-gha-MinSizeRel"
+      "name": "targ-win-ninja-MinSizeRel",
+      "configurePreset": "targ-win-ninja-MinSizeRel"
     },
     {
       "name": "targ-mac-Debug",

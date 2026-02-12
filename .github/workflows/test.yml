@@ -20,8 +20,8 @@ jobs:
         # windows-2022: https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         host:
-          - { image: windows-2022, preset_prefix: targ-win-gha }
-          - { image: macos-14,     preset_prefix: targ-mac     }
+          - { image: windows-2022, preset_prefix: targ-win-ninja }
+          - { image: macos-14,     preset_prefix: targ-mac       }
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
