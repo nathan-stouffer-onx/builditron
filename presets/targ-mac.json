@@ -3,22 +3,17 @@
   "include": ["base.json"],
   "configurePresets": [
     {
-      "name": "targ-mac-base",
+      "name": "targ-deps-mac",
       "hidden": true,
-      "inherits": "targ-base"
-    },
-    {
-      "name": "deps-mac",
-      "hidden": true,
-      "inherits": "targ-mac-base",
+      "inherits": "targ-base",
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "arm64-osx"
       }
     },
     {
-      "name": "env-mac-clang-ninja",
+      "name": "targ-env-mac-clang-ninja",
       "hidden": true,
-      "inherits": "deps-mac",
+      "inherits": "targ-deps-mac",
       "generator": "Ninja",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang",
@@ -27,28 +22,28 @@
     },
     {
       "name": "targ-mac-Debug",
-      "inherits": "env-mac-clang-ninja",
+      "inherits": "targ-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
       "name": "targ-mac-RelWithDebInfo",
-      "inherits": "env-mac-clang-ninja",
+      "inherits": "targ-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
       "name": "targ-mac-Release",
-      "inherits": "env-mac-clang-ninja",
+      "inherits": "targ-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
       "name": "targ-mac-MinSizeRel",
-      "inherits": "env-mac-clang-ninja",
+      "inherits": "targ-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
       }

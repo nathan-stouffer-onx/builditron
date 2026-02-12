@@ -16,19 +16,19 @@
       "toolchainFile": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     {
-      "name": "targ-base",
-      "hidden": true,
-      "inherits": "deps",
-      "cacheVariables": {
-        "MAPITRON_BUILD_HOST_TOOLS": false
-      }
-    },
-    {
       "name": "host-base",
       "hidden": true,
       "inherits": "deps",
       "cacheVariables": {
         "MAPITRON_BUILD_HOST_TOOLS": true
+      }
+    },
+    {
+      "name": "targ-base",
+      "hidden": true,
+      "inherits": "deps",
+      "cacheVariables": {
+        "MAPITRON_BUILD_HOST_TOOLS": false
       }
     }
   ]

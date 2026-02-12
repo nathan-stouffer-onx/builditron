@@ -3,12 +3,7 @@
   "include": ["base.json"],
   "configurePresets": [
     {
-      "name": "targ-win-base",
-      "hidden": true,
-      "inherits": "targ-base"
-    },
-    {
-      "name": "deps-win",
+      "name": "targ-deps-win",
       "hidden": true,
       "inherits": "targ-base",
       "cacheVariables": {
@@ -16,9 +11,9 @@
       }
     },
     {
-      "name": "env-win-msvc-vs",
+      "name": "targ-env-win-msvc-vs",
       "hidden": true,
-      "inherits": "deps-win",
+      "inherits": "targ-deps-win",
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
       "cacheVariables": {
@@ -27,9 +22,9 @@
       }
     },
     {
-      "name": "env-win-msvc-ninja",
+      "name": "targ-env-win-msvc-ninja",
       "hidden": true,
-      "inherits": "deps-win",
+      "inherits": "targ-deps-win",
       "generator": "Ninja",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl",
@@ -38,32 +33,32 @@
     },
     {
       "name": "targ-win-vs",
-      "inherits": "env-win-msvc-vs"
+      "inherits": "targ-env-win-msvc-vs"
     },
     {
         "name": "targ-win-ninja-Debug",
-        "inherits": "env-win-msvc-ninja",
+        "inherits": "targ-env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug"
         }
     },
     {
         "name": "targ-win-ninja-RelWithDebInfo",
-        "inherits": "env-win-msvc-ninja",
+        "inherits": "targ-env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "RelWithDebInfo"
         }
     },
     {
         "name": "targ-win-ninja-Release",
-        "inherits": "env-win-msvc-ninja",
+        "inherits": "targ-env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Release"
         }
     },
     {
         "name": "targ-win-ninja-MinSizeRel",
-        "inherits": "env-win-msvc-ninja",
+        "inherits": "targ-env-win-msvc-ninja",
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "MinSizeRel"
         }
