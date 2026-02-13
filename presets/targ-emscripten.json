@@ -15,8 +15,7 @@
       "name": "targ-env-emscripten",
       "hidden": true,
       "inherits": "targ-deps-emscripten",
-      "generator": "Unix Makefiles",
-      "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+      "generator": "Unix Makefiles"
     },
     {
       "name": "targ-emscripten-Debug",
