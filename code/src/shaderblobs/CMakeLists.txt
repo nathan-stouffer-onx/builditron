@@ -3,16 +3,14 @@ set(GENERATED_BYTES "${GENERATED_DIR}/shaderblobs_bytes.inc")
 set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 
 # Determine which shadertron executable to use
+# TODO (stouff) perhaps update this variable name?
 if(MAPITRON_ADD_HOST_TOOLS)
   # Host build: use the local target
   set(SHADERTRON_EXE "$<TARGET_FILE:shadertron>")
 else()
   # Target build: use the pre-built host executable
   if(NOT DEFINED HOST_SHADERTRON_EXECUTABLE)
-    message(FATAL_ERROR "HOST_SHADERTRON_EXECUTABLE not defined. Host tools should have been built by BuildHostTools.cmake")
-  endif()
-  if(NOT EXISTS "${HOST_SHADERTRON_EXECUTABLE}")
-    message(FATAL_ERROR "Host shadertron executable not found at: ${HOST_SHADERTRON_EXECUTABLE}")
+    message(FATAL_ERROR "HOST_SHADERTRON_EXECUTABLE not defined. Host tools should have been configured by ConfigureHostTools.cmake")
   endif()
   set(SHADERTRON_EXE "${HOST_SHADERTRON_EXECUTABLE}")
 endif()
@@ -20,7 +18,7 @@ endif()
 add_custom_command(
   OUTPUT "${HOST_SHADERTRON_EXECUTABLE}"
   WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-  COMMAND ${CMAKE_COMMAND} --build --preset host-win-Debug --target shadertron
+  COMMAND ${CMAKE_COMMAND} --build --preset ${HOST_PRESET} --target shadertron
 
   DEPENDS shadertron
   COMMENT "Building shadertron for host"

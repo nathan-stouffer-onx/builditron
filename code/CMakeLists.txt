@@ -8,8 +8,8 @@ endif()
 # For target builds, configure and build host tools first
 # This must happen before src/ so that shaderblobs can use the host-built shadertron
 if(NOT MAPITRON_ADD_HOST_TOOLS)
-  message(STATUS "Target build detected - configuring and building host tools")
-  include(BuildHostTools)
+  message(STATUS "Target build detected - configuring host tools")
+  include(ConfigureHostTools)
 endif()
 
 add_subdirectory(deps)
