@@ -6,7 +6,6 @@ set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 if(MAPITRON_ADD_HOST_TOOLS)
   # Host build: use the local target
   set(SHADERTRON_EXE "$<TARGET_FILE:shadertron>")
-  set(SHADERTRON_DEPENDS shadertron)
 else()
   # Target build: use the pre-built host executable
   if(NOT DEFINED HOST_SHADERTRON_EXECUTABLE)
@@ -16,7 +15,6 @@ else()
     message(FATAL_ERROR "Host shadertron executable not found at: ${HOST_SHADERTRON_EXECUTABLE}")
   endif()
   set(SHADERTRON_EXE "${HOST_SHADERTRON_EXECUTABLE}")
-  set(SHADERTRON_DEPENDS "${HOST_SHADERTRON_EXECUTABLE}")
 endif()
 
 add_custom_command(
@@ -30,7 +28,7 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E make_directory "generated"
   COMMAND "${SHADERTRON_EXE}" pack -i shaders/src -o generated
 
-  DEPENDS ${SHADERTRON_DEPENDS}
+  DEPENDS shadertron
   COMMENT "Generating and packing shaders"
   VERBATIM
 )
