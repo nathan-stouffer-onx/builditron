@@ -2,18 +2,35 @@ set(GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
 set(GENERATED_BYTES "${GENERATED_DIR}/shaderblobs_bytes.inc")
 set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 
+# Determine which shadertron executable to use
+if(MAPITRON_ADD_HOST_TOOLS)
+  # Host build: use the local target
+  set(SHADERTRON_EXE "$<TARGET_FILE:shadertron>")
+  set(SHADERTRON_DEPENDS shadertron)
+else()
+  # Target build: use the pre-built host executable
+  if(NOT DEFINED HOST_SHADERTRON_EXECUTABLE)
+    message(FATAL_ERROR "HOST_SHADERTRON_EXECUTABLE not defined. Host tools should have been built by BuildHostTools.cmake")
+  endif()
+  if(NOT EXISTS "${HOST_SHADERTRON_EXECUTABLE}")
+    message(FATAL_ERROR "Host shadertron executable not found at: ${HOST_SHADERTRON_EXECUTABLE}")
+  endif()
+  set(SHADERTRON_EXE "${HOST_SHADERTRON_EXECUTABLE}")
+  set(SHADERTRON_DEPENDS "${HOST_SHADERTRON_EXECUTABLE}")
+endif()
+
 add_custom_command(
   OUTPUT "${GENERATED_RANGES}" "${GENERATED_BYTES}"
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 
   COMMAND ${CMAKE_COMMAND} -E echo "Generating shaders"
-  COMMAND "$<TARGET_FILE:shadertron>" generate
+  COMMAND "${SHADERTRON_EXE}" generate
 
   COMMAND ${CMAKE_COMMAND} -E echo "Packing shaders"
   COMMAND ${CMAKE_COMMAND} -E make_directory "generated"
-  COMMAND "$<TARGET_FILE:shadertron>" pack -i shaders/src -o generated
+  COMMAND "${SHADERTRON_EXE}" pack -i shaders/src -o generated
 
-  DEPENDS shadertron
+  DEPENDS ${SHADERTRON_DEPENDS}
   COMMENT "Generating and packing shaders"
   VERBATIM
 )
