@@ -9,9 +9,17 @@ endif()
 # This must happen before src/ so that shaderblobs can use the host-built shadertron
 if(NOT MAPITRON_ADD_HOST_TOOLS)
   message(STATUS "Target build detected - configuring host")
-  # TODO (stouff) set this up to identify the host
 
-  set(HOST_PRESET "host-win-Debug")
+  # Identify host platform
+  if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+    set(HOST_PLATFORM "win")
+  elseif(CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
+    set(HOST_PLATFORM "mac")
+  else()
+    message(FATAL_ERROR "Unsupported host platform: ${CMAKE_HOST_SYSTEM_NAME}")
+  endif()
+
+  set(HOST_PRESET "host-${HOST_PLATFORM}-MinSizeRel")
   set(HOST_BINARY_DIR "${CMAKE_SOURCE_DIR}/out/build/${HOST_PRESET}")
 
   execute_process(
@@ -21,7 +29,7 @@ if(NOT MAPITRON_ADD_HOST_TOOLS)
   )
 
   if(NOT host_configure_result EQUAL 0)
-      message(FATAL_ERROR "Host configure failed")
+    message(FATAL_ERROR "Host configure failed")
   endif()
 
   # Export the path to host-built tools for use by target build
