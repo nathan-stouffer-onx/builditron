@@ -1,1 +1,7 @@
-add_subdirectory(shadertron)
+if(MAPITRON_ADD_HOST_TOOLS)
+    message(STATUS "Added tools to target")
+    add_subdirectory(shadertron)
+else()
+    message(STATUS "Omitted tools from target -- configuring and building host")
+    include(BuildHostTools)
+endif()
