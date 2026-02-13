@@ -7,7 +7,7 @@ endif()
 
 # For target builds, configure and build host tools first
 # This must happen before src/ so that shaderblobs can use the host-built shadertron
-if(NOT MAPITRON_ADD_HOST_TOOLS)
+if(MAPITRON_USE_HOST_TOOLS)
   message(STATUS "Target build detected - configuring host")
 
   # Identify host platform
