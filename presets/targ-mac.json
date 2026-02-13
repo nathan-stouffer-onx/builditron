@@ -1,0 +1,70 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "targ-deps-mac",
+      "hidden": true,
+      "inherits": "targ-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-osx"
+      }
+    },
+    {
+      "name": "targ-env-mac-clang-ninja",
+      "hidden": true,
+      "inherits": "targ-deps-mac",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "targ-mac-Debug",
+      "inherits": "targ-env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "targ-mac-RelWithDebInfo",
+      "inherits": "targ-env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "targ-mac-Release",
+      "inherits": "targ-env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "targ-mac-MinSizeRel",
+      "inherits": "targ-env-mac-clang-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "targ-mac-Debug",
+      "configurePreset": "targ-mac-Debug"
+    },
+    {
+      "name": "targ-mac-RelWithDebInfo",
+      "configurePreset": "targ-mac-RelWithDebInfo"
+    },
+    {
+      "name": "targ-mac-Release",
+      "configurePreset": "targ-mac-Release"
+    },
+    {
+      "name": "targ-mac-MinSizeRel",
+      "configurePreset": "targ-mac-MinSizeRel"
+    }
+  ]
+}

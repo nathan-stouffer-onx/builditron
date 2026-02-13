@@ -43,6 +43,10 @@
 # Mac files
 .DS_STORE
 
+# LLMs
+.claude/
+
+# build dirs
 build/
 .build/
 out/

@@ -1,0 +1,35 @@
+{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "deps",
+      "hidden": true,
+      "inherits": "base",
+      "toolchainFile": "${sourceDir}/code/deps/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    {
+      "name": "host-base",
+      "hidden": true,
+      "inherits": "deps",
+      "cacheVariables": {
+        "MAPITRON_IS_TARGET_BUILD": false
+      }
+    },
+    {
+      "name": "targ-base",
+      "hidden": true,
+      "inherits": "deps",
+      "cacheVariables": {
+        "MAPITRON_IS_TARGET_BUILD": true
+      }
+    }
+  ]
+}

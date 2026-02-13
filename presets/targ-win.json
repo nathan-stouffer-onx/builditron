@@ -1,0 +1,105 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "targ-deps-win",
+      "hidden": true,
+      "inherits": "targ-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "targ-env-win-msvc-vs",
+      "hidden": true,
+      "inherits": "targ-deps-win",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "targ-env-win-msvc-ninja",
+      "hidden": true,
+      "inherits": "targ-deps-win",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "targ-win-vs",
+      "inherits": "targ-env-win-msvc-vs"
+    },
+    {
+      "name": "targ-win-ninja-Debug",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "targ-win-ninja-RelWithDebInfo",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "targ-win-ninja-Release",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "targ-win-ninja-MinSizeRel",
+      "inherits": "targ-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "targ-win-vs-Debug",
+      "configurePreset": "targ-win-vs",
+      "configuration": "Debug"
+    },
+    {
+      "name": "targ-win-vs-RelWithDebInfo",
+      "configurePreset": "targ-win-vs",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "targ-win-vs-Release",
+      "configurePreset": "targ-win-vs",
+      "configuration": "Release"
+    },
+    {
+      "name": "targ-win-vs-MinSizeRel",
+      "configurePreset": "targ-win-vs",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "targ-win-ninja-Debug",
+      "configurePreset": "targ-win-ninja-Debug"
+    },
+    {
+      "name": "targ-win-ninja-RelWithDebInfo",
+      "configurePreset": "targ-win-ninja-RelWithDebInfo"
+    },
+    {
+      "name": "targ-win-ninja-Release",
+      "configurePreset": "targ-win-ninja-Release"
+    },
+    {
+      "name": "targ-win-ninja-MinSizeRel",
+      "configurePreset": "targ-win-ninja-MinSizeRel"
+    }
+  ]
+}
