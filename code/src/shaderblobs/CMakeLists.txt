@@ -18,6 +18,16 @@ else()
 endif()
 
 add_custom_command(
+  OUTPUT "${HOST_SHADERTRON_EXECUTABLE}"
+  WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+  COMMAND ${CMAKE_COMMAND} --build --preset host-win-Debug --target shadertron
+
+  DEPENDS shadertron
+  COMMENT "Building shadertron for host"
+  VERBATIM
+)
+
+add_custom_command(
   OUTPUT "${GENERATED_RANGES}" "${GENERATED_BYTES}"
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 
@@ -28,7 +38,7 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E make_directory "generated"
   COMMAND "${SHADERTRON_EXE}" pack -i shaders/src -o generated
 
-  DEPENDS shadertron
+  DEPENDS "${HOST_SHADERTRON_EXECUTABLE}"
   COMMENT "Generating and packing shaders"
   VERBATIM
 )
@@ -38,7 +48,7 @@ set(SHADERBLOBS_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/load.hpp"
 )
 
-add_custom_target(generate_shaderblobs DEPENDS "${GENERATED_BYTES}" "${GENERATED_RANGES}")
+add_custom_target(generate_shaderblobs DEPENDS "${HOST_SHADERTRON_EXECUTABLE}" "${GENERATED_BYTES}" "${GENERATED_RANGES}")
 
 add_library(shaderblobs ${SHADERBLOBS_FILES})
 
