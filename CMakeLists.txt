@@ -10,6 +10,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 enable_testing()
 
-option(MAPITRON_USE_HOST_TOOLS "Use host tools instead of target tools" OFF)
+option(MAPITRON_IS_TARGET_BUILD "Build is for a target (as opposed to a host)" OFF)
 
 add_subdirectory(code)

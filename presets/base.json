@@ -20,7 +20,7 @@
       "hidden": true,
       "inherits": "deps",
       "cacheVariables": {
-        "MAPITRON_USE_HOST_TOOLS": false
+        "MAPITRON_IS_TARGET_BUILD": false
       }
     },
     {
@@ -28,7 +28,7 @@
       "hidden": true,
       "inherits": "deps",
       "cacheVariables": {
-        "MAPITRON_USE_HOST_TOOLS": true
+        "MAPITRON_IS_TARGET_BUILD": true
       }
     }
   ]

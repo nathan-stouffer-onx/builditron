@@ -3,7 +3,7 @@ set(GENERATED_BYTES "${GENERATED_DIR}/shaderblobs_bytes.inc")
 set(GENERATED_RANGES "${GENERATED_DIR}/shaderblobs_ranges.inc")
 
 # Determine which shadertron executable to use
-if(MAPITRON_USE_HOST_TOOLS)
+if(MAPITRON_IS_TARGET_BUILD)
   # Target build: use the pre-built host executable
   if(NOT DEFINED HOST_SHADERTRON_EXECUTABLE)
     message(FATAL_ERROR "HOST_SHADERTRON_EXECUTABLE not defined. Host tools should have been configured by ConfigureHostTools.cmake")
