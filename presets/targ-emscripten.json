@@ -14,8 +14,7 @@
     {
       "name": "targ-env-emscripten",
       "hidden": true,
-      "inherits": "targ-deps-emscripten",
-      "generator": "Unix Makefiles"
+      "inherits": "targ-deps-emscripten"
     },
     {
       "name": "targ-emscripten-Debug",
