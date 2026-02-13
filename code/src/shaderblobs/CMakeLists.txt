@@ -42,8 +42,8 @@ add_custom_command(
 )
 
 set(SHADERBLOBS_FILES
-    "${CMAKE_CURRENT_SOURCE_DIR}/cpp/shaderblobs/load.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/load.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cpp/shaderblobs/load.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/public/shaderblobs/load.hpp"
 )
 
 add_custom_target(generate_shaderblobs DEPENDS "${HOST_SHADERTRON_EXECUTABLE}" "${GENERATED_BYTES}" "${GENERATED_RANGES}")
