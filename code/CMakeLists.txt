@@ -35,7 +35,7 @@ if(MAPITRON_IS_TARGET_BUILD)
 
   # Export the path to host-built tools for use by target build
   set(HOST_SHADERTRON_EXECUTABLE "${HOST_BINARY_DIR}/code/tools/shadertron/shadertron${HOST_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
-  message(STATUS "Host shadertron available at: ${HOST_SHADERTRON_EXECUTABLE}")
+  message(STATUS "Host shadertron path: ${HOST_SHADERTRON_EXECUTABLE}")
 endif()
 
 add_subdirectory(deps)
