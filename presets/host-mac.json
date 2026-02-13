@@ -11,39 +11,39 @@
       }
     },
     {
-      "name": "host-env-mac-msvc-ninja",
+      "name": "host-env-mac-clang-ninja",
       "hidden": true,
       "inherits": "host-deps-mac",
       "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "cl",
-        "CMAKE_CXX_COMPILER": "cl"
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
       }
     },
     {
       "name": "host-mac-Debug",
-      "inherits": "host-env-mac-msvc-ninja",
+      "inherits": "host-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
       "name": "host-mac-RelWithDebInfo",
-      "inherits": "host-env-mac-msvc-ninja",
+      "inherits": "host-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
       "name": "host-mac-Release",
-      "inherits": "host-env-mac-msvc-ninja",
+      "inherits": "host-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
       "name": "host-mac-MinSizeRel",
-      "inherits": "host-env-mac-msvc-ninja",
+      "inherits": "host-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
       }
