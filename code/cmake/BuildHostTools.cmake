@@ -18,7 +18,7 @@ endif()
 message(STATUS "Building host")
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} --build --preset ${HOST_PRESET}
+  COMMAND ${CMAKE_COMMAND} --build --preset ${HOST_PRESET} --target shadertron
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   RESULT_VARIABLE host_build_result
 )
