@@ -1,0 +1,70 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "host-deps-mac",
+      "hidden": true,
+      "inherits": "host-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-osx"
+      }
+    },
+    {
+      "name": "host-env-mac-msvc-ninja",
+      "hidden": true,
+      "inherits": "host-deps-mac",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "host-mac-Debug",
+      "inherits": "host-env-mac-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "host-mac-RelWithDebInfo",
+      "inherits": "host-env-mac-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "host-mac-Release",
+      "inherits": "host-env-mac-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "host-mac-MinSizeRel",
+      "inherits": "host-env-mac-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-mac-Debug",
+      "configurePreset": "host-mac-Debug"
+    },
+    {
+      "name": "host-mac-RelWithDebInfo",
+      "configurePreset": "host-mac-RelWithDebInfo"
+    },
+    {
+      "name": "host-mac-Release",
+      "configurePreset": "host-mac-Release"
+    },
+    {
+      "name": "host-mac-MinSizeRel",
+      "configurePreset": "host-mac-MinSizeRel"
+    }
+  ]
+}

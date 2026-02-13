@@ -3,6 +3,7 @@
   "include": [
     "presets/base.json",
     "presets/host-win.json",
+    "presets/host-mac.json",
     "presets/targ-win.json",
     "presets/targ-mac.json"
   ]
