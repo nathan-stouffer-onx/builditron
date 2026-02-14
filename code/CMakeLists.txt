@@ -43,3 +43,20 @@ add_subdirectory(src)
 add_subdirectory(tools)
 add_subdirectory(tests)
 add_subdirectory(samples)
+
+# For Emscripten builds, copy WebAssembly artifacts to web directory
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  set(WEB_WASM_DIR "${CMAKE_SOURCE_DIR}/web/src/wasm")
+
+  add_custom_target(copy-wasm-to-web ALL
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${WEB_WASM_DIR}"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      "$<TARGET_FILE:mapitron>"
+      "${WEB_WASM_DIR}/mapitron.js"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      "$<TARGET_FILE_DIR:mapitron>/mapitron.wasm"
+      "${WEB_WASM_DIR}/mapitron.wasm"
+    DEPENDS mapitron
+    COMMENT "Copying WebAssembly artifacts to web/src/wasm/"
+  )
+endif()

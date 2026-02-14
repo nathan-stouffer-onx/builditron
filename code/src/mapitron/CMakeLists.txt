@@ -3,18 +3,12 @@ set(MAPITRON_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron.hpp"
 )
 
-# TODO use some strategy similar to this to add platform-specific code
-# if (WIN32)
-#     list(APPEND MAPITRON_FILES
-#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/mapitron/mapitron_windows.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron_windows.hpp"
-#     )
-# elseif (APPLE)
-#     list(APPEND MAPITRON_FILES
-#         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/mapitron/mapitron_macos.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron_macos.hpp"
-#     )
-# endif()
+# Add Emscripten bindings for web builds
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    list(APPEND MAPITRON_FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/cpp/bindings/embind.cpp"
+    )
+endif()
 
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${MAPITRON_FILES})
@@ -33,3 +27,14 @@ target_link_libraries(mapitron
     PRIVATE
         engine
 )
+
+# Link with embind for Emscripten builds
+# TODO (stouff) see if typescript can be exported automatically
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    target_link_options(mapitron PUBLIC
+        "SHELL:--bind"
+        "SHELL:-s EXPORT_ES6=1"
+        "SHELL:-s MODULARIZE=1"
+        "SHELL:-s EXPORT_NAME='createMapitronModule'"
+    )
+endif()
