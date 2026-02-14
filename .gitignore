@@ -50,3 +50,6 @@
 build/
 .build/
 out/
+
+# User-specific CMake presets
+CMakeUserPresets.json
