@@ -1,0 +1,38 @@
+{
+  "name": "mapitron",
+  "version": "0.1.0",
+  "description": "WebAssembly-powered map rendering library",
+  "type": "module",
+  "main": "./src/mapitron.js",
+  "types": "./src/mapitron.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/mapitron.d.ts",
+      "import": "./src/mapitron.js"
+    },
+    "./mapitron.wasm": "./src/mapitron.wasm"
+  },
+  "files": [
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cmake --build --preset targ-emscripten-Release",
+    "build:debug": "cmake --build --preset targ-emscripten-Debug",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "webassembly",
+    "wasm",
+    "maps",
+    "graphics",
+    "emscripten"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/builditron.git",
+    "directory": "code/packages/web/mapitron"
+  }
+}
