@@ -14,7 +14,12 @@
     {
       "name": "targ-env-emscripten",
       "hidden": true,
-      "inherits": "targ-deps-emscripten"
+      "inherits": "targ-deps-emscripten",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "$env{EMSDK}/upstream/emscripten/emcc",
+        "CMAKE_CXX_COMPILER": "$env{EMSDK}/upstream/emscripten/em++"
+      }
     },
     {
       "name": "targ-emscripten-Debug",
