@@ -6,9 +6,12 @@
       "name": "targ-deps-emscripten",
       "hidden": true,
       "inherits": "targ-base",
+      "environment": {
+        "EMSDK": "${sourceDir}/code/deps/emsdk"
+      },
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "wasm32-emscripten",
-        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/code/deps/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
       }
     },
     {
@@ -17,8 +20,8 @@
       "inherits": "targ-deps-emscripten",
       "generator": "Unix Makefiles",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "$env{EMSDK}/upstream/emscripten/emcc",
-        "CMAKE_CXX_COMPILER": "$env{EMSDK}/upstream/emscripten/em++"
+        "CMAKE_C_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/emcc",
+        "CMAKE_CXX_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/em++"
       }
     },
     {
