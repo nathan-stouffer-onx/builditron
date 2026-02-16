@@ -28,3 +28,8 @@ TODO (stouff) write this
 ## Web
 
 TODO (stouff) write this
+
+```
+./emsdk install latest
+./emsdk activate latest
+```

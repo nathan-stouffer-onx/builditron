@@ -94,13 +94,6 @@ jobs:
           key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
           max-size: 500M
 
-      - name: Setup Emscripten
-        if: matrix.host.preset_prefix == 'targ-emscripten'
-        uses: mymindstorm/setup-emsdk@v14
-        with:
-          version: '3.1.75'
-          actions-cache-folder: 'emsdk-cache'
-
       - name: bootstrap vcpkg (windows)
         if: runner.os == 'Windows'
         run: ${{ github.workspace }}\code\deps\vcpkg\bootstrap-vcpkg.bat -disableMetrics
