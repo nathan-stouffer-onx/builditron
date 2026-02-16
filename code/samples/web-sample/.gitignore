@@ -5,8 +5,5 @@ node_modules/
 dist/
 
 # Generated WebAssembly files (built from C++)
-src/wasm/mapitron.wasm
-src/wasm/mapitron.js
-
-# Keep the TypeScript definitions (manually maintained)
-!src/wasm/*.d.ts
+# Ignore all build-type subdirectories (debug/, release/, etc.)
+src/wasm/

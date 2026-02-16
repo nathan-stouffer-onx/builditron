@@ -46,12 +46,15 @@ add_subdirectory(samples)
 
 # For Emscripten builds, copy WebAssembly artifacts to web-sample and npm package
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-  set(WEB_WASM_DIR "${CMAKE_SOURCE_DIR}/code/samples/web-sample/src/wasm")
+  # Convert build type to lowercase for directory name
+  string(TOLOWER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_LOWER)
+
+  set(WEB_WASM_DIR "${CMAKE_SOURCE_DIR}/code/samples/web-sample/src/wasm/${BUILD_TYPE_LOWER}")
   set(NPM_PACKAGE_DIR "${CMAKE_SOURCE_DIR}/code/packages/web/mapitron/src")
 
   # Executable generates mapitron.js and mapitron.wasm
   add_custom_target(copy-wasm-to-web ALL
-    # Copy to web-sample for local development
+    # Copy to web-sample for local development (build-type-specific subdirectory)
     COMMAND ${CMAKE_COMMAND} -E make_directory "${WEB_WASM_DIR}"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "$<TARGET_FILE:mapitron-wasm>"
@@ -59,7 +62,11 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.wasm"
       "${WEB_WASM_DIR}/mapitron.wasm"
-    # Copy to npm package for publishing
+    # Copy TypeScript definitions from npm package to web-sample (source of truth)
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      "${NPM_PACKAGE_DIR}/mapitron.d.ts"
+      "${CMAKE_SOURCE_DIR}/code/samples/web-sample/src/wasm/mapitron.d.ts"
+    # Copy to npm package for publishing (Release build only)
     COMMAND ${CMAKE_COMMAND} -E make_directory "${NPM_PACKAGE_DIR}"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "$<TARGET_FILE:mapitron-wasm>"
@@ -68,6 +75,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
       "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.wasm"
       "${NPM_PACKAGE_DIR}/mapitron.wasm"
     DEPENDS mapitron-wasm
-    COMMENT "Copying WebAssembly artifacts to web-sample and npm package"
+    COMMENT "Copying WebAssembly artifacts to web-sample/${BUILD_TYPE_LOWER} and npm package"
   )
 endif()

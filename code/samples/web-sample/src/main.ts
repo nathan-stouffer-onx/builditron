@@ -1,4 +1,6 @@
-import createMapitronModule from './wasm/mapitron.js';
+// Get the build type from environment (set by Vite)
+// @ts-expect-error - BUILD_TYPE is defined by Vite config
+const buildType = (import.meta.env.BUILD_TYPE as string).toLowerCase();
 
 async function main() {
   const statusEl = document.getElementById('status');
@@ -9,9 +11,10 @@ async function main() {
   }
 
   try {
-    statusEl.textContent = 'Loading WebAssembly module...';
+    statusEl.textContent = `Loading WebAssembly module (${buildType} build)...`;
 
-    // Load the mapitron WebAssembly module
+    // Dynamically import the mapitron WebAssembly module based on build type
+    const { default: createMapitronModule } = await import(`./wasm/${buildType}/mapitron.js`);
     const mapitron = await createMapitronModule();
 
     statusEl.textContent = 'Module loaded! Running tests...';

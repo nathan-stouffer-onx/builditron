@@ -3,12 +3,32 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
+    "start:debug": "BUILD_TYPE=Debug vite",
+    "start:release": "BUILD_TYPE=Release vite",
+    "start:relwithdebinfo": "BUILD_TYPE=RelWithDebInfo vite",
+    "start:minsizerel": "BUILD_TYPE=MinSizeRel vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:debug": "BUILD_TYPE=Debug npm run build",
+    "build:release": "BUILD_TYPE=Release npm run build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:debug": "BUILD_TYPE=Debug vitest",
+    "test:release": "BUILD_TYPE=Release vitest",
+    "cmake:configure": "cd ../../.. && cmake --preset targ-emscripten-Debug && cmake --preset targ-emscripten-Release && cmake --preset targ-emscripten-RelWithDebInfo && cmake --preset targ-emscripten-MinSizeRel",
+    "cmake:build:debug": "cd ../../.. && cmake --build --preset targ-emscripten-Debug",
+    "cmake:build:release": "cd ../../.. && cmake --build --preset targ-emscripten-Release",
+    "cmake:build:relwithdebinfo": "cd ../../.. && cmake --build --preset targ-emscripten-RelWithDebInfo",
+    "cmake:build:minsizerel": "cd ../../.. && cmake --build --preset targ-emscripten-MinSizeRel",
+    "cmake:build": "npm run cmake:build:debug && npm run cmake:build:release"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/ui": "^2.1.0",
+    "jsdom": "^25.0.0",
     "typescript": "^5.6.0",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0"
   }
 }
