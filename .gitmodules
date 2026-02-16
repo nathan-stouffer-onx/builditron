@@ -1,3 +1,6 @@
 [submodule "code/deps/vcpkg"]
 	path = code/deps/vcpkg
 	url = git@github.com:microsoft/vcpkg
+[submodule "code/deps/emsdk"]
+	path = code/deps/emsdk
+	url = git@github.com:emscripten-core/emsdk
