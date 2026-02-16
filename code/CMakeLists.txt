@@ -62,7 +62,11 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.wasm"
       "${WEB_WASM_DIR}/mapitron.wasm"
-    # Copy TypeScript definitions from npm package to web-sample (source of truth)
+    # Copy TypeScript definitions to build-type subdirectory
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      "${NPM_PACKAGE_DIR}/mapitron.d.ts"
+      "${WEB_WASM_DIR}/mapitron.d.ts"
+    # Also copy to root wasm directory for convenience
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "${NPM_PACKAGE_DIR}/mapitron.d.ts"
       "${CMAKE_SOURCE_DIR}/code/samples/web-sample/src/wasm/mapitron.d.ts"
