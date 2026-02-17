@@ -27,10 +27,10 @@
     "_cpp:watch:relwithdebinfo": "chokidar \"../../src/**/*.{cpp,hpp}\" \"../../include/**/*.hpp\" -c \"npm run _cmake:build:relwithdebinfo\"",
     "_cpp:watch:minsizerel": "chokidar \"../../src/**/*.{cpp,hpp}\" \"../../include/**/*.hpp\" -c \"npm run _cmake:build:minsizerel\"",
     "_cmake:configure": "cd ../../.. && cmake --preset targ-emscripten-Debug && cmake --preset targ-emscripten-Release && cmake --preset targ-emscripten-RelWithDebInfo && cmake --preset targ-emscripten-MinSizeRel",
-    "_cmake:build:debug": "cd ../../.. && cmake --build --preset targ-emscripten-Debug",
-    "_cmake:build:release": "cd ../../.. && cmake --build --preset targ-emscripten-Release",
-    "_cmake:build:relwithdebinfo": "cd ../../.. && cmake --build --preset targ-emscripten-RelWithDebInfo",
-    "_cmake:build:minsizerel": "cd ../../.. && cmake --build --preset targ-emscripten-MinSizeRel",
+    "_cmake:build:debug": "cd ../../.. && cmake --build --preset targ-emscripten-Debug --target mapitron-wasm",
+    "_cmake:build:release": "cd ../../.. && cmake --build --preset targ-emscripten-Release --target mapitron-wasm",
+    "_cmake:build:relwithdebinfo": "cd ../../.. && cmake --build --preset targ-emscripten-RelWithDebInfo --target mapitron-wasm",
+    "_cmake:build:minsizerel": "cd ../../.. && cmake --build --preset targ-emscripten-MinSizeRel --target mapitron-wasm",
     "_cmake:build": "npm run _cmake:build:debug && npm run _cmake:build:release"
   },
   "devDependencies": {
