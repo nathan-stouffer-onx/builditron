@@ -34,3 +34,8 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
 * Presets
     * CMake easily exposes the ability to set up different configure/build commands via `CMakePresets.json`.
     We can define different presets for target platforms and compile settings without needing to remember anything for the command line.
+
+## Building
+
+The primary build artifact of this repository is the `mapitron` library.
+You can read more about building in [BUILDING.md](./BUILDING.md).

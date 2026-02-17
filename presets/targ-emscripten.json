@@ -1,0 +1,74 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "targ-deps-emscripten",
+      "hidden": true,
+      "inherits": "targ-base",
+      "environment": {
+        "EMSDK": "${sourceDir}/code/deps/emsdk"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "wasm32-emscripten",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/code/deps/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+      }
+    },
+    {
+      "name": "targ-env-emscripten",
+      "hidden": true,
+      "inherits": "targ-deps-emscripten",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/emcc",
+        "CMAKE_CXX_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/em++"
+      }
+    },
+    {
+      "name": "targ-emscripten-Debug",
+      "inherits": "targ-env-emscripten",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "targ-emscripten-RelWithDebInfo",
+      "inherits": "targ-env-emscripten",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "targ-emscripten-Release",
+      "inherits": "targ-env-emscripten",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "targ-emscripten-MinSizeRel",
+      "inherits": "targ-env-emscripten",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "targ-emscripten-Debug",
+      "configurePreset": "targ-emscripten-Debug"
+    },
+    {
+      "name": "targ-emscripten-RelWithDebInfo",
+      "configurePreset": "targ-emscripten-RelWithDebInfo"
+    },
+    {
+      "name": "targ-emscripten-Release",
+      "configurePreset": "targ-emscripten-Release"
+    },
+    {
+      "name": "targ-emscripten-MinSizeRel",
+      "configurePreset": "targ-emscripten-MinSizeRel"
+    }
+  ]
+}

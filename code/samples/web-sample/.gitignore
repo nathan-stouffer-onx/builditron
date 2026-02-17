@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+
+# Generated WebAssembly files (built from C++)
+# Ignore all build-type subdirectories (debug/, release/, etc.)
+src/wasm/

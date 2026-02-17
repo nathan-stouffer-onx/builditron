@@ -12,8 +12,10 @@ if(MAPITRON_IS_TARGET_BUILD)
   # Identify host platform
   if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
     set(HOST_PLATFORM "win")
+    set(HOST_EXECUTABLE_SUFFIX ".exe")
   elseif(CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
     set(HOST_PLATFORM "mac")
+    set(HOST_EXECUTABLE_SUFFIX "")
   else()
     message(FATAL_ERROR "Unsupported host platform: ${CMAKE_HOST_SYSTEM_NAME}")
   endif()
@@ -32,8 +34,8 @@ if(MAPITRON_IS_TARGET_BUILD)
   endif()
 
   # Export the path to host-built tools for use by target build
-  set(HOST_SHADERTRON_EXECUTABLE "${HOST_BINARY_DIR}/code/tools/shadertron/shadertron${CMAKE_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
-  message(STATUS "Host shadertron available at: ${HOST_SHADERTRON_EXECUTABLE}")
+  set(HOST_SHADERTRON_EXECUTABLE "${HOST_BINARY_DIR}/code/tools/shadertron/shadertron${HOST_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
+  message(STATUS "Host shadertron path: ${HOST_SHADERTRON_EXECUTABLE}")
 endif()
 
 add_subdirectory(deps)

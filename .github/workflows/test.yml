@@ -18,11 +18,13 @@ jobs:
         # image states
         # windows-2022: https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
+        # ubuntu-22.04: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
         host:
-          - { image: windows-2022, preset_prefix: host-win       }
-          - { image: macos-14,     preset_prefix: host-mac       }
-          - { image: windows-2022, preset_prefix: targ-win-ninja }
-          - { image: macos-14,     preset_prefix: targ-mac       }
+          - { image: windows-2022, preset_prefix: host-win        }
+          - { image: macos-14,     preset_prefix: host-mac        }
+          - { image: windows-2022, preset_prefix: targ-win-ninja  }
+          - { image: macos-14,     preset_prefix: targ-mac        }
+          - { image: ubuntu-22.04, preset_prefix: targ-emscripten }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
