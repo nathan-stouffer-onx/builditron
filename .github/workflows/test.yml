@@ -106,9 +106,19 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
 
+      - name: Setup Emscripten
+        if: matrix.host.preset_prefix == 'targ-emscripten'
+        shell: bash
+        run: |
+          cd ${{ github.workspace }}/code/deps/emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+          source ./emsdk_env.sh
+          echo "PATH=$PATH" >> $GITHUB_ENV
+          echo "EMSDK=$EMSDK" >> $GITHUB_ENV
+          echo "EM_CONFIG=$EM_CONFIG" >> $GITHUB_ENV
+
       - name: Configure CMake
-        # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-        # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
           cmake --preset ${{ steps.strings.outputs.configure-preset }}
           -DCMAKE_C_COMPILER_LAUNCHER=${{ steps.strings.outputs.compiler-cacher }}
