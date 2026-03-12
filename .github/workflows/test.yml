@@ -117,6 +117,8 @@ jobs:
           echo "PATH=$PATH" >> $GITHUB_ENV
           echo "EM_CONFIG=$EM_CONFIG" >> $GITHUB_ENV
 
+          make -v
+
       - name: Configure CMake
         run: >
           cmake --preset ${{ steps.strings.outputs.configure-preset }}
