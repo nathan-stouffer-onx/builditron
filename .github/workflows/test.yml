@@ -113,11 +113,6 @@ jobs:
           cd ${{ github.workspace }}/code/deps/emsdk
           ./emsdk install latest
           ./emsdk activate latest
-          source ./emsdk_env.sh
-          echo "$EMSDK" >> $GITHUB_PATH
-          echo "$EMSDK/upstream/emscripten" >> $GITHUB_PATH
-          echo "EMSDK=$EMSDK" >> $GITHUB_ENV
-          echo "EM_CONFIG=$HOME/.emscripten" >> $GITHUB_ENV
 
       - name: Configure CMake
         run: >
