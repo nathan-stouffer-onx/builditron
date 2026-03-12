@@ -122,6 +122,8 @@ jobs:
           cd upstream/emscripten/
           emcc -v
 
+          /home/runner/work/builditron/builditron/code/deps/emsdk/upstream/emscripten/emcc -v
+
       - name: Configure CMake
         run: >
           cmake --preset ${{ steps.strings.outputs.configure-preset }}
