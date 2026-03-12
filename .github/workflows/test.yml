@@ -115,7 +115,6 @@ jobs:
           ./emsdk activate latest
           source ./emsdk_env.sh
           echo "PATH=$PATH" >> $GITHUB_ENV
-          echo "EMSDK=$EMSDK" >> $GITHUB_ENV
           echo "EM_CONFIG=$EM_CONFIG" >> $GITHUB_ENV
 
       - name: Configure CMake
