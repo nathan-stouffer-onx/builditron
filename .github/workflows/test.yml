@@ -114,15 +114,10 @@ jobs:
           ./emsdk install latest
           ./emsdk activate latest
           source ./emsdk_env.sh
-          echo "PATH=$PATH" >> $GITHUB_ENV
-          echo "EM_CONFIG=$EM_CONFIG" >> $GITHUB_ENV
-
-          make -v
-
-          cd upstream/emscripten/
-          emcc -v
-
-          /home/runner/work/builditron/builditron/code/deps/emsdk/upstream/emscripten/emcc -v
+          echo "$EMSDK" >> $GITHUB_PATH
+          echo "$EMSDK/upstream/emscripten" >> $GITHUB_PATH
+          echo "EMSDK=$EMSDK" >> $GITHUB_ENV
+          echo "EM_CONFIG=$HOME/.emscripten" >> $GITHUB_ENV
 
       - name: Configure CMake
         run: >
