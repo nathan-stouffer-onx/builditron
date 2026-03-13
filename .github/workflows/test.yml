@@ -22,9 +22,10 @@ jobs:
         host:
           - { image: windows-2022, preset_prefix: host-win        }
           - { image: macos-14,     preset_prefix: host-mac        }
+          - { image: ubuntu-22.04, preset_prefix: host-linux      }
           - { image: windows-2022, preset_prefix: targ-win-ninja  }
           - { image: macos-14,     preset_prefix: targ-mac        }
-          - { image: macos-14,     preset_prefix: targ-emscripten }
+          - { image: ubuntu-22.04, preset_prefix: targ-emscripten }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
