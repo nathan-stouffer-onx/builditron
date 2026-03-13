@@ -4,7 +4,7 @@ The primary build artifact of this repository is the `mapitron` library.
 This is what could be built and posted to a package registry for each platform.
 
 In addition to the package, this repository contains tests, tools, and sample applications utilizing `mapitron`.
-These integrate directly with each targets native development system and can be set up using the guide below.
+These integrate directly with each target's native development system and can be set up using the guide below.
 
 ## Tools
 
