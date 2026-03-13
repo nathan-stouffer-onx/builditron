@@ -1,0 +1,70 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "host-deps-linux",
+      "hidden": true,
+      "inherits": "host-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-linux"
+      }
+    },
+    {
+      "name": "host-env-linux-gcc-ninja",
+      "hidden": true,
+      "inherits": "host-deps-linux",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "host-linux-Debug",
+      "inherits": "host-env-linux-gcc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "host-linux-RelWithDebInfo",
+      "inherits": "host-env-linux-gcc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "host-linux-Release",
+      "inherits": "host-env-linux-gcc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "host-linux-MinSizeRel",
+      "inherits": "host-env-linux-gcc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-linux-Debug",
+      "configurePreset": "host-linux-Debug"
+    },
+    {
+      "name": "host-linux-RelWithDebInfo",
+      "configurePreset": "host-linux-RelWithDebInfo"
+    },
+    {
+      "name": "host-linux-Release",
+      "configurePreset": "host-linux-Release"
+    },
+    {
+      "name": "host-linux-MinSizeRel",
+      "configurePreset": "host-linux-MinSizeRel"
+    }
+  ]
+}
