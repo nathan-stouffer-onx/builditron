@@ -36,13 +36,13 @@
     "README.md"
   ],
   "scripts": {
-    "build:debug": "npm run _cmake:build -- --preset targ-emscripten-Debug",
-    "build:release": "npm run _cmake:build -- --preset targ-emscripten-Release",
-    "build:relwithdebinfo": "npm run _cmake:build -- --preset targ-emscripten-RelWithDebInfo",
-    "build:minsizerel": "npm run _cmake:build -- --preset targ-emscripten-MinSizeRel",
-    "build:all": "npm run build:debug && npm run build:release && npm run build:relwithdebinfo && npm run build:minsizerel",
+    "build:debug": "npm run _cmake:build:prefix -- --preset targ-emscripten-Debug",
+    "build:release": "npm run _cmake:build:prefix -- --preset targ-emscripten-Release",
+    "build:relwithdebinfo": "npm run _cmake:build:prefix -- --preset targ-emscripten-RelWithDebInfo",
+    "build:minsizerel": "npm run _cmake:build:prefix -- --preset targ-emscripten-MinSizeRel",
+    "build:all": "npm run build:debug:prefix && npm run build:release && npm run build:relwithdebinfo && npm run build:minsizerel",
     "prepublishOnly": "npm run build:all",
-    "_cmake:build": "cd ../../.. && cmake --build"
+    "_cmake:build:prefix": "cd ../../.. && cmake --build"
   },
   "keywords": [
     "webassembly",

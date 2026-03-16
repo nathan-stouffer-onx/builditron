@@ -1,6 +1,7 @@
 import { MainModule } from 'mapitron';
 
 const modules = {
+  // TODO (stouff) possibly get rid of these @vite-ignores?
   debug:          () => import(/* @vite-ignore */ 'mapitron/debug'),
   release:        () => import(/* @vite-ignore */ 'mapitron/release'),
   relwithdebinfo: () => import(/* @vite-ignore */ 'mapitron/relwithdebinfo'),
