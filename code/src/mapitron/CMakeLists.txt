@@ -3,12 +3,7 @@ set(MAPITRON_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/public/mapitron/mapitron.hpp"
 )
 
-# Add Emscripten bindings for web builds
-if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    list(APPEND MAPITRON_FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/cpp/bindings/embind.cpp"
-    )
-endif()
+# TODO conditionally add platform-specific files here
 
 # add directory structure to IDEs
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/" FILES ${MAPITRON_FILES})
@@ -37,7 +32,11 @@ target_link_libraries(mapitron
 # For Emscripten, create a WASM module executable
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     # Create a wrapper executable that exports the library as a WASM module
-    add_executable(mapitron-wasm ${MAPITRON_FILES})
+    set(MAPITRON_WASM_FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/cpp/bindings/embind.cpp"
+    )
+
+    add_executable(mapitron-wasm ${MAPITRON_WASM_FILES})
     set_target_properties(mapitron-wasm PROPERTIES
         OUTPUT_NAME "mapitron"
         SUFFIX ".js"
@@ -49,14 +48,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
 
     target_link_libraries(mapitron-wasm
         PUBLIC
-            lucid
-        PRIVATE
-            engine
-    )
-
-    target_compile_definitions(mapitron-wasm
-        PUBLIC
-            MAPITRON_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+            mapitron
     )
 
     # Link with embind for Emscripten builds
