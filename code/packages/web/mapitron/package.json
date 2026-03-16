@@ -3,22 +3,44 @@
   "version": "0.0.0",
   "description": "WebAssembly-powered map rendering library",
   "type": "module",
-  "main": "./src/mapitron.js",
+  "main": "./src/minsizerel/mapitron.js",
   "types": "./src/mapitron.d.ts",
   "exports": {
     ".": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/mapitron.js"
+      "import": "./src/minsizerel/mapitron.js"
     },
-    "./mapitron.wasm": "./src/mapitron.wasm"
+    "./debug": {
+      "types": "./src/mapitron.d.ts",
+      "import": "./src/debug/mapitron.js"
+    },
+    "./release": {
+      "types": "./src/mapitron.d.ts",
+      "import": "./src/release/mapitron.js"
+    },
+    "./relwithdebinfo": {
+      "types": "./src/mapitron.d.ts",
+      "import": "./src/relwithdebinfo/mapitron.js"
+    },
+    "./minsizerel": {
+      "types": "./src/mapitron.d.ts",
+      "import": "./src/minsizerel/mapitron.js"
+    },
+    "./debug/mapitron.wasm": "./src/debug/mapitron.wasm",
+    "./release/mapitron.wasm": "./src/release/mapitron.wasm",
+    "./relwithdebinfo/mapitron.wasm": "./src/relwithdebinfo/mapitron.wasm",
+    "./minsizerel/mapitron.wasm": "./src/minsizerel/mapitron.wasm"
   },
   "files": [
     "src/**/*",
     "README.md"
   ],
   "scripts": {
-    "build": "cmake --build --preset targ-emscripten-Release",
+    "build": "cmake --build --preset targ-emscripten-MinSizeRel",
     "build:debug": "cmake --build --preset targ-emscripten-Debug",
+    "build:release": "cmake --build --preset targ-emscripten-Release",
+    "build:relwithdebinfo": "cmake --build --preset targ-emscripten-RelWithDebInfo",
+    "build:minsizerel": "cmake --build --preset targ-emscripten-MinSizeRel",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

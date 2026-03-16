@@ -62,17 +62,19 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     string(TOLOWER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_LOWER)
 
     set(NPM_PACKAGE_DIR "${CMAKE_SOURCE_DIR}/code/packages/web/mapitron/src")
+    set(NPM_BUILD_DIR "${NPM_PACKAGE_DIR}/${BUILD_TYPE_LOWER}")
 
     # Copy WebAssembly artifacts after building mapitron-wasm
     add_custom_command(TARGET mapitron-wasm POST_BUILD
-        # Copy to npm package for publishing
-        COMMAND ${CMAKE_COMMAND} -E make_directory "${NPM_PACKAGE_DIR}"
+        # Copy build-type-specific artifacts to their subdirectory
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${NPM_BUILD_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:mapitron-wasm>"
-            "${NPM_PACKAGE_DIR}/mapitron.js"
+            "${NPM_BUILD_DIR}/mapitron.js"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.wasm"
-            "${NPM_PACKAGE_DIR}/mapitron.wasm"
+            "${NPM_BUILD_DIR}/mapitron.wasm"
+        # The generated .d.ts is shared across build types
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.d.ts"
             "${NPM_PACKAGE_DIR}/mapitron.d.ts"
