@@ -2,15 +2,9 @@ import { defineConfig } from 'vitest/config'
 import { fileURLToPath } from 'url'
 import { resolve } from 'path'
 
-const buildType = (process.env.BUILD_TYPE ?? 'Debug').toLowerCase()
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      'mapitron': resolve(__dirname, `../../packages/web/mapitron/src/${buildType}/mapitron.js`)
-    }
-  },
   server: {
     headers: {
       // Required for SharedArrayBuffer (if using threads)

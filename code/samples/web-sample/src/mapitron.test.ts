@@ -1,10 +1,22 @@
 import { describe, it, expect, beforeAll } from 'vitest';
-import createMapitronModule, { MainModule } from 'mapitron';
+import { MainModule } from 'mapitron';
 
-describe('Mapitron WASM Module', () => {
+const modules = {
+  debug:          () => import(/* @vite-ignore */ 'mapitron/debug'),
+  release:        () => import(/* @vite-ignore */ 'mapitron/release'),
+  relwithdebinfo: () => import(/* @vite-ignore */ 'mapitron/relwithdebinfo'),
+  minsizerel:     () => import(/* @vite-ignore */ 'mapitron/minsizerel'),
+};
+
+type BuildType = keyof typeof modules;
+
+const build = (process.env.TEST_BUILD ?? 'debug') as BuildType;
+
+describe(`Mapitron WASM Module (${build})`, () => {
   let mapitron: MainModule;
 
   beforeAll(async () => {
+    const { default: createMapitronModule } = await modules[build]();
     mapitron = await createMapitronModule();
   });
 

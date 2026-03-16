@@ -1,4 +1,18 @@
-import createMapitronModule from 'mapitron';
+import { MainModule } from 'mapitron';
+
+const modules = {
+  debug:          () => import(/* @vite-ignore */ 'mapitron/debug'),
+  release:        () => import(/* @vite-ignore */ 'mapitron/release'),
+  relwithdebinfo: () => import(/* @vite-ignore */ 'mapitron/relwithdebinfo'),
+  minsizerel:     () => import(/* @vite-ignore */ 'mapitron/minsizerel'),
+};
+
+type BuildType = keyof typeof modules;
+
+function getBuildType(): BuildType {
+  const param = new URLSearchParams(window.location.search).get('build');
+  return (param && param in modules) ? param as BuildType : 'minsizerel';
+}
 
 async function main() {
   const statusEl = document.getElementById('status');
@@ -8,10 +22,13 @@ async function main() {
     return;
   }
 
-  try {
-    statusEl.textContent = 'Loading WebAssembly module...';
+  const build = getBuildType();
 
-    const mapitron = await createMapitronModule();
+  try {
+    statusEl.textContent = `Loading WebAssembly module (${build})...`;
+
+    const { default: createMapitronModule } = await modules[build]();
+    const mapitron: MainModule = await createMapitronModule();
 
     statusEl.textContent = 'Module loaded! Running tests...';
 
@@ -32,7 +49,7 @@ async function main() {
     mapitron.addLayer(layerJson);
     console.log('Layer added');
 
-    statusEl.textContent = 'Ready! Check console for test results.';
+    statusEl.textContent = `Ready (${build})! Check console for test results.`;
     statusEl.style.color = 'green';
 
   } catch (error) {
