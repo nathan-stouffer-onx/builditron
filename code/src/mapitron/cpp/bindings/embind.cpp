@@ -6,6 +6,7 @@ using namespace emscripten;
 EMSCRIPTEN_BINDINGS(mapitron)
 {
     // Expose the mapitron API to JavaScript
+    function("buildType", &mapitron::build_type);
     function("shutdown", &mapitron::shutdown);
     function("add", &mapitron::add);
     function("addLayer", &mapitron::add_layer);

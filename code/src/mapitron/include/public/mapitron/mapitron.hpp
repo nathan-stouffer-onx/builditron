@@ -5,6 +5,8 @@
 namespace mapitron
 {
 
+std::string build_type();
+
 void shutdown();
 
 int add(int lhs, int rhs);

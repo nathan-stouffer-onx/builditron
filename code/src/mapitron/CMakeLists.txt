@@ -21,6 +21,11 @@ target_include_directories(mapitron
         "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
 )
 
+target_compile_definitions(mapitron
+    PUBLIC
+        MAPITRON_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+)
+
 # add dependencies
 target_link_libraries(mapitron
     PUBLIC
@@ -47,6 +52,11 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
             lucid
         PRIVATE
             engine
+    )
+
+    target_compile_definitions(mapitron-wasm
+        PUBLIC
+            MAPITRON_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
     )
 
     # Link with embind for Emscripten builds

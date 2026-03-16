@@ -33,6 +33,9 @@ async function main() {
 
     statusEl.textContent = 'Module loaded! Running tests...';
 
+    const buildType = mapitron.buildType();
+    console.log('Build type:', buildType);
+
     const sum = mapitron.add(5, 3);
     console.log('5 + 3 =', sum);
 
