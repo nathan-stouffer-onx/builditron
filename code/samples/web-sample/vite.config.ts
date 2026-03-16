@@ -14,15 +14,16 @@ export default defineConfig({
     fs: {
       // Allow serving files from the mapitron package outside the project root
       allow: [resolve(__dirname, '../..')]
-    },
-    watch: {
-      // Watch the mapitron package for changes
-      ignored: ['!**/packages/web/mapitron/src/**']
     }
   },
   plugins: [
     {
       name: 'wasm-reload',
+      configureServer(server) {
+        // Vite only watches inside the project root by default; explicitly add
+        // the mapitron package output dir so handleHotUpdate fires when cmake rebuilds
+        server.watcher.add(resolve(__dirname, '../../packages/web/mapitron/src'))
+      },
       handleHotUpdate({ file, server }) {
         // Force full reload when WASM or the mapitron JS module changes
         if (file.endsWith('.wasm') || file.endsWith('mapitron.js')) {
