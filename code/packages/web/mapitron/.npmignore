@@ -1,3 +1,0 @@
-# Don't ignore build artifacts in npm package (opposite of .gitignore)
-!src/mapitron.js
-!src/mapitron.wasm

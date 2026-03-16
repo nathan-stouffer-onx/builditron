@@ -1,5 +1,7 @@
 # Mapitron Web Sample
 
+TODO (stouff) rewrite this
+
 This is a web sample app for Mapitron, demonstrating the WebAssembly-compiled mapitron library.
 
 ## Quick Start

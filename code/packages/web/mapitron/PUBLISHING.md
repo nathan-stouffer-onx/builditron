@@ -1,5 +1,7 @@
 # Publishing Guide
 
+TODO (stouff) rewrite this
+
 ## First Time Setup
 
 1. **Build the WASM artifacts:**

@@ -1,5 +1,7 @@
 # Getting Started with Mapitron Web
 
+TODO (stouff) rewrite this
+
 This guide is for web developers who want to use the Mapitron library in their web applications.
 
 ## Prerequisites
