@@ -11,7 +11,7 @@
     "start:release": "npm run _cmake:build:release && npm run _start:prefix -- \"npm run _cpp:watch:release\"",
     "start:relwithdebinfo": "npm run _cmake:build:relwithdebinfo && npm run _start:prefix -- \"npm run _cpp:watch:relwithdebinfo\"",
     "start:minsizerel": "npm run _cmake:build:minsizerel && npm run _start:prefix -- \"npm run _cpp:watch:minsizerel\"",
-    "_start:prefix": "concurrently -n vite,cpp -cyan,magenta \"vite\"",
+    "_start:prefix": "concurrently -n vite,cpp -c cyan,magenta \"vite\"",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "TEST_BUILD=debug vitest",
