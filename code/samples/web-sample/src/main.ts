@@ -33,16 +33,16 @@ async function main() {
 
     statusEl.textContent = 'Module loaded! Running tests...';
 
-    const buildType = mapitron.buildType();
+    const buildType = mapitron.build_type();
     console.log('Build type:', buildType);
 
     const sum = mapitron.add(5, 3);
     console.log('5 + 3 =', sum);
 
-    const programsLoaded = mapitron.loadPrograms();
+    const programsLoaded = mapitron.load_programs();
     console.log('Programs loaded:', programsLoaded);
 
-    const fontInfo = mapitron.loadRoboto();
+    const fontInfo = mapitron.load_roboto();
     console.log('Font info:', fontInfo);
 
     const layerJson = JSON.stringify({
@@ -50,7 +50,7 @@ async function main() {
       type: 'fill',
       source: 'test-source'
     });
-    mapitron.addLayer(layerJson);
+    mapitron.add_layer(layerJson);
     console.log('Layer added');
 
     statusEl.textContent = `Ready (${build})! Check console for test results.`;

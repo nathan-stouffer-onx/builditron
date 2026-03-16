@@ -35,12 +35,12 @@ describe(`Mapitron WASM Module (${build})`, () => {
   });
 
   it('should load shader programs', () => {
-    const result = mapitron.loadPrograms();
+    const result = mapitron.load_programs();
     expect(result).toBe(true);
   });
 
   it('should load font', () => {
-    const fontInfo = mapitron.loadRoboto();
+    const fontInfo = mapitron.load_roboto();
     expect(fontInfo).toBeDefined();
     expect(typeof fontInfo).toBe('string');
   });
@@ -53,7 +53,7 @@ describe(`Mapitron WASM Module (${build})`, () => {
     });
 
     expect(() => {
-      mapitron.addLayer(layerJson);
+      mapitron.add_layer(layerJson);
     }).not.toThrow();
   });
 
@@ -68,7 +68,7 @@ describe(`Mapitron WASM Module (${build})`, () => {
       });
 
       expect(() => {
-        mapitron.addLayer(layerJson);
+        mapitron.add_layer(layerJson);
       }).not.toThrow();
     });
   });
