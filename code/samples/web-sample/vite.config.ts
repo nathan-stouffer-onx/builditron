@@ -12,6 +12,7 @@ export default defineConfig({
       'Cross-Origin-Embedder-Policy': 'require-corp'
     },
     fs: {
+      // TODO (stouff) potentially remove this
       // Allow serving files from the mapitron package outside the project root
       allow: [resolve(__dirname, '../..')]
     }
