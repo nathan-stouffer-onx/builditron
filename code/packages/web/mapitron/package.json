@@ -36,11 +36,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "cmake --build --preset targ-emscripten-MinSizeRel",
-    "build:debug": "cmake --build --preset targ-emscripten-Debug",
-    "build:release": "cmake --build --preset targ-emscripten-Release",
-    "build:relwithdebinfo": "cmake --build --preset targ-emscripten-RelWithDebInfo",
-    "build:minsizerel": "cmake --build --preset targ-emscripten-MinSizeRel",
+    "build:debug": "cd ../../.. && cmake --build --preset targ-emscripten-Debug",
+    "build:release": "cd ../../.. && cmake --build --preset targ-emscripten-Release",
+    "build:relwithdebinfo": "cd ../../.. && cmake --build --preset targ-emscripten-RelWithDebInfo",
+    "build:minsizerel": "cd ../../.. && cmake --build --preset targ-emscripten-MinSizeRel",
     "build:all": "npm run build:debug && npm run build:release && npm run build:relwithdebinfo && npm run build:minsizerel",
     "prepublishOnly": "npm run build:all"
   },
