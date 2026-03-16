@@ -1,6 +1,6 @@
 {
   "name": "mapitron",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "WebAssembly-powered map rendering library",
   "type": "module",
   "main": "./src/mapitron.js",
@@ -29,10 +29,5 @@
     "emscripten"
   ],
   "author": "",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/builditron.git",
-    "directory": "code/packages/web/mapitron"
-  }
+  "license": "MIT"
 }
