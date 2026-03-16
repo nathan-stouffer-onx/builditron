@@ -1,5 +1,7 @@
 # Mapitron
 
+TODO (stouff) rewrite this file
+
 WebAssembly-powered map rendering library built with C++ and Emscripten.
 
 ## Installation

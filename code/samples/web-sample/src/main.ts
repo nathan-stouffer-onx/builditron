@@ -29,6 +29,7 @@ async function main() {
     statusEl.textContent = `Loading WebAssembly module (${build})...`;
 
     const { default: createMapitronModule } = await modules[build]();
+    // TODO (stouff) see if we can rename this type
     const mapitron: MainModule = await createMapitronModule();
 
     statusEl.textContent = 'Module loaded! Running tests...';
