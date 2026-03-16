@@ -41,7 +41,8 @@
     "build:release": "cmake --build --preset targ-emscripten-Release",
     "build:relwithdebinfo": "cmake --build --preset targ-emscripten-RelWithDebInfo",
     "build:minsizerel": "cmake --build --preset targ-emscripten-MinSizeRel",
-    "prepublishOnly": "npm run build"
+    "build:all": "npm run build:debug && npm run build:release && npm run build:relwithdebinfo && npm run build:minsizerel",
+    "prepublishOnly": "npm run build:all"
   },
   "keywords": [
     "webassembly",
