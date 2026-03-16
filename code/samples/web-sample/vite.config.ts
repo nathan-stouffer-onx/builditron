@@ -1,27 +1,37 @@
 import { defineConfig } from 'vitest/config'
+import { fileURLToPath } from 'url'
+import { resolve } from 'path'
+
+const buildType = (process.env.BUILD_TYPE ?? 'Debug').toLowerCase()
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      'mapitron': resolve(__dirname, `../../packages/web/mapitron/src/${buildType}/mapitron.js`)
+    }
+  },
   server: {
     headers: {
       // Required for SharedArrayBuffer (if using threads)
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'require-corp'
     },
+    fs: {
+      // Allow serving files from the mapitron package outside the project root
+      allow: [resolve(__dirname, '../..')]
+    },
     watch: {
-      // Watch WASM files for changes
-      ignored: ['!**/src/wasm/**']
+      // Watch the mapitron package for changes
+      ignored: ['!**/packages/web/mapitron/src/**']
     }
-  },
-  define: {
-    // Make BUILD_TYPE available to the app (defaults to Debug for development)
-    'import.meta.env.BUILD_TYPE': JSON.stringify(process.env.BUILD_TYPE || 'Debug')
   },
   plugins: [
     {
       name: 'wasm-reload',
       handleHotUpdate({ file, server }) {
-        // Force full reload when WASM files change (HMR doesn't work well with WASM)
-        if (file.endsWith('.wasm') || (file.includes('/wasm/') && file.endsWith('.js'))) {
+        // Force full reload when WASM or the mapitron JS module changes
+        if (file.endsWith('.wasm') || file.endsWith('mapitron.js')) {
           server.ws.send({
             type: 'full-reload',
             path: '*'

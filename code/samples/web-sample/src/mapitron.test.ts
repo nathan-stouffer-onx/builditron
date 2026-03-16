@@ -1,15 +1,10 @@
 import { describe, it, expect, beforeAll } from 'vitest';
-
-// Get the build type from environment (defaults to Debug)
-// @ts-expect-error - BUILD_TYPE is defined by Vite config
-const buildType = (import.meta.env.BUILD_TYPE as string).toLowerCase();
+import createMapitronModule, { MainModule } from 'mapitron';
 
 describe('Mapitron WASM Module', () => {
-  let mapitron: any;
+  let mapitron: MainModule;
 
   beforeAll(async () => {
-    // Dynamically import the mapitron WebAssembly module based on build type
-    const { default: createMapitronModule } = await import(`./wasm/${buildType}/mapitron.js`);
     mapitron = await createMapitronModule();
   });
 
@@ -45,7 +40,6 @@ describe('Mapitron WASM Module', () => {
       source: 'test-source'
     });
 
-    // Should not throw
     expect(() => {
       mapitron.addLayer(layerJson);
     }).not.toThrow();

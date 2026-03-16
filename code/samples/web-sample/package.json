@@ -33,6 +33,9 @@
     "_cmake:build:minsizerel": "cd ../../.. && cmake --build --preset targ-emscripten-MinSizeRel --target mapitron-wasm",
     "_cmake:build": "npm run _cmake:build:debug && npm run _cmake:build:release"
   },
+  "dependencies": {
+    "mapitron": "file:../../packages/web/mapitron"
+  },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@vitest/ui": "^2.1.0",
