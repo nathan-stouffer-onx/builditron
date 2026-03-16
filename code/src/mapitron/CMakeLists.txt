@@ -52,6 +52,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     # Link with embind for Emscripten builds
     target_link_options(mapitron-wasm PUBLIC
         "SHELL:--bind"
+        "SHELL:--emit-tsd mapitron.d.ts"
         "SHELL:-s EXPORT_ES6=1"
         "SHELL:-s MODULARIZE=1"
         "SHELL:-s EXPORT_NAME='createMapitronModule'"
@@ -72,5 +73,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.wasm"
             "${NPM_PACKAGE_DIR}/mapitron.wasm"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "$<TARGET_FILE_DIR:mapitron-wasm>/mapitron.d.ts"
+            "${NPM_PACKAGE_DIR}/mapitron.d.ts"
     )
 endif()
