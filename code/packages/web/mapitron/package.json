@@ -3,33 +3,33 @@
   "version": "0.0.0",
   "description": "WebAssembly-powered map rendering library",
   "type": "module",
-  "main": "./src/minsizerel/mapitron.js",
+  "main": "./src/MinSizeRel/mapitron.js",
   "types": "./src/mapitron.d.ts",
   "exports": {
     ".": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/minsizerel/mapitron.js"
+      "import": "./src/MinSizeRel/mapitron.js"
     },
-    "./debug": {
+    "./Debug": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/debug/mapitron.js"
+      "import": "./src/Debug/mapitron.js"
     },
-    "./release": {
+    "./Release": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/release/mapitron.js"
+      "import": "./src/Release/mapitron.js"
     },
-    "./relwithdebinfo": {
+    "./RelWithDebInfo": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/relwithdebinfo/mapitron.js"
+      "import": "./src/RelWithDebInfo/mapitron.js"
     },
-    "./minsizerel": {
+    "./MinSizeRel": {
       "types": "./src/mapitron.d.ts",
-      "import": "./src/minsizerel/mapitron.js"
+      "import": "./src/MinSizeRel/mapitron.js"
     },
-    "./debug/mapitron.wasm": "./src/debug/mapitron.wasm",
-    "./release/mapitron.wasm": "./src/release/mapitron.wasm",
-    "./relwithdebinfo/mapitron.wasm": "./src/relwithdebinfo/mapitron.wasm",
-    "./minsizerel/mapitron.wasm": "./src/minsizerel/mapitron.wasm"
+    "./Debug/mapitron.wasm": "./src/Debug/mapitron.wasm",
+    "./Release/mapitron.wasm": "./src/Release/mapitron.wasm",
+    "./RelWithDebInfo/mapitron.wasm": "./src/RelWithDebInfo/mapitron.wasm",
+    "./MinSizeRel/mapitron.wasm": "./src/MinSizeRel/mapitron.wasm"
   },
   "files": [
     "src/**/*",
@@ -37,17 +37,17 @@
   ],
   "scripts": {
     "build": "npm run configure:all && npm run build:all",
-    "build:all": "npm run build:debug && npm run build:release && npm run build:relwithdebinfo && npm run build:minsizerel",
-    "build:debug": "npm run _build:prefix -- --preset targ-emscripten-Debug",
-    "build:release": "npm run _build:prefix -- --preset targ-emscripten-Release",
-    "build:relwithdebinfo": "npm run _build:prefix -- --preset targ-emscripten-RelWithDebInfo",
-    "build:minsizerel": "npm run _build:prefix -- --preset targ-emscripten-MinSizeRel",
-    "configure:all": "npm run _configure:debug && npm run _configure:release && npm run _configure:relwithdebinfo && npm run _configure:minsizerel",
+    "build:all": "npm run build:Debug && npm run build:Release && npm run build:RelWithDebInfo && npm run build:MinSizeRel",
+    "build:Debug": "npm run _build:prefix -- --preset targ-emscripten-Debug",
+    "build:Release": "npm run _build:prefix -- --preset targ-emscripten-Release",
+    "build:RelWithDebInfo": "npm run _build:prefix -- --preset targ-emscripten-RelWithDebInfo",
+    "build:MinSizeRel": "npm run _build:prefix -- --preset targ-emscripten-MinSizeRel",
+    "configure:all": "npm run _configure:Debug && npm run _configure:Release && npm run _configure:RelWithDebInfo && npm run _configure:MinSizeRel",
     "_build:prefix": "cd ../../.. && cmake --build",
-    "_configure:debug": "npm run _configure:prefix -- --preset targ-emscripten-Debug",
-    "_configure:release": "npm run _configure:prefix -- --preset targ-emscripten-Release",
-    "_configure:relwithdebinfo": "npm run _configure:prefix -- --preset targ-emscripten-RelWithDebInfo",
-    "_configure:minsizerel": "npm run _configure:prefix -- --preset targ-emscripten-MinSizeRel",
+    "_configure:Debug": "npm run _configure:prefix -- --preset targ-emscripten-Debug",
+    "_configure:Release": "npm run _configure:prefix -- --preset targ-emscripten-Release",
+    "_configure:RelWithDebInfo": "npm run _configure:prefix -- --preset targ-emscripten-RelWithDebInfo",
+    "_configure:MinSizeRel": "npm run _configure:prefix -- --preset targ-emscripten-MinSizeRel",
     "_configure:prefix": "cd ../../.. && cmake"
   },
   "keywords": [

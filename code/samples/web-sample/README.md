@@ -13,10 +13,10 @@ npm run start
 
 ## Build Configurations
 
-`mapitron` has a number of build configurations: `debug`, `release`, `relwithdebinfo`, and `minsizerel`.
+`mapitron` has a number of build configurations: `Debug`, `Release`, `RelWithDebInfo`, and `MinSizeRel`.
 Each of these build configurations is included in `mapitron`.
-The `minsizerel` build is exported by default but this sample app is set up to load the build type as a query parameter.
-For instance, `http://localhost:5173/?build=debug` loads the debug library.
+The `MinSizeRel` build is exported by default but this sample app is set up to load the build type as a query parameter.
+For instance, `http://localhost:5173/?build=Debug` loads the debug library.
 
 The flip side of providing all four build configurations is that builds can take a long time.
-When working with a specific build configuration, it is possible to only build/watch that configuration (e.g. `npm run start:debug`).
+When working with a specific build configuration, it is possible to only build/watch that configuration (e.g. `npm run start:Debug`).

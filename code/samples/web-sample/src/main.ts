@@ -2,17 +2,17 @@ import { MainModule } from 'mapitron';
 
 const modules = {
   // TODO (stouff) possibly get rid of these @vite-ignores?
-  debug:          () => import(/* @vite-ignore */ 'mapitron/debug'),
-  release:        () => import(/* @vite-ignore */ 'mapitron/release'),
-  relwithdebinfo: () => import(/* @vite-ignore */ 'mapitron/relwithdebinfo'),
-  minsizerel:     () => import(/* @vite-ignore */ 'mapitron/minsizerel'),
+  Debug:          () => import(/* @vite-ignore */ 'mapitron/Debug'),
+  Release:        () => import(/* @vite-ignore */ 'mapitron/Release'),
+  RelWithDebInfo: () => import(/* @vite-ignore */ 'mapitron/RelWithDebInfo'),
+  MinSizeRel:     () => import(/* @vite-ignore */ 'mapitron/MinSizeRel'),
 };
 
 type BuildType = keyof typeof modules;
 
 function getBuildType(): BuildType {
   const param = new URLSearchParams(window.location.search).get('build');
-  return (param && param in modules) ? param as BuildType : 'minsizerel';
+  return (param && param in modules) ? param as BuildType : 'MinSizeRel';
 }
 
 async function main() {

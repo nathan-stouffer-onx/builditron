@@ -2,15 +2,15 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { MainModule } from 'mapitron';
 
 const modules = {
-  debug:          () => import(/* @vite-ignore */ 'mapitron/debug'),
-  release:        () => import(/* @vite-ignore */ 'mapitron/release'),
-  relwithdebinfo: () => import(/* @vite-ignore */ 'mapitron/relwithdebinfo'),
-  minsizerel:     () => import(/* @vite-ignore */ 'mapitron/minsizerel'),
+  Debug:          () => import(/* @vite-ignore */ 'mapitron/Debug'),
+  Release:        () => import(/* @vite-ignore */ 'mapitron/Release'),
+  RelWithDebInfo: () => import(/* @vite-ignore */ 'mapitron/RelWithDebInfo'),
+  MinSizeRel:     () => import(/* @vite-ignore */ 'mapitron/MinSizeRel'),
 };
 
 type BuildType = keyof typeof modules;
 
-const build = (process.env.TEST_BUILD ?? 'debug') as BuildType;
+const build = (process.env.TEST_BUILD ?? 'MinSizeRel') as BuildType;
 
 describe(`Mapitron WASM Module (${build})`, () => {
   let mapitron: MainModule;

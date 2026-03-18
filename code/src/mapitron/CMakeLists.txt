@@ -60,11 +60,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
         "SHELL:-s EXPORT_NAME='createMapitronModule'"
     )
 
-    # Convert build type to lowercase for directory name
-    string(TOLOWER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_LOWER)
-
     set(NPM_PACKAGE_DIR "${CMAKE_SOURCE_DIR}/code/packages/web/mapitron/src")
-    set(NPM_BUILD_DIR "${NPM_PACKAGE_DIR}/${BUILD_TYPE_LOWER}")
+    set(NPM_BUILD_DIR "${NPM_PACKAGE_DIR}/${CMAKE_BUILD_TYPE}")
 
     # Copy WebAssembly artifacts after building mapitron-wasm
     add_custom_command(TARGET mapitron-wasm POST_BUILD
