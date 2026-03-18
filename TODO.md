@@ -2,6 +2,7 @@
 
 - [ ] write documentation
 - [ ] set up GHA for web-sample
+- [ ] add xcode generator for mac?
 - [ ] support exceptions in wasm builds
 - [ ] add git hash as version
 - [ ] use Ninja for emscripten builds

@@ -38,4 +38,5 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
 ## Building
 
 The primary build artifact of this repository is the `mapitron` library.
+There are sample apps built for each supported platform as well.
 You can read more about building in [BUILDING.md](./BUILDING.md).

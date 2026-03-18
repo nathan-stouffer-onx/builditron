@@ -1,43 +1,91 @@
 # Building
 
 The primary build artifact of this repository is the `mapitron` library.
-This is what could be built and posted to a package registry for each platform.
+This is what could be built and posted to a package registry.
+In addition to the package, this repository contains tests and sample applications utilizing `mapitron`.
+These integrate directly with each target's native development system. 
+This document outlines the build process for the library itself; more can be read about the sample apps [here](./code/samples/README.md).
 
-In addition to the package, this repository contains tests, tools, and sample applications utilizing `mapitron`.
-These integrate directly with each target's native development system and can be set up using the guide below.
+`mapitron` is often cross-compiled.
+There is a target (where the code will run) and a host (where the code is built).
+Additionally, buliding the _target_ requires tools that are built/ran on the _host_ machine.
+When setting up the build environment, tools to build both the host and target must be installed.
+Even if the target machine is the same as the host, the project will deal them separately and still expects host tools to be installed.
 
 ## Tools
 
-There a few tools that you will need regardless of which platform you are building.
+A few tools are required regardless of which platform you are building:
 
+* `git`
 * `cmake`
 * `ninja`
 
-Additionally, you will need to run `git submodule update --init` when first cloning the repository.
-
-TODO (stouff) mention presets?
-
-## Hosts
-
-### Windows
-
-TODO (stouff) write this
-
-### macOS
-
-TODO (stouff) write this
-
-## Targets
-
-### Windows
-
-### macOS
-
-### Web
-
-TODO (stouff) write this
+After your initial clone (or whenever submodules are updated), you must run the following to sync the submodules:
 
 ```
+git submodule update --init
+```
+
+### Hosts
+
+The host build compiles tools (e.g. `shadertron`) that are needed during a target build.
+Based on the host, the following tools must be installed:
+
+- Windows
+    - Visual Studio
+- macOS
+    - clang/clang++
+- Linux
+    - gcc/g++
+
+### Targets
+
+The target is the platform on which the code will run.
+Based on the target platform, the following tools must be installed:
+
+- Windows
+    - Visual Studio
+- Web
+    - make
+
+Additional steps for each target type are listed below.
+
+#### Web
+
+To build for web, the C++ code is compiled to WASM by [emscripten](https://emscripten.org/).
+The necessary tooling is included as a submodule at `code/deps/emsdk`.
+Before your first web build, install and activate it:
+
+```
+cd code/deps/emsdk
 ./emsdk install latest
 ./emsdk activate latest
+```
+
+**Note: Web is not yet supported on a Windows host.**
+
+## Building
+
+Once all required tools are installed, it is possible to build `mapitron`!
+
+This repository uses CMake presets to manage configurations.
+All presets are defined in [CMakePresets.json](CMakePresets.json) and the files under [presets/](./presets/).
+
+Preset names follow the pattern `{host|targ}-{platform}-{config}`.
+The available build configurations are `Debug`, `Release`, `RelWithDebInfo`, and `MinSizeRel`.
+For example:
+- `host-mac-Debug` — macOS host build, debug configuration
+- `targ-emscripten-Release` — Emscripten target build, release configuration
+
+Configure and build the `mapitron` library using a preset:
+
+```
+cmake --preset <preset-name>
+cmake --build --preset <preset-name>
+```
+
+You can list available presets by running:
+
+```
+cmake --list-presets
 ```
