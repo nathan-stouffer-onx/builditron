@@ -3,11 +3,13 @@
 
 using namespace emscripten;
 
-EMSCRIPTEN_BINDINGS(mapitron) {
+EMSCRIPTEN_BINDINGS(mapitron)
+{
     // Expose the mapitron API to JavaScript
+    function("build_type", &mapitron::build_type);
     function("shutdown", &mapitron::shutdown);
     function("add", &mapitron::add);
-    function("addLayer", &mapitron::add_layer);
-    function("loadRoboto", &mapitron::load_roboto);
-    function("loadPrograms", &mapitron::load_programs);
+    function("add_layer", &mapitron::add_layer);
+    function("load_roboto", &mapitron::load_roboto);
+    function("load_programs", &mapitron::load_programs);
 }

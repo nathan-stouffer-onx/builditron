@@ -1,0 +1,75 @@
+import { describe, it, expect, beforeAll } from 'vitest';
+import { MainModule } from 'mapitron';
+
+const modules = {
+  Debug:          () => import(/* @vite-ignore */ 'mapitron/Debug'),
+  Release:        () => import(/* @vite-ignore */ 'mapitron/Release'),
+  RelWithDebInfo: () => import(/* @vite-ignore */ 'mapitron/RelWithDebInfo'),
+  MinSizeRel:     () => import(/* @vite-ignore */ 'mapitron/MinSizeRel'),
+};
+
+type BuildType = keyof typeof modules;
+
+const build = (process.env.TEST_BUILD ?? 'MinSizeRel') as BuildType;
+
+describe(`Mapitron WASM Module (${build})`, () => {
+  let mapitron: MainModule;
+
+  beforeAll(async () => {
+    const { default: createMapitronModule } = await modules[build]();
+    mapitron = await createMapitronModule();
+  });
+
+  it('should load the WASM module', () => {
+    expect(mapitron).toBeDefined();
+  });
+
+  it('should perform basic addition', () => {
+    const result = mapitron.add(5, 3);
+    expect(result).toBe(8);
+  });
+
+  it('should perform addition with negative numbers', () => {
+    const result = mapitron.add(-5, 3);
+    expect(result).toBe(-2);
+  });
+
+  it('should load shader programs', () => {
+    const result = mapitron.load_programs();
+    expect(result).toBe(true);
+  });
+
+  it('should load font', () => {
+    const fontInfo = mapitron.load_roboto();
+    expect(fontInfo).toBeDefined();
+    expect(typeof fontInfo).toBe('string');
+  });
+
+  it('should add a layer', () => {
+    const layerJson = JSON.stringify({
+      id: 'test-layer',
+      type: 'fill',
+      source: 'test-source'
+    });
+
+    expect(() => {
+      mapitron.add_layer(layerJson);
+    }).not.toThrow();
+  });
+
+  it('should handle different layer types', () => {
+    const layerTypes = ['fill', 'line', 'symbol'];
+
+    layerTypes.forEach((type, index) => {
+      const layerJson = JSON.stringify({
+        id: `test-layer-${type}`,
+        type,
+        source: `test-source-${index}`
+      });
+
+      expect(() => {
+        mapitron.add_layer(layerJson);
+      }).not.toThrow();
+    });
+  });
+});

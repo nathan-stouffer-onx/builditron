@@ -1,0 +1,50 @@
+{
+  "name": "mapitron-web",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm run _cmake:configure",
+    "start": "npm run _start:prefix -- \"npm run _cpp:watch:all\"",
+    "start:nocpp": "vite",
+    "start:novite": "npm run _cpp:watch:all",
+    "start:Debug": "npm run _cmake:build:Debug && npm run _start:prefix -- \"npm run _cpp:watch:Debug\"",
+    "start:Release": "npm run _cmake:build:Release && npm run _start:prefix -- \"npm run _cpp:watch:Release\"",
+    "start:RelWithDebInfo": "npm run _cmake:build:RelWithDebInfo && npm run _start:prefix -- \"npm run _cpp:watch:RelWithDebInfo\"",
+    "start:MinSizeRel": "npm run _cmake:build:MinSizeRel && npm run _start:prefix -- \"npm run _cpp:watch:MinSizeRel\"",
+    "_start:prefix": "concurrently -n vite,cpp -c cyan,magenta \"vite\"",
+    "build": "tsc && vite build",
+    "test": "TEST_BUILD=MinSizeRel vitest",
+    "test:ui": "vitest --ui",
+    "test:Debug": "TEST_BUILD=Debug vitest",
+    "test:Release": "TEST_BUILD=Release vitest",
+    "test:RelWithDebInfo": "TEST_BUILD=RelWithDebInfo vitest",
+    "test:MinSizeRel": "TEST_BUILD=MinSizeRel vitest",
+    "prestart": "npm run _cmake:build:all",
+    "prebuild": "npm run _cmake:build:all",
+    "_cpp:watch:all": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:all\"",
+    "_cpp:watch:Debug": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:Debug\"",
+    "_cpp:watch:Release": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:Release\"",
+    "_cpp:watch:RelWithDebInfo": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:RelWithDebInfo\"",
+    "_cpp:watch:MinSizeRel": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:MinSizeRel\"",
+    "_cpp:watch:prefix": "chokidar \"../../src/**/*.{cpp,hpp}\" \"../../include/**/*.hpp\" -c",
+    "_cmake:configure": "cd ../../.. && cmake --preset targ-emscripten-Debug && cmake --preset targ-emscripten-Release && cmake --preset targ-emscripten-RelWithDebInfo && cmake --preset targ-emscripten-MinSizeRel",
+    "_cmake:build:all": "npm run _cmake:build:Debug && npm run _cmake:build:Release && npm run _cmake:build:RelWithDebInfo && npm run _cmake:build:MinSizeRel",
+    "_cmake:build:Debug": "npm run _cmake:build:prefix -- --preset targ-emscripten-Debug",
+    "_cmake:build:Release": "npm run _cmake:build:prefix -- --preset targ-emscripten-Release",
+    "_cmake:build:RelWithDebInfo": "npm run _cmake:build:prefix -- --preset targ-emscripten-RelWithDebInfo",
+    "_cmake:build:MinSizeRel": "npm run _cmake:build:prefix -- --preset targ-emscripten-MinSizeRel",
+    "_cmake:build:prefix": "cd ../../.. && cmake --build --target mapitron-wasm"
+  },
+  "dependencies": {
+    "mapitron": "file:../../packages/web/mapitron"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/ui": "^2.1.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0"
+  }
+}

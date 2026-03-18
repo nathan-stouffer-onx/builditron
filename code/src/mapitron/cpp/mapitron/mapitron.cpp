@@ -9,6 +9,11 @@
 namespace mapitron
 {
 
+std::string build_type()
+{
+    return MAPITRON_BUILD_TYPE;
+}
+
 void shutdown()
 {
     engine::brain::shutdown();
