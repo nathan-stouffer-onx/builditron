@@ -71,8 +71,7 @@ Once all required tools are installed, it is possible to build `mapitron`!
 This repository uses CMake presets to manage configurations.
 All presets are defined in [CMakePresets.json](CMakePresets.json) and the files under [presets/](./presets/).
 
-Preset names follow the pattern `{host|targ}-{platform}-{config}`.
-The available build configurations are `Debug`, `Release`, `RelWithDebInfo`, and `MinSizeRel`.
+Preset names follow the pattern `{host|targ}-{platform}-{Debug|Release|RelWithDebInfo|MinSizeRel}`.
 For example:
 - `host-mac-Debug` — macOS host build, debug configuration
 - `targ-emscripten-Release` — Emscripten target build, release configuration
