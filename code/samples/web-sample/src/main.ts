@@ -29,7 +29,7 @@ async function main() {
     statusEl.textContent = `Loading WebAssembly module (${build})...`;
 
     const { default: createMapitronModule } = await modules[build]();
-    // TODO (stouff) see if we can rename this type
+    // TODO (stouff) ask web people if we should try to hide this name behind a better one
     const mapitron: MainModule = await createMapitronModule();
 
     statusEl.textContent = 'Module loaded! Running tests...';

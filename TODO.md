@@ -1,6 +1,5 @@
 # TODO
 
-- [ ] write documentation
 - [ ] set up GHA for web-sample
 - [ ] add xcode generator for mac?
 - [ ] support exceptions in wasm builds
