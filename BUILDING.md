@@ -17,15 +17,23 @@ Additionally, you will need to run `git submodule update --init` when first clon
 
 TODO (stouff) mention presets?
 
-## Windows
+## Hosts
+
+### Windows
 
 TODO (stouff) write this
 
-## macOS
+### macOS
 
 TODO (stouff) write this
 
-## Web
+## Targets
+
+### Windows
+
+### macOS
+
+### Web
 
 TODO (stouff) write this
 
