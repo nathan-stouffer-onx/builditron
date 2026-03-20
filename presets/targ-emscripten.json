@@ -7,7 +7,8 @@
       "hidden": true,
       "inherits": "targ-base",
       "environment": {
-        "EMSDK": "${sourceDir}/code/deps/emsdk"
+        "EMSDK": "${sourceDir}/code/deps/emsdk",
+        "EMSCRIPTEN_ROOT": "${sourceDir}/code/deps/emsdk/upstream/emscripten"
       },
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "wasm32-emscripten",
