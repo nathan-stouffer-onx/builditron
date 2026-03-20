@@ -23,11 +23,18 @@ if(MAPITRON_IS_TARGET_BUILD)
     message(FATAL_ERROR "Unsupported host platform: ${CMAKE_HOST_SYSTEM_NAME}")
   endif()
 
-  set(HOST_PRESET "host-${HOST_PLATFORM}-MinSizeRel")
-  set(HOST_BINARY_DIR "${CMAKE_SOURCE_DIR}/out/build/${HOST_PRESET}")
+
+  set(HOST_BUILD_CONFIG "MinSizeRel")
+  if(HOST_PLATFORM STREQUAL "win")
+    set(HOST_CONFIGURE_PRESET "host-${HOST_PLATFORM}")
+  else()
+    set(HOST_CONFIGURE_PRESET "host-${HOST_PLATFORM}-${HOST_BUILD_CONFIG}")
+  endif()
+  set(HOST_BUILD_PRESET "host-${HOST_PLATFORM}-${HOST_BUILD_CONFIG}")
+  set(HOST_ROOT_BUILD_DIR "${CMAKE_SOURCE_DIR}/out/build/${HOST_CONFIGURE_PRESET}")
 
   execute_process(
-    COMMAND ${CMAKE_COMMAND} --preset ${HOST_PRESET}
+    COMMAND ${CMAKE_COMMAND} --preset ${HOST_CONFIGURE_PRESET}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     RESULT_VARIABLE host_configure_result
   )
@@ -36,8 +43,13 @@ if(MAPITRON_IS_TARGET_BUILD)
     message(FATAL_ERROR "Host configure failed")
   endif()
 
-  # Export the path to host-built tools for use by target build
-  set(HOST_SHADERTRON_EXECUTABLE "${HOST_BINARY_DIR}/code/tools/shadertron/shadertron${HOST_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
+  # Visual Studio is a multi-config generator: binaries land in a <config>/ subdirectory.
+  # Single-config generators (Ninja on Mac/Linux) place them directly in the binary dir.
+  if(HOST_PLATFORM STREQUAL "win")
+    set(HOST_SHADERTRON_EXECUTABLE "${HOST_ROOT_BUILD_DIR}/code/tools/shadertron/${HOST_BUILD_CONFIG}/shadertron${HOST_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
+  else()
+    set(HOST_SHADERTRON_EXECUTABLE "${HOST_ROOT_BUILD_DIR}/code/tools/shadertron/shadertron${HOST_EXECUTABLE_SUFFIX}" CACHE FILEPATH "Path to host-built shadertron executable")
+  endif()
   message(STATUS "Host shadertron path: ${HOST_SHADERTRON_EXECUTABLE}")
 endif()
 
