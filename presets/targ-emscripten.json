@@ -18,11 +18,7 @@
       "name": "targ-env-emscripten",
       "hidden": true,
       "inherits": "targ-deps-emscripten",
-      "generator": "Unix Makefiles",
-      "cacheVariables": {
-        "CMAKE_C_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/emcc",
-        "CMAKE_CXX_COMPILER": "${sourceDir}/code/deps/emsdk/upstream/emscripten/em++"
-      }
+      "generator": "Unix Makefiles"
     },
     {
       "name": "targ-emscripten-Debug",
