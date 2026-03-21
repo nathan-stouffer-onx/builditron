@@ -113,7 +113,7 @@ jobs:
         if: matrix.host.preset_prefix == 'targ-emscripten'
         shell: bash
         run: |
-          cd ${{ github.workspace }}/code/deps/emsdk
+          cd code/deps/emsdk
           ./emsdk install latest
           ./emsdk activate latest
 
