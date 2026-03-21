@@ -30,7 +30,7 @@ target_link_libraries(mapitron
 )
 
 # For Emscripten, create a WASM module executable
-if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+if(EMSCRIPTEN)
     # Create a wrapper executable that exports the library as a WASM module
     set(MAPITRON_WASM_FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/cpp/bindings/embind.cpp"

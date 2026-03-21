@@ -26,6 +26,8 @@ jobs:
           - { image: windows-2022, preset_prefix: targ-win-ninja  }
           - { image: macos-14,     preset_prefix: targ-mac        }
           - { image: ubuntu-22.04, preset_prefix: targ-emscripten }
+          - { image: macos-14,     preset_prefix: targ-emscripten }
+          - { image: windows-2022, preset_prefix: targ-emscripten }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
@@ -111,7 +113,7 @@ jobs:
         if: matrix.host.preset_prefix == 'targ-emscripten'
         shell: bash
         run: |
-          cd ${{ github.workspace }}/code/deps/emsdk
+          cd code/deps/emsdk
           ./emsdk install latest
           ./emsdk activate latest
 

@@ -7,8 +7,8 @@ These integrate directly with each target's native development system.
 This document outlines the build process for the library itself; more can be read about the sample apps [here](./code/samples/README.md).
 
 `mapitron` is often cross-compiled.
-There is a target (where the code will run) and a host (where the code is built).
-Additionally, buliding the _target_ requires tools that are built/ran on the _host_ machine.
+There is a target machine (where the code will run) and a host machine (where the code is built).
+Additionally, building the _target_ requires tools that are built/ran on the _host_ machine.
 When setting up the build environment, tools to build both the host and target must be installed.
 Even if the target machine is the same as the host, the project will deal them separately and still expects host tools to be installed.
 
@@ -28,8 +28,8 @@ git submodule update --init
 
 ### Hosts
 
-The host build compiles tools (e.g. `shadertron`) that are needed during a target build.
-Based on the host, the following tools must be installed:
+The host builds tools that are needed during a target build.
+The following tools must be installed:
 
 - Windows
     - Visual Studio
@@ -41,7 +41,7 @@ Based on the host, the following tools must be installed:
 ### Targets
 
 The target is the platform on which the code will run.
-Based on the target platform, the following tools must be installed:
+The following tools must be installed:
 
 - Windows
     - Visual Studio
@@ -61,8 +61,6 @@ cd code/deps/emsdk
 ./emsdk install latest
 ./emsdk activate latest
 ```
-
-**Note: Web is not yet supported on a Windows host.**
 
 ## Building
 
