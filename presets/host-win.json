@@ -23,6 +23,7 @@
     },
     {
       "name": "host-win",
+      "hidden": true,
       "inherits": "host-env-win-msvc-vs"
     },
     {
@@ -45,22 +46,22 @@
   "buildPresets": [
     {
       "name": "host-win-Debug",
-      "configurePreset": "host-win",
+      "configurePreset": "host-win-Debug",
       "configuration": "Debug"
     },
     {
       "name": "host-win-RelWithDebInfo",
-      "configurePreset": "host-win",
+      "configurePreset": "host-win-RelWithDebInfo",
       "configuration": "RelWithDebInfo"
     },
     {
       "name": "host-win-Release",
-      "configurePreset": "host-win",
+      "configurePreset": "host-win-Release",
       "configuration": "Release"
     },
     {
       "name": "host-win-MinSizeRel",
-      "configurePreset": "host-win",
+      "configurePreset": "host-win-MinSizeRel",
       "configuration": "MinSizeRel"
     }
   ]
