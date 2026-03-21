@@ -7,3 +7,4 @@
 - [ ] use Ninja for emscripten builds
 - [ ] add ios project
 - [ ] add android project
+- [ ] potentially consolidate host tool builds in GHA?
