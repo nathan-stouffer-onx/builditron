@@ -24,6 +24,22 @@
     {
       "name": "host-win",
       "inherits": "host-env-win-msvc-vs"
+    },
+    {
+      "name": "host-win-Debug",
+      "inherits": "host-win"
+    },
+    {
+      "name": "host-win-RelWithDebInfo",
+      "inherits": "host-win"
+    },
+    {
+      "name": "host-win-Release",
+      "inherits": "host-win"
+    },
+    {
+      "name": "host-win-MinSizeRel",
+      "inherits": "host-win"
     }
   ],
   "buildPresets": [

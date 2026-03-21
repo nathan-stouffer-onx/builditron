@@ -13,7 +13,7 @@ if(MAPITRON_IS_TARGET_BUILD)
   add_custom_command(
     OUTPUT "${SHADERTRON_EXE}"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-    COMMAND ${CMAKE_COMMAND} --build --preset ${HOST_BUILD_PRESET} --target shadertron
+    COMMAND ${CMAKE_COMMAND} --build --preset ${HOST_PRESET} --target shadertron
 
     DEPENDS shadertron
     COMMENT "Building shadertron for host"
