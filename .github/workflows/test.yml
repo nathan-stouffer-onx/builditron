@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.host.image }}
     strategy:
       # Cancel all in-progress and queued jobs in the matrix if any job in the matrix fails
-      fail-fast: false
+      fail-fast: true
 
       # matrix docs: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
       matrix:
@@ -26,6 +26,8 @@ jobs:
           - { image: windows-2022, preset_prefix: targ-win-ninja  }
           - { image: macos-14,     preset_prefix: targ-mac        }
           - { image: ubuntu-22.04, preset_prefix: targ-emscripten }
+          - { image: macos14,      preset_prefix: targ-emscripten }
+          - { image: windows-2022, preset_prefix: targ-emscripten }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
