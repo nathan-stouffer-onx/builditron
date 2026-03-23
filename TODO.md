@@ -7,4 +7,5 @@
 - [ ] use Ninja for emscripten builds
 - [ ] add ios project
 - [ ] add android project
+- [ ] simulate bgfx dependency
 - [ ] potentially consolidate host tool builds in GHA?
