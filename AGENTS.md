@@ -4,7 +4,9 @@
 
 @BUILDING.md
 
-## awkwardness
+@code/README.md
+
+## Awkwardness
 
 `builditron` is cross-compiled so there is a _host_ machine and a _destination_ machine.
 There are also some advanced dependencies because there are _host_ tools that are ran when building for the _destination_.

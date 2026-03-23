@@ -26,6 +26,16 @@ After your initial clone (or whenever submodules are updated), you must run the 
 git submodule update --init
 ```
 
+vcpkg is included as a submodule at `code/deps/vcpkg` and must be bootstrapped once before your first build:
+
+```
+# macOS / Linux
+./code/deps/vcpkg/bootstrap-vcpkg.sh
+
+# Windows
+.\code\deps\vcpkg\bootstrap-vcpkg.bat
+```
+
 ### Hosts
 
 The host builds tools that are needed during a destination build.
