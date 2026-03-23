@@ -8,7 +8,8 @@
       "inherits": "dest-base",
       "environment": {
         "EMSDK": "${sourceDir}/code/deps/emsdk",
-        "EMSCRIPTEN_ROOT": "${sourceDir}/code/deps/emsdk/upstream/emscripten"
+        "EMSCRIPTEN_ROOT": "${sourceDir}/code/deps/emsdk/upstream/emscripten",
+        "EMSCRIPTEN": "${sourceDir}/code/deps/emsdk/upstream/emscripten"
       },
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "wasm32-emscripten",
