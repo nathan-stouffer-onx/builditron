@@ -20,15 +20,15 @@
       "hidden": true,
       "inherits": "deps",
       "cacheVariables": {
-        "MAPITRON_IS_TARGET_BUILD": false
+        "MAPITRON_IS_DESTINATION_BUILD": false
       }
     },
     {
-      "name": "targ-base",
+      "name": "dest-base",
       "hidden": true,
       "inherits": "deps",
       "cacheVariables": {
-        "MAPITRON_IS_TARGET_BUILD": true
+        "MAPITRON_IS_DESTINATION_BUILD": true
       }
     }
   ]

@@ -3,17 +3,17 @@
   "include": ["base.json"],
   "configurePresets": [
     {
-      "name": "targ-deps-mac",
+      "name": "dest-deps-mac",
       "hidden": true,
-      "inherits": "targ-base",
+      "inherits": "dest-base",
       "cacheVariables": {
         "VCPKG_TARGET_TRIPLET": "arm64-osx"
       }
     },
     {
-      "name": "targ-env-mac-clang-ninja",
+      "name": "dest-env-mac-clang-ninja",
       "hidden": true,
-      "inherits": "targ-deps-mac",
+      "inherits": "dest-deps-mac",
       "generator": "Ninja",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang",
@@ -21,29 +21,29 @@
       }
     },
     {
-      "name": "targ-mac-Debug",
-      "inherits": "targ-env-mac-clang-ninja",
+      "name": "dest-mac-Debug",
+      "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
-      "name": "targ-mac-RelWithDebInfo",
-      "inherits": "targ-env-mac-clang-ninja",
+      "name": "dest-mac-RelWithDebInfo",
+      "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
-      "name": "targ-mac-Release",
-      "inherits": "targ-env-mac-clang-ninja",
+      "name": "dest-mac-Release",
+      "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
-      "name": "targ-mac-MinSizeRel",
-      "inherits": "targ-env-mac-clang-ninja",
+      "name": "dest-mac-MinSizeRel",
+      "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
       }
@@ -51,20 +51,20 @@
   ],
   "buildPresets": [
     {
-      "name": "targ-mac-Debug",
-      "configurePreset": "targ-mac-Debug"
+      "name": "dest-mac-Debug",
+      "configurePreset": "dest-mac-Debug"
     },
     {
-      "name": "targ-mac-RelWithDebInfo",
-      "configurePreset": "targ-mac-RelWithDebInfo"
+      "name": "dest-mac-RelWithDebInfo",
+      "configurePreset": "dest-mac-RelWithDebInfo"
     },
     {
-      "name": "targ-mac-Release",
-      "configurePreset": "targ-mac-Release"
+      "name": "dest-mac-Release",
+      "configurePreset": "dest-mac-Release"
     },
     {
-      "name": "targ-mac-MinSizeRel",
-      "configurePreset": "targ-mac-MinSizeRel"
+      "name": "dest-mac-MinSizeRel",
+      "configurePreset": "dest-mac-MinSizeRel"
     }
   ]
 }

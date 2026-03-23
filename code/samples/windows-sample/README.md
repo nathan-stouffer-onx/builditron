@@ -2,7 +2,7 @@
 
 Install the build tools necessary for `mapitron` using [this guide](../../../BUILDING.md).
 
-Configure and build a windows target using the pattern `targ-win-{vs|ninja}-{Debug|Release|RelWithDebInfo|MinSizeRel}`.
+Configure and build a windows destination using the pattern `dest-win-{vs|ninja}-{Debug|Release|RelWithDebInfo|MinSizeRel}`.
 
 ```
 cmake --preset <preset-name>

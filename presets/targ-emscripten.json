@@ -3,9 +3,9 @@
   "include": ["base.json"],
   "configurePresets": [
     {
-      "name": "targ-deps-emscripten",
+      "name": "dest-deps-emscripten",
       "hidden": true,
-      "inherits": "targ-base",
+      "inherits": "dest-base",
       "environment": {
         "EMSDK": "${sourceDir}/code/deps/emsdk",
         "EMSCRIPTEN_ROOT": "${sourceDir}/code/deps/emsdk/upstream/emscripten"
@@ -16,35 +16,35 @@
       }
     },
     {
-      "name": "targ-env-emscripten",
+      "name": "dest-env-emscripten",
       "hidden": true,
-      "inherits": "targ-deps-emscripten",
+      "inherits": "dest-deps-emscripten",
       "generator": "Unix Makefiles"
     },
     {
-      "name": "targ-emscripten-Debug",
-      "inherits": "targ-env-emscripten",
+      "name": "dest-emscripten-Debug",
+      "inherits": "dest-env-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
-      "name": "targ-emscripten-RelWithDebInfo",
-      "inherits": "targ-env-emscripten",
+      "name": "dest-emscripten-RelWithDebInfo",
+      "inherits": "dest-env-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
-      "name": "targ-emscripten-Release",
-      "inherits": "targ-env-emscripten",
+      "name": "dest-emscripten-Release",
+      "inherits": "dest-env-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
-      "name": "targ-emscripten-MinSizeRel",
-      "inherits": "targ-env-emscripten",
+      "name": "dest-emscripten-MinSizeRel",
+      "inherits": "dest-env-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
       }
@@ -52,20 +52,20 @@
   ],
   "buildPresets": [
     {
-      "name": "targ-emscripten-Debug",
-      "configurePreset": "targ-emscripten-Debug"
+      "name": "dest-emscripten-Debug",
+      "configurePreset": "dest-emscripten-Debug"
     },
     {
-      "name": "targ-emscripten-RelWithDebInfo",
-      "configurePreset": "targ-emscripten-RelWithDebInfo"
+      "name": "dest-emscripten-RelWithDebInfo",
+      "configurePreset": "dest-emscripten-RelWithDebInfo"
     },
     {
-      "name": "targ-emscripten-Release",
-      "configurePreset": "targ-emscripten-Release"
+      "name": "dest-emscripten-Release",
+      "configurePreset": "dest-emscripten-Release"
     },
     {
-      "name": "targ-emscripten-MinSizeRel",
-      "configurePreset": "targ-emscripten-MinSizeRel"
+      "name": "dest-emscripten-MinSizeRel",
+      "configurePreset": "dest-emscripten-MinSizeRel"
     }
   ]
 }

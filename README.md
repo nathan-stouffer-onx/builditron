@@ -33,7 +33,7 @@ I am experimenting with some aspects of CMake to see how the viewer's build proc
     Using CMake would also unlock a tool called ccache that caches compiled object files across cloud runs and improves build times in the cloud.
 * Presets
     * CMake easily exposes the ability to set up different configure/build commands via `CMakePresets.json`.
-    We can define different presets for target platforms and compile settings without needing to remember anything for the command line.
+    We can define different presets for platforms and compile settings without needing to remember anything for the command line.
 
 ## Building
 
