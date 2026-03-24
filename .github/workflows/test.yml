@@ -32,6 +32,7 @@ jobs:
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
+      VCPKG_DOWNLOADS: ${{ github.workspace }}/.vcpkg_downloads
       VCPKG_BINARY_CACHE: ${{ github.workspace }}/.vcpkg_binary_cache
       VCPKG_BINARY_SOURCES: clear;files,${{ github.workspace }}/.vcpkg_binary_cache,readwrite
       VCPKG_FEATURE_FLAGS: manifests,binarycaching
@@ -65,10 +66,14 @@ jobs:
             echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Create vcpkg cache dirs
+        shell: bash
+        run: mkdir -p "${{ env.VCPKG_DOWNLOADS }}" "${{ env.VCPKG_BINARY_CACHE }}"
+
       - name: Cache vcpkg downloads
         uses: actions/cache@v4
         with:
-          path: ${{ env.VCPKG_ROOT }}/downloads
+          path: ${{ env.VCPKG_DOWNLOADS }}
           key: vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
           restore-keys: |
             vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}
@@ -77,8 +82,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
-          key: >
-            vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
