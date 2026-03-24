@@ -3,14 +3,14 @@
 The primary build artifact of this repository is the `mapitron` library.
 This is what could be built and posted to a package registry.
 In addition to the package, this repository contains tests and sample applications utilizing `mapitron`.
-These integrate directly with each target's native development system. 
+These integrate directly with each destination's native development system. 
 This document outlines the build process for the library itself; more can be read about the sample apps [here](./code/samples/README.md).
 
 `mapitron` is often cross-compiled.
-There is a target machine (where the code will run) and a host machine (where the code is built).
-Additionally, building the _target_ requires tools that are built/ran on the _host_ machine.
-When setting up the build environment, tools to build both the host and target must be installed.
-Even if the target machine is the same as the host, the project will deal them separately and still expects host tools to be installed.
+There is a destination machine (where the code will run) and a host machine (where the code is built).
+Additionally, building the _destination_ requires tools that are built/ran on the _host_ machine.
+When setting up the build environment, tools to build both the host and destination must be installed.
+Even if the destination machine is the same as the host, the project will deal them separately and still expects host tools to be installed.
 
 ## Tools
 
@@ -26,9 +26,19 @@ After your initial clone (or whenever submodules are updated), you must run the 
 git submodule update --init
 ```
 
+vcpkg is included as a submodule at `code/deps/vcpkg` and must be bootstrapped once before your first build:
+
+```
+# macOS / Linux
+./code/deps/vcpkg/bootstrap-vcpkg.sh
+
+# Windows
+.\code\deps\vcpkg\bootstrap-vcpkg.bat
+```
+
 ### Hosts
 
-The host builds tools that are needed during a target build.
+The host builds tools that are needed during a destination build.
 The following tools must be installed:
 
 - Windows
@@ -38,9 +48,9 @@ The following tools must be installed:
 - Linux
     - gcc/g++
 
-### Targets
+### Destinations
 
-The target is the platform on which the code will run.
+The destination is the platform on which the code will run.
 The following tools must be installed:
 
 - Windows
@@ -48,7 +58,7 @@ The following tools must be installed:
 - Web
     - make
 
-Additional steps for each target type are listed below.
+Additional steps for each destination type are listed below.
 
 #### Web
 
@@ -69,10 +79,10 @@ Once all required tools are installed, it is possible to build `mapitron`!
 This repository uses CMake presets to manage configurations.
 All presets are defined in [CMakePresets.json](CMakePresets.json) and the files under [presets/](./presets/).
 
-Preset names follow the pattern `{host|targ}-{platform}-{Debug|Release|RelWithDebInfo|MinSizeRel}`.
+Preset names follow the pattern `{host|dest}-{platform}-{Debug|Release|RelWithDebInfo|MinSizeRel}`.
 For example:
 - `host-mac-Debug` — macOS host build, debug configuration
-- `targ-emscripten-Release` — Emscripten target build, release configuration
+- `dest-emscripten-Release` — Emscripten destination build, release configuration
 
 Configure and build the `mapitron` library using a preset:
 

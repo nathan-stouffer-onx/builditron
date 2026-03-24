@@ -15,4 +15,4 @@ target_precompile_headers(styling-tests PRIVATE <vector> <gtest/gtest.h>)
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(styling-tests)
+gtest_discover_tests(styling-tests ${GTEST_DISCOVER_SETTINGS})

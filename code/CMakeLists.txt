@@ -5,9 +5,9 @@ if (MSVC AND CMAKE_GENERATOR MATCHES "Ninja")
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<$<CONFIG:Debug,RelWithDebInfo>:Embedded>")
 endif()
 
-# For target builds, configure host first -- his must happen before src/ so that shaderblobs can use the host-built shadertron
-if(MAPITRON_IS_TARGET_BUILD)
-  message(STATUS "Target build detected - configuring host")
+# For destination builds, configure host first -- this must happen before src/ so that shaderblobs can use the host-built shadertron
+if(MAPITRON_IS_DESTINATION_BUILD)
+  message(STATUS "Destination build detected - configuring host")
 
   # Identify host platform
   if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")

@@ -5,8 +5,8 @@
     "presets/host-win.json",
     "presets/host-mac.json",
     "presets/host-linux.json",
-    "presets/targ-win.json",
-    "presets/targ-mac.json",
-    "presets/targ-emscripten.json"
+    "presets/dest-win.json",
+    "presets/dest-mac.json",
+    "presets/dest-emscripten.json"
   ]
 }

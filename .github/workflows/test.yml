@@ -23,15 +23,16 @@ jobs:
           - { image: windows-2022, preset_prefix: host-win        }
           - { image: macos-14,     preset_prefix: host-mac        }
           - { image: ubuntu-22.04, preset_prefix: host-linux      }
-          - { image: windows-2022, preset_prefix: targ-win-ninja  }
-          - { image: macos-14,     preset_prefix: targ-mac        }
-          - { image: ubuntu-22.04, preset_prefix: targ-emscripten }
-          - { image: macos-14,     preset_prefix: targ-emscripten }
-          - { image: windows-2022, preset_prefix: targ-emscripten }
+          - { image: windows-2022, preset_prefix: dest-win-ninja  }
+          - { image: macos-14,     preset_prefix: dest-mac        }
+          - { image: ubuntu-22.04, preset_prefix: dest-emscripten }
+          - { image: macos-14,     preset_prefix: dest-emscripten }
+          - { image: windows-2022, preset_prefix: dest-emscripten }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
       VCPKG_ROOT: ${{ github.workspace }}/code/deps/vcpkg
+      VCPKG_DOWNLOADS: ${{ github.workspace }}/.vcpkg_downloads
       VCPKG_BINARY_CACHE: ${{ github.workspace }}/.vcpkg_binary_cache
       VCPKG_BINARY_SOURCES: clear;files,${{ github.workspace }}/.vcpkg_binary_cache,readwrite
       VCPKG_FEATURE_FLAGS: manifests,binarycaching
@@ -46,6 +47,10 @@ jobs:
       - name: Compute vcpkg SHA
         shell: bash
         run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Create vcpkg cache dirs
+        shell: bash
+        run: mkdir -p "${{ env.VCPKG_DOWNLOADS }}" "${{ env.VCPKG_BINARY_CACHE }}"
 
       # Use this to set up an open ssh debugging session with CI
       # - name: Setup ssh session
@@ -68,7 +73,7 @@ jobs:
       - name: Cache vcpkg downloads
         uses: actions/cache@v4
         with:
-          path: ${{ env.VCPKG_ROOT }}/downloads
+          path: ${{ env.VCPKG_DOWNLOADS }}
           key: vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
           restore-keys: |
             vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}
@@ -77,10 +82,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
-          key: >
-            vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
-            -vcpkg:${{ env.VCPKG_SHA }}
-            -manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
@@ -109,8 +111,13 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
 
+      - name: Restore VCPKG_ROOT
+        if: runner.os == 'Windows'
+        shell: bash
+        run: echo "VCPKG_ROOT=${{ github.workspace }}/code/deps/vcpkg" >> "$GITHUB_ENV"
+
       - name: Setup Emscripten
-        if: matrix.host.preset_prefix == 'targ-emscripten'
+        if: matrix.host.preset_prefix == 'dest-emscripten'
         shell: bash
         run: |
           cd code/deps/emsdk

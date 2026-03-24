@@ -1,0 +1,105 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "dest-deps-win",
+      "hidden": true,
+      "inherits": "dest-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "dest-env-win-msvc-vs",
+      "hidden": true,
+      "inherits": "dest-deps-win",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "dest-env-win-msvc-ninja",
+      "hidden": true,
+      "inherits": "dest-deps-win",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "dest-win-vs",
+      "inherits": "dest-env-win-msvc-vs"
+    },
+    {
+      "name": "dest-win-ninja-Debug",
+      "inherits": "dest-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "dest-win-ninja-RelWithDebInfo",
+      "inherits": "dest-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "dest-win-ninja-Release",
+      "inherits": "dest-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "dest-win-ninja-MinSizeRel",
+      "inherits": "dest-env-win-msvc-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "dest-win-vs-Debug",
+      "configurePreset": "dest-win-vs",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-win-vs-RelWithDebInfo",
+      "configurePreset": "dest-win-vs",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-win-vs-Release",
+      "configurePreset": "dest-win-vs",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-win-vs-MinSizeRel",
+      "configurePreset": "dest-win-vs",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-win-ninja-Debug",
+      "configurePreset": "dest-win-ninja-Debug"
+    },
+    {
+      "name": "dest-win-ninja-RelWithDebInfo",
+      "configurePreset": "dest-win-ninja-RelWithDebInfo"
+    },
+    {
+      "name": "dest-win-ninja-Release",
+      "configurePreset": "dest-win-ninja-Release"
+    },
+    {
+      "name": "dest-win-ninja-MinSizeRel",
+      "configurePreset": "dest-win-ninja-MinSizeRel"
+    }
+  ]
+}
