@@ -17,4 +17,4 @@ target_precompile_headers(mapitron-tests PRIVATE <vector> <gtest/gtest.h>)
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(mapitron-tests)
+gtest_discover_tests(mapitron-tests ${GTEST_DISCOVERY_MODE})

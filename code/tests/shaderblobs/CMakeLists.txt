@@ -15,4 +15,4 @@ target_precompile_headers(shaderblobs-tests PRIVATE <vector> <gtest/gtest.h>)
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(shaderblobs-tests)
+gtest_discover_tests(shaderblobs-tests ${GTEST_DISCOVERY_MODE})
