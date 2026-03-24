@@ -15,4 +15,4 @@ target_precompile_headers(lucid-tests PRIVATE <vector> <gtest/gtest.h>)
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(lucid-tests ${GTEST_DISCOVERY_MODE})
+gtest_discover_tests(lucid-tests ${GTEST_DISCOVER_SETTINGS})
