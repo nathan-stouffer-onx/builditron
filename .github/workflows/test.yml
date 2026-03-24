@@ -99,11 +99,11 @@ jobs:
           key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
           max-size: 500M
 
-      - name: bootstrap vcpkg (windows)
+      - name: Bootstrap vcpkg (windows)
         if: runner.os == 'Windows'
         run: ${{ github.workspace }}\code\deps\vcpkg\bootstrap-vcpkg.bat -disableMetrics
 
-      - name: bootstrap vcpkg (mac)
+      - name: Bootstrap vcpkg (mac)
         if: runner.os != 'Windows'
         run: ${{ github.workspace }}/code/deps/vcpkg/bootstrap-vcpkg.sh -disableMetrics
 
