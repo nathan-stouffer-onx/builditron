@@ -111,6 +111,11 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
 
+      - name: Restore VCPKG_ROOT
+        if: runner.os == 'Windows'
+        shell: bash
+        run: echo "VCPKG_ROOT=${{ github.workspace }}/code/deps/vcpkg" >> "$GITHUB_ENV"
+
       - name: Setup Emscripten
         if: matrix.host.preset_prefix == 'dest-emscripten'
         shell: bash
