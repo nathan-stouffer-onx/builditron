@@ -82,7 +82,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
-          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
