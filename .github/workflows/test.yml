@@ -48,6 +48,10 @@ jobs:
         shell: bash
         run: echo "VCPKG_SHA=$(git -C code/deps/vcpkg rev-parse HEAD)" >> "$GITHUB_ENV"
 
+      - name: Create vcpkg cache dirs
+        shell: bash
+        run: mkdir -p "${{ env.VCPKG_DOWNLOADS }}" "${{ env.VCPKG_BINARY_CACHE }}"
+
       # Use this to set up an open ssh debugging session with CI
       # - name: Setup ssh session
       #   uses: lhotari/action-upterm@v1
@@ -65,10 +69,6 @@ jobs:
           else
             echo "compiler-cacher"=ccache >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Create vcpkg cache dirs
-        shell: bash
-        run: mkdir -p "${{ env.VCPKG_DOWNLOADS }}" "${{ env.VCPKG_BINARY_CACHE }}"
 
       - name: Cache vcpkg downloads
         uses: actions/cache@v4
