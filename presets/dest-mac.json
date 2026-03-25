@@ -11,6 +11,16 @@
       }
     },
     {
+      "name": "dest-env-mac-clang-xcode",
+      "hidden": true,
+      "inherits": "dest-deps-mac",
+      "generator": "Xcode",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
       "name": "dest-env-mac-clang-ninja",
       "hidden": true,
       "inherits": "dest-deps-mac",
@@ -21,28 +31,32 @@
       }
     },
     {
-      "name": "dest-mac-Debug",
+      "name": "dest-mac-xcode",
+      "inherits": "dest-env-mac-clang-xcode"
+    },
+    {
+      "name": "dest-mac-ninja-Debug",
       "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
-      "name": "dest-mac-RelWithDebInfo",
+      "name": "dest-mac-ninja-RelWithDebInfo",
       "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
-      "name": "dest-mac-Release",
+      "name": "dest-mac-ninja-Release",
       "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
-      "name": "dest-mac-MinSizeRel",
+      "name": "dest-mac-ninja-MinSizeRel",
       "inherits": "dest-env-mac-clang-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
@@ -51,20 +65,40 @@
   ],
   "buildPresets": [
     {
-      "name": "dest-mac-Debug",
-      "configurePreset": "dest-mac-Debug"
+      "name": "dest-mac-xcode-Debug",
+      "configurePreset": "dest-mac-xcode",
+      "configuration": "Debug"
     },
     {
-      "name": "dest-mac-RelWithDebInfo",
-      "configurePreset": "dest-mac-RelWithDebInfo"
+      "name": "dest-mac-xcode-RelWithDebInfo",
+      "configurePreset": "dest-mac-xcode",
+      "configuration": "RelWithDebInfo"
     },
     {
-      "name": "dest-mac-Release",
-      "configurePreset": "dest-mac-Release"
+      "name": "dest-mac-xcode-Release",
+      "configurePreset": "dest-mac-xcode",
+      "configuration": "Release"
     },
     {
-      "name": "dest-mac-MinSizeRel",
-      "configurePreset": "dest-mac-MinSizeRel"
+      "name": "dest-mac-xcode-MinSizeRel",
+      "configurePreset": "dest-mac-xcode",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-mac-ninja-Debug",
+      "configurePreset": "dest-mac-ninja-Debug"
+    },
+    {
+      "name": "dest-mac-ninja-RelWithDebInfo",
+      "configurePreset": "dest-mac-ninja-RelWithDebInfo"
+    },
+    {
+      "name": "dest-mac-ninja-Release",
+      "configurePreset": "dest-mac-ninja-Release"
+    },
+    {
+      "name": "dest-mac-ninja-MinSizeRel",
+      "configurePreset": "dest-mac-ninja-MinSizeRel"
     }
   ]
 }
