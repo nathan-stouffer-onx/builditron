@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
 
-set(VCPKG_INSTALL_OPTIONS "--debug" "--binarycaching")
-
 project(builditron VERSION 0.0.0 DESCRIPTION "A map viewer" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
