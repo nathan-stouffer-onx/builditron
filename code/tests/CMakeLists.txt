@@ -4,8 +4,11 @@ find_package(GTest CONFIG REQUIRED)
 
 # On GHA, defer test discovery to ctest time to avoid build-time timeouts
 # (e.g. Node.js startup latency for WASM tests on loaded Windows runners).
-# Locally, keep the default POST_BUILD so tests appear in the IDE immediately after building.
-if(DEFINED ENV{GITHUB_ACTIONS})
+# With Xcode, POST_BUILD fails on Apple Silicon: Xcode links with -no_adhoc_codesign and
+# codesigns the binary in a separate step after POST_BUILD scripts run, so the unsigned
+# binary is killed when the discovery script tries to execute it.
+# Locally with other generators, keep POST_BUILD so tests appear in the IDE immediately.
+if(DEFINED ENV{GITHUB_ACTIONS} OR CMAKE_GENERATOR STREQUAL "Xcode")
     set(GTEST_DISCOVER_SETTINGS DISCOVERY_MODE PRE_TEST DISCOVERY_TIMEOUT 30)
 else()
     set(GTEST_DISCOVER_SETTINGS DISCOVERY_MODE POST_BUILD)
