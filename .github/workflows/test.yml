@@ -79,13 +79,12 @@ jobs:
             vcpkgdl-${{ matrix.host.image }}-vcpkg:${{ env.VCPKG_SHA }}
 
       # TODO (stouff) fix the inconsistent caching. I am not sure what is going on. the GHA caching mechanism seems to work but the cmake configure
-      # step does not always pick up on those cached binaries. I am not sure why
+      # step does not always pick up on those cached binaries. I am not sure why–
       - name: Cache vcpkg binaries
         uses: actions/cache@v4
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
-          # TODO (stouff) remove matrix.build_type from this cache key
-          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          key: vcpkgbin-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
