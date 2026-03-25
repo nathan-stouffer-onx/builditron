@@ -24,7 +24,7 @@ jobs:
           - { image: macos-14,     preset_prefix: host-mac        }
           - { image: ubuntu-22.04, preset_prefix: host-linux      }
           - { image: windows-2022, preset_prefix: dest-win-ninja  }
-          - { image: macos-14,     preset_prefix: dest-mac        }
+          - { image: macos-14,     preset_prefix: dest-mac-ninja  }
           - { image: ubuntu-22.04, preset_prefix: dest-emscripten }
           - { image: macos-14,     preset_prefix: dest-emscripten }
           - { image: windows-2022, preset_prefix: dest-emscripten }
