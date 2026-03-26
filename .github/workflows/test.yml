@@ -24,7 +24,7 @@ jobs:
           - { image: macos-14,     preset_prefix: host-mac        }
           - { image: ubuntu-22.04, preset_prefix: host-linux      }
           - { image: windows-2022, preset_prefix: dest-win-ninja  }
-          - { image: macos-14,     preset_prefix: dest-mac        }
+          - { image: macos-14,     preset_prefix: dest-mac-ninja  }
           - { image: ubuntu-22.04, preset_prefix: dest-emscripten }
           - { image: macos-14,     preset_prefix: dest-emscripten }
           - { image: windows-2022, preset_prefix: dest-emscripten }
@@ -88,7 +88,7 @@ jobs:
         uses: hendrikmuhs/ccache-action@v1.2
         if: runner.os != 'Windows'
         with:
-          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
+          key: ccache-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}
           max-size: 500M
 
       - name: sccache
@@ -96,7 +96,7 @@ jobs:
         if: runner.os == 'Windows'
         with:
           variant: sccache
-          key: ccache-${{ matrix.host.image }}-${{ matrix.build_type }}-${{ matrix.host.preset_prefix }}
+          key: ccache-${{ matrix.host.image }}-${{ matrix.host.preset_prefix }}-${{ matrix.build_type }}
           max-size: 500M
 
       - name: Bootstrap vcpkg (windows)
