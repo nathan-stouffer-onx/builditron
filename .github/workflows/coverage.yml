@@ -80,7 +80,7 @@ jobs:
       - name: Compute coverage
         run: >
           OpenCppCoverage
-          --sources "${{ github.workspace }}\\code\\src"
+          --sources "${{ github.workspace }}/code/src"
           --cover_children
           --export_type html:coverage
           --export_type cobertura:coverage.xml
