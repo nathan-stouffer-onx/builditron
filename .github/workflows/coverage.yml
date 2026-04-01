@@ -44,7 +44,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.VCPKG_BINARY_CACHE }}
-          key: vcpkgbin-windows-2022-dest-win-ninja-Debug-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          key: vcpkgbin-windows-2022-dest-win-ninja-vcpkg:${{ env.VCPKG_SHA }}-manifest:${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
 
       - name: sccache
         uses: hendrikmuhs/ccache-action@v1.2
