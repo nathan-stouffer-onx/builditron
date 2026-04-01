@@ -25,4 +25,5 @@ endif()
 include(GoogleTest)
 
 # finds all the tests associated with the executable
-gtest_discover_tests(render-tests WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}" ${GTEST_DISCOVER_SETTINGS})
+gtest_discover_tests(render-tests WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}" ${GTEST_DISCOVER_SETTINGS}
+    PROPERTIES LABELS "render")
