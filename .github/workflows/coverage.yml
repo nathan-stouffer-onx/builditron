@@ -73,7 +73,9 @@ jobs:
         run: cmake --build --preset dest-win-ninja-Debug
 
       - name: Install OpenCppCoverage
-        run: choco install opencppcoverage -y
+        run: |
+          choco install opencppcoverage -y
+          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
 
       - name: Compute coverage
         run: >
