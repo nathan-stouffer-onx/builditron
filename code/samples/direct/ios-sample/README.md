@@ -3,6 +3,9 @@
 A SwiftUI sample app that calls into mapitron via Swift C++ interop.
 
 Separate Xcode projects are generated for simulator and device via [Tuist](https://tuist.io).
+Each project is locked to a single destination — `ios-sample-simulator` only runs on the simulator
+and `ios-sample-device` only runs on device. This is because each links against a CMake build tree
+that targets a specific platform and cannot be shared.
 
 ## Tools
 
