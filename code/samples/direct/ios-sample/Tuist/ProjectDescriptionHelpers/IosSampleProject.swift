@@ -33,7 +33,7 @@ public func iosSampleScheme(name: String, presetName: String) -> Scheme {
             preActions: [
                 .executionAction(
                     title: "Build mapitron",
-                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\" --config \"$CONFIGURATION\"",
+                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\" --config \"$CONFIGURATION\" --target mapitron",
                     target: targetRef
                 )
             ]
