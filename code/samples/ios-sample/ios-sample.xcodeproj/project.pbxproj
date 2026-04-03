@@ -13,7 +13,116 @@
 		C4C4C4C4C4C4C4C4C4C4C4C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B9B9B9B9B9B9B9B9B9B9B9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9337F5AB2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C25D82B281ED4EF8861F1B6C;
+			remoteInfo = engine;
+		};
+		9337F5AD2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 12E5CBBBC9464B02ACDC0CE6;
+			remoteInfo = "engine-tests";
+		};
+		9337F5AF2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 777C55FAB2B748BF89F66F5C;
+			remoteInfo = engine_assets;
+		};
+		9337F5B12F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 01AAB438F86C44F1B17942AD;
+			remoteInfo = "lucid-tests";
+		};
+		9337F5B32F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0DC03B27A34F42C1BE77E420;
+			remoteInfo = mapitron;
+		};
+		9337F5B52F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2A3810B897B742F691078C9C;
+			remoteInfo = "mapitron-tests";
+		};
+		9337F5B72F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 046459A1FC7C45D8BADD60C8;
+			remoteInfo = shaderblobs;
+		};
+		9337F5B92F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EAF761F6623F4D798F1B93B4;
+			remoteInfo = "shaderblobs-tests";
+		};
+		9337F5BB2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE7E5C6511964E8F8206B159;
+			remoteInfo = shaders;
+		};
+		9337F5BD2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCA92405216740DCA9602A23;
+			remoteInfo = "shaders-tests";
+		};
+		9337F5BF2F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1466CC433709479584802ECF;
+			remoteInfo = shaders_json;
+		};
+		9337F5C12F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 091D75CCB65F4922B50D542A;
+			remoteInfo = shadertron;
+		};
+		9337F5C32F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B33B91C3D34F44A58311255B;
+			remoteInfo = styling;
+		};
+		9337F5C52F7F66D000E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED2930DE78094A4D9AB8502A;
+			remoteInfo = "styling-tests";
+		};
+		9337F5C72F7F66FA00E654D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 022B369511D401FB6C9197B4;
+			remoteInfo = mapitron;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = builditron.xcodeproj; path = "/Users/nathan.stouffer/Documents/builditron/out/build/dest-ios-simulator-xcode/builditron.xcodeproj"; sourceTree = "<absolute>"; };
 		A8A8A8A8A8A8A8A8A8A8A8A8 /* ios-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B5B5B5B5B5B5B5B5B5B5B5 /* MapitronApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapitronApp.swift; sourceTree = "<group>"; };
 		B6B6B6B6B6B6B6B6B6B6B6B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,10 +141,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9337F5922F7F66D000E654D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9337F5AC2F7F66D000E654D1 /* libengine.a */,
+				9337F5AE2F7F66D000E654D1 /* engine-tests */,
+				9337F5B02F7F66D000E654D1 /* libengine_assets.a */,
+				9337F5B22F7F66D000E654D1 /* lucid-tests */,
+				9337F5B42F7F66D000E654D1 /* libmapitron.a */,
+				9337F5B62F7F66D000E654D1 /* mapitron-tests */,
+				9337F5B82F7F66D000E654D1 /* libshaderblobs.a */,
+				9337F5BA2F7F66D000E654D1 /* shaderblobs-tests */,
+				9337F5BC2F7F66D000E654D1 /* libshaders.a */,
+				9337F5BE2F7F66D000E654D1 /* shaders-tests */,
+				9337F5C02F7F66D000E654D1 /* libshaders_json.a */,
+				9337F5C22F7F66D000E654D1 /* shadertron */,
+				9337F5C42F7F66D000E654D1 /* libstyling.a */,
+				9337F5C62F7F66D000E654D1 /* styling-tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A6A6A6A6A6A6A6A6A6A6A6A6 = {
 			isa = PBXGroup;
 			children = (
 				C5C5C5C5C5C5C5C5C5C5C5C5 /* ios-sample */,
+				9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */,
 				A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +197,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3B3B3B3B3B3B3B3B3B3B3B3 /* Build configuration list for PBXNativeTarget "ios-sample" */;
 			buildPhases = (
-				D1D1D1D1D1D1D1D1D1D1D1D1 /* Build mapitron library */,
 				A3A3A3A3A3A3A3A3A3A3A3A3 /* Sources */,
 				A4A4A4A4A4A4A4A4A4A4A4A4 /* Resources */,
 				A5A5A5A5A5A5A5A5A5A5A5A5 /* Frameworks */,
@@ -74,6 +204,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9337F5C82F7F66FA00E654D1 /* PBXTargetDependency */,
 			);
 			name = "ios-sample";
 			productName = "ios-sample";
@@ -106,12 +237,126 @@
 			mainGroup = A6A6A6A6A6A6A6A6A6A6A6A6;
 			productRefGroup = A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9337F5922F7F66D000E654D1 /* Products */;
+					ProjectRef = 9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A2A2A2A2A2A2A2A2A2A2A2A2 /* ios-sample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9337F5AC2F7F66D000E654D1 /* libengine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libengine.a;
+			remoteRef = 9337F5AB2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5AE2F7F66D000E654D1 /* engine-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "engine-tests";
+			path = "engine-tests.app";
+			remoteRef = 9337F5AD2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5B02F7F66D000E654D1 /* libengine_assets.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libengine_assets.a;
+			remoteRef = 9337F5AF2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5B22F7F66D000E654D1 /* lucid-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "lucid-tests";
+			path = "lucid-tests.app";
+			remoteRef = 9337F5B12F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5B42F7F66D000E654D1 /* libmapitron.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libmapitron.a;
+			remoteRef = 9337F5B32F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5B62F7F66D000E654D1 /* mapitron-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "mapitron-tests";
+			path = "mapitron-tests.app";
+			remoteRef = 9337F5B52F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5B82F7F66D000E654D1 /* libshaderblobs.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libshaderblobs.a;
+			remoteRef = 9337F5B72F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5BA2F7F66D000E654D1 /* shaderblobs-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "shaderblobs-tests";
+			path = "shaderblobs-tests.app";
+			remoteRef = 9337F5B92F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5BC2F7F66D000E654D1 /* libshaders.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libshaders.a;
+			remoteRef = 9337F5BB2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5BE2F7F66D000E654D1 /* shaders-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "shaders-tests";
+			path = "shaders-tests.app";
+			remoteRef = 9337F5BD2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5C02F7F66D000E654D1 /* libshaders_json.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libshaders_json.a;
+			remoteRef = 9337F5BF2F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5C22F7F66D000E654D1 /* shadertron */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = shadertron;
+			path = shadertron.app;
+			remoteRef = 9337F5C12F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5C42F7F66D000E654D1 /* libstyling.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstyling.a;
+			remoteRef = 9337F5C32F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9337F5C62F7F66D000E654D1 /* styling-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = "styling-tests";
+			path = "styling-tests.app";
+			remoteRef = 9337F5C52F7F66D000E654D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A4A4A4A4A4A4A4A4A4A4A4A4 /* Resources */ = {
@@ -123,28 +368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D1D1D1D1D1D1D1D1D1D1D1D1 /* Build mapitron library */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build mapitron library";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)/libmapitron-ios.a",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\nREPO_ROOT=\"${SRCROOT}/../../..\"\nPRESET=\"dest-ios-simulator-xcode\"\nBUILD_DIR=\"${REPO_ROOT}/out/build/${PRESET}\"\n\n# Add common cmake installation locations to PATH\nexport PATH=\"${PATH}:/usr/local/bin:/opt/homebrew/bin:/Applications/CMake.app/Contents/bin\"\n\n# Configure if the build directory does not exist yet\nif [ ! -f \"${BUILD_DIR}/CMakeCache.txt\" ]; then\n    cd \"${REPO_ROOT}\"\n    cmake --preset \"${PRESET}\"\nfi\n\n# Build the mapitron target (post-build step merges all libs into libmapitron-ios.a)\ncmake --build \"${BUILD_DIR}\" --config \"${CONFIGURATION}\" --target mapitron\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3A3A3A3A3A3A3A3A3A3A3A3 /* Sources */ = {
@@ -158,6 +381,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9337F5C82F7F66FA00E654D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mapitron;
+			targetProxy = 9337F5C72F7F66FA00E654D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A9A9A9A9A9A9A9A9A9A9A9A9 /* Debug */ = {
@@ -173,13 +404,11 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)";
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lmapitron-ios";
 				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ios-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public $(SRCROOT)/../../../code/deps/lucid/include/interface";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -198,13 +427,11 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)";
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lmapitron-ios";
 				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ios-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public $(SRCROOT)/../../../code/deps/lucid/include/interface";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -345,7 +572,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = A1A1A1A1A1A1A1A1A1A1A1A1 /* Project object */;
 }

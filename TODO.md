@@ -16,3 +16,4 @@
 - [ ] swift package
 - [ ] sample app that links local package
 - [ ] update GHA config
+- [ ] generate iOS project via tuist
