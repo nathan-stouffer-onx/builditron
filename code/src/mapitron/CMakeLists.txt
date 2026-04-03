@@ -32,6 +32,7 @@ target_link_libraries(mapitron
 # For iOS, merge all static libraries into one for easy consumption by the sample app
 # and for packaging into an XCFramework
 if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_package(protobuf CONFIG REQUIRED)
     add_custom_command(TARGET mapitron POST_BUILD
         COMMAND libtool -static -o "$<TARGET_FILE_DIR:mapitron>/libmapitron-ios.a"
             "$<TARGET_FILE:mapitron>"
