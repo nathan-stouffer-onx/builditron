@@ -1,8 +1,8 @@
 import ProjectDescription
 
-public func iosSampleTarget(platform: String, presetName: String) -> Target {
+public func iosSampleTarget(name: String, platform: String, presetName: String) -> Target {
     .target(
-        name: "ios-sample-\(platform)",
+        name: name,
         destinations: .iOS,
         product: .app,
         bundleId: "com.example.ios-sample",
@@ -24,10 +24,10 @@ public func iosSampleTarget(platform: String, presetName: String) -> Target {
     )
 }
 
-public func iosSampleScheme(platform: String, presetName: String) -> Scheme {
-    let targetRef: TargetReference = .target("ios-sample-\(platform)")
+public func iosSampleScheme(name: String, presetName: String) -> Scheme {
+    let targetRef: TargetReference = .target(name)
     return .scheme(
-        name: "ios-sample-\(platform)",
+        name: name,
         buildAction: .buildAction(
             targets: [targetRef],
             preActions: [

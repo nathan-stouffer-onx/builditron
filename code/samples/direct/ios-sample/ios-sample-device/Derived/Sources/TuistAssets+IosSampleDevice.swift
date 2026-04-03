@@ -30,7 +30,7 @@ import SwiftUI
 
 // MARK: - Asset Catalogs
 
-public enum IosSampleIphonesimulatorAsset: Sendable {
+public enum IosSampleDeviceAsset: Sendable {
 }
 
 // MARK: - Implementation Details
