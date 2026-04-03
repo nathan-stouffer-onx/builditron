@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9337F5CB2F7F694B00E654D1 /* libengine_assets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5B02F7F66D000E654D1 /* libengine_assets.a */; };
+		9337F5CC2F7F694B00E654D1 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5AC2F7F66D000E654D1 /* libengine.a */; };
+		9337F5CD2F7F694B00E654D1 /* libmapitron.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5B42F7F66D000E654D1 /* libmapitron.a */; };
+		9337F5CE2F7F694B00E654D1 /* libshaderblobs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5B82F7F66D000E654D1 /* libshaderblobs.a */; };
+		9337F5CF2F7F694B00E654D1 /* libshaders_json.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5C02F7F66D000E654D1 /* libshaders_json.a */; };
+		9337F5D02F7F694B00E654D1 /* libshaders.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5BC2F7F66D000E654D1 /* libshaders.a */; };
+		9337F5D12F7F694B00E654D1 /* libstyling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9337F5C42F7F66D000E654D1 /* libstyling.a */; };
 		C1C1C1C1C1C1C1C1C1C1C1C1 /* MapitronApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5B5B5B5B5B5B5B5B5B5B5 /* MapitronApp.swift */; };
 		C2C2C2C2C2C2C2C2C2C2C2C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6B6B6B6B6B6B6B6B6B6B6 /* ContentView.swift */; };
 		C3C3C3C3C3C3C3C3C3C3C3C3 /* MapitronBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B7B7B7B7B7B7B7B7B7B7B7 /* MapitronBridge.swift */; };
@@ -135,6 +142,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9337F5CB2F7F694B00E654D1 /* libengine_assets.a in Frameworks */,
+				9337F5CC2F7F694B00E654D1 /* libengine.a in Frameworks */,
+				9337F5CD2F7F694B00E654D1 /* libmapitron.a in Frameworks */,
+				9337F5CE2F7F694B00E654D1 /* libshaderblobs.a in Frameworks */,
+				9337F5CF2F7F694B00E654D1 /* libshaders_json.a in Frameworks */,
+				9337F5D02F7F694B00E654D1 /* libshaders.a in Frameworks */,
+				9337F5D12F7F694B00E654D1 /* libstyling.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,11 +176,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9337F5C92F7F692900E654D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6A6A6A6A6A6A6A6A6A6A6A6 = {
 			isa = PBXGroup;
 			children = (
 				C5C5C5C5C5C5C5C5C5C5C5C5 /* ios-sample */,
 				9337F58F2F7F66D000E654D1 /* builditron.xcodeproj */,
+				9337F5C92F7F692900E654D1 /* Frameworks */,
 				A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */,
 			);
 			sourceTree = "<group>";
