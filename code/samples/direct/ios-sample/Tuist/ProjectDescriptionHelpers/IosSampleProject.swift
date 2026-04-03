@@ -10,6 +10,7 @@ public func iosSampleTarget(platform: String, presetName: String) -> Target {
         sources: ["../ios-sample/**/*.swift"],
         resources: ["../ios-sample/Assets.xcassets"],
         settings: .settings(base: [
+            "ARCHS": "arm64",
             "SDKROOT": SettingValue(stringLiteral: platform),
             "SUPPORTED_PLATFORMS": SettingValue(stringLiteral: platform),
             "SWIFT_VERSION": "5.0",
@@ -32,7 +33,7 @@ public func iosSampleScheme(platform: String, presetName: String) -> Scheme {
             preActions: [
                 .executionAction(
                     title: "Build mapitron",
-                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\"",
+                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\" --config \"$CONFIGURATION\"",
                     target: targetRef
                 )
             ]
