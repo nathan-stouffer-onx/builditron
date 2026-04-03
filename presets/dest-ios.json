@@ -39,6 +39,18 @@
       "generator": "Xcode"
     },
     {
+      "name": "dest-env-ios-device-ninja",
+      "hidden": true,
+      "inherits": "dest-deps-ios-device",
+      "generator": "Ninja Multi-Config"
+    },
+    {
+      "name": "dest-env-ios-simulator-arm64-ninja",
+      "hidden": true,
+      "inherits": "dest-deps-ios-simulator-arm64",
+      "generator": "Ninja Multi-Config"
+    },
+    {
       "name": "dest-ios-device-xcode",
       "inherits": "dest-env-ios-device-xcode",
       "cacheVariables": {
@@ -48,6 +60,20 @@
     {
       "name": "dest-ios-simulator-xcode",
       "inherits": "dest-env-ios-simulator-arm64-xcode",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+      }
+    },
+    {
+      "name": "dest-ios-device-ninja",
+      "inherits": "dest-env-ios-device-ninja",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+      }
+    },
+    {
+      "name": "dest-ios-simulator-ninja",
+      "inherits": "dest-env-ios-simulator-arm64-ninja",
       "cacheVariables": {
         "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
       }
@@ -92,6 +118,46 @@
     {
       "name": "dest-ios-simulator-xcode-MinSizeRel",
       "configurePreset": "dest-ios-simulator-xcode",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-ios-device-ninja-Debug",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-device-ninja-RelWithDebInfo",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-device-ninja-Release",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-device-ninja-MinSizeRel",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-Debug",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-RelWithDebInfo",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-Release",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-MinSizeRel",
+      "configurePreset": "dest-ios-simulator-ninja",
       "configuration": "MinSizeRel"
     }
   ]
