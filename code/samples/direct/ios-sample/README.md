@@ -24,5 +24,4 @@ This configures both CMake presets and generates:
 
 ## Building
 
-Open the relevant `.xcodeproj` and click play. The pre-build scheme action will
-build mapitron before compiling the Swift app.
+Open the relevant `.xcodeproj` and click play. The pre-build scheme action will build mapitron before compiling the Swift app.

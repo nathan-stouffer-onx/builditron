@@ -22,3 +22,21 @@ public func iosSampleTarget(platform: String, presetName: String) -> Target {
         ])
     )
 }
+
+public func iosSampleScheme(platform: String, presetName: String) -> Scheme {
+    let targetRef: TargetReference = .target("ios-sample-\(platform)")
+    return .scheme(
+        name: "ios-sample-\(platform)",
+        buildAction: .buildAction(
+            targets: [targetRef],
+            preActions: [
+                .executionAction(
+                    title: "Build mapitron",
+                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\"",
+                    target: targetRef
+                )
+            ]
+        ),
+        runAction: .runAction(configuration: .debug)
+    )
+}
