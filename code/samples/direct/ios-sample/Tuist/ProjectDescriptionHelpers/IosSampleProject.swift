@@ -20,7 +20,11 @@ public func iosSampleTarget(name: String, platform: String, presetName: String) 
             "HEADER_SEARCH_PATHS": "$(SRCROOT)/../../../../src/mapitron/include/public",
             "LIBRARY_SEARCH_PATHS": "$(SRCROOT)/../../../../../out/build/\(presetName)/lib/$(CONFIGURATION)",
             "OTHER_LDFLAGS": "-lmapitron-ios",
-        ])
+        ]),
+        additionalFiles: [
+            "../../../../../code/src/**/*.cpp",
+            "../../../../../code/src/**/*.hpp",
+        ]
     )
 }
 
