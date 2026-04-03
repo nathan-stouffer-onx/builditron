@@ -18,7 +18,7 @@ target_include_directories(mapitron
 
 target_compile_definitions(mapitron
     PUBLIC
-        MAPITRON_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+        MAPITRON_BUILD_TYPE="$<CONFIG>"
 )
 
 # add dependencies

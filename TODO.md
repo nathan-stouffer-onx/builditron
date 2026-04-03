@@ -14,6 +14,6 @@
 - [x] generated iOS xcode project
 - [x] sample iOS app
 - [ ] swift package
-- [ ] sample app that links local package
+- [ ] separate sample app that links local package
 - [ ] update GHA config
 - [ ] generate iOS project via tuist
