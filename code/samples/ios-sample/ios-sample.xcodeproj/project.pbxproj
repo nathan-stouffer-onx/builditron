@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1C1C1C1C1C1C1C1C1C1C1C1 /* MapitronApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5B5B5B5B5B5B5B5B5B5B5 /* MapitronApp.swift */; };
+		C2C2C2C2C2C2C2C2C2C2C2C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6B6B6B6B6B6B6B6B6B6B6 /* ContentView.swift */; };
+		C3C3C3C3C3C3C3C3C3C3C3C3 /* MapitronBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B7B7B7B7B7B7B7B7B7B7B7 /* MapitronBridge.swift */; };
+		C4C4C4C4C4C4C4C4C4C4C4C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B9B9B9B9B9B9B9B9B9B9B9 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A8A8A8A8A8A8A8A8A8A8A8A8 /* ios-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B5B5B5B5B5B5B5B5B5B5B5 /* MapitronApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapitronApp.swift; sourceTree = "<group>"; };
+		B6B6B6B6B6B6B6B6B6B6B6B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B7B7B7B7B7B7B7B7B7B7B7B7 /* MapitronBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapitronBridge.swift; sourceTree = "<group>"; };
+		B9B9B9B9B9B9B9B9B9B9B9B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5A5A5A5A5A5A5A5A5A5A5A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6A6A6A6A6A6A6A6A6A6A6A6 = {
+			isa = PBXGroup;
+			children = (
+				C5C5C5C5C5C5C5C5C5C5C5C5 /* ios-sample */,
+				A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8A8A8A8A8A8A8A8A8A8A8A8 /* ios-sample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5C5C5C5C5C5C5C5C5C5C5C5 /* ios-sample */ = {
+			isa = PBXGroup;
+			children = (
+				B5B5B5B5B5B5B5B5B5B5B5B5 /* MapitronApp.swift */,
+				B6B6B6B6B6B6B6B6B6B6B6B6 /* ContentView.swift */,
+				B7B7B7B7B7B7B7B7B7B7B7B7 /* MapitronBridge.swift */,
+				B9B9B9B9B9B9B9B9B9B9B9B9 /* Assets.xcassets */,
+			);
+			path = "ios-sample";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A2A2A2A2A2A2A2A2A2A2A2A2 /* ios-sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3B3B3B3B3B3B3B3B3B3B3B3 /* Build configuration list for PBXNativeTarget "ios-sample" */;
+			buildPhases = (
+				D1D1D1D1D1D1D1D1D1D1D1D1 /* Build mapitron library */,
+				A3A3A3A3A3A3A3A3A3A3A3A3 /* Sources */,
+				A4A4A4A4A4A4A4A4A4A4A4A4 /* Resources */,
+				A5A5A5A5A5A5A5A5A5A5A5A5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-sample";
+			productName = "ios-sample";
+			productReference = A8A8A8A8A8A8A8A8A8A8A8A8 /* ios-sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1A1A1A1A1A1A1A1A1A1A1A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A2A2A2A2A2A2A2A2A2A2A2A2 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B4B4B4B4B4B4B4B4B4B4B4B4 /* Build configuration list for PBXProject "ios-sample" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6A6A6A6A6A6A6A6A6A6A6A6;
+			productRefGroup = A7A7A7A7A7A7A7A7A7A7A7A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2A2A2A2A2A2A2A2A2A2A2A2 /* ios-sample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4A4A4A4A4A4A4A4A4A4A4A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4C4C4C4C4C4C4C4C4C4C4C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D1D1D1D1D1D1D1D1D1D1D1D1 /* Build mapitron library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build mapitron library";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)/libmapitron-ios.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nREPO_ROOT=\"${SRCROOT}/../../..\"\nPRESET=\"dest-ios-simulator-xcode\"\nBUILD_DIR=\"${REPO_ROOT}/out/build/${PRESET}\"\n\n# Add common cmake installation locations to PATH\nexport PATH=\"${PATH}:/usr/local/bin:/opt/homebrew/bin:/Applications/CMake.app/Contents/bin\"\n\n# Configure if the build directory does not exist yet\nif [ ! -f \"${BUILD_DIR}/CMakeCache.txt\" ]; then\n    cd \"${REPO_ROOT}\"\n    cmake --preset \"${PRESET}\"\nfi\n\n# Build the mapitron target (post-build step merges all libs into libmapitron-ios.a)\ncmake --build \"${BUILD_DIR}\" --config \"${CONFIGURATION}\" --target mapitron\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3A3A3A3A3A3A3A3A3A3A3A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C1C1C1C1C1C1C1C1C1C1C1 /* MapitronApp.swift in Sources */,
+				C2C2C2C2C2C2C2C2C2C2C2C2 /* ContentView.swift in Sources */,
+				C3C3C3C3C3C3C3C3C3C3C3C3 /* MapitronBridge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A9A9A9A9A9A9A9A9A9A9A9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)";
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-lmapitron-ios";
+				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ios-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAAAAAAAAAAAAAAAAAAAAAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../out/build/dest-ios-simulator-xcode/lib/$(CONFIGURATION)";
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-lmapitron-ios";
+				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ios-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../../code/src/mapitron/include/public";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B1B1B1B1B1B1B1B1B1B1B1B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphonesimulator;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2B2B2B2B2B2B2B2B2B2B2B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphonesimulator;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3B3B3B3B3B3B3B3B3B3B3B3 /* Build configuration list for PBXNativeTarget "ios-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A9A9A9A9A9A9A9A9A9A9A9 /* Debug */,
+				AAAAAAAAAAAAAAAAAAAAAAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4B4B4B4B4B4B4B4B4B4B4B4 /* Build configuration list for PBXProject "ios-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1B1B1B1B1B1B1B1B1B1B1B1 /* Debug */,
+				B2B2B2B2B2B2B2B2B2B2B2B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = A1A1A1A1A1A1A1A1A1A1A1A1 /* Project object */;
+}

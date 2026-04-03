@@ -1,0 +1,4 @@
+module mapitron {
+    header "mapitron/mapitron.hpp"
+    requires cplusplus
+}

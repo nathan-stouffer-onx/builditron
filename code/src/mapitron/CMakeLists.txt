@@ -29,6 +29,23 @@ target_link_libraries(mapitron
         engine
 )
 
+# For iOS, merge all static libraries into one for easy consumption by the sample app
+# and for packaging into an XCFramework
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    add_custom_command(TARGET mapitron POST_BUILD
+        COMMAND libtool -static -o "$<TARGET_FILE_DIR:mapitron>/libmapitron-ios.a"
+            "$<TARGET_FILE:mapitron>"
+            "$<TARGET_FILE:engine>"
+            "$<TARGET_FILE:styling>"
+            "$<TARGET_FILE:shaders>"
+            "$<TARGET_FILE:shaderblobs>"
+            "$<TARGET_FILE:engine_assets>"
+            "$<TARGET_FILE:shaders_json>"
+        COMMENT "Merging mapitron static libraries for iOS"
+        VERBATIM
+    )
+endif()
+
 # For Emscripten, create a WASM module executable
 if(EMSCRIPTEN)
     # Create a wrapper executable that exports the library as a WASM module

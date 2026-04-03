@@ -7,6 +7,7 @@
     "presets/host-linux.json",
     "presets/dest-win.json",
     "presets/dest-mac.json",
-    "presets/dest-emscripten.json"
+    "presets/dest-emscripten.json",
+    "presets/dest-ios.json"
   ]
 }
