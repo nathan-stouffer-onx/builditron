@@ -65,7 +65,7 @@ jobs:
 
       - name: Configure CMake
         run: >
-          cmake --preset dest-win-ninja-Debug
+          cmake --preset dest-win-ninja
           -DCMAKE_C_COMPILER_LAUNCHER=sccache
           -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
 
@@ -85,7 +85,8 @@ jobs:
           --export_type html:coverage
           --export_type cobertura:coverage.xml
           --
-          ctest --test-dir build/dest-win-ninja-Debug
+          ctest --test-dir build/dest-win-ninja
+          --build-config Debug
           --output-on-failure
           --no-tests=error
 
