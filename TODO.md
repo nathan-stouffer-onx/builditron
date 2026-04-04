@@ -4,7 +4,6 @@
 - [ ] support exceptions in wasm builds
 - [ ] add git hash as version
 - [ ] use Ninja for emscripten builds
-- [x] add ios project
 - [ ] add android project
 - [ ] simulate bgfx dependency
 - [ ] potentially consolidate host tool builds in GHA?
@@ -13,7 +12,8 @@
 
 - [x] generated iOS xcode project
 - [x] sample iOS app
-- [ ] swift package
-- [ ] separate sample app that links local package
+- [x] swift package
+- [x] separate sample app that links local package
+- [x] generate iOS project via tuist
 - [ ] update GHA config
-- [ ] generate iOS project via tuist
+- [ ] clean up
