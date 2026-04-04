@@ -20,7 +20,7 @@
       "name": "dest-env-emscripten",
       "hidden": true,
       "inherits": "dest-deps-emscripten",
-      "generator": "Unix Makefiles"
+      "generator": "Ninja"
     },
     {
       "name": "dest-emscripten-Debug",
