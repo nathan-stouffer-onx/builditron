@@ -18,7 +18,7 @@ public func iosSampleTarget(name: String, platform: String, presetName: String) 
             "OTHER_SWIFT_FLAGS": "-cxx-interoperability-mode=default",
             "SWIFT_INCLUDE_PATHS": "$(SRCROOT)/../../../../src/mapitron/include/public $(SRCROOT)/../../../../deps/lucid/include/interface",
             "HEADER_SEARCH_PATHS": "$(SRCROOT)/../../../../src/mapitron/include/public",
-            "LIBRARY_SEARCH_PATHS": "$(SRCROOT)/../../../../../out/build/\(presetName)/lib/$(CONFIGURATION)",
+            "LIBRARY_SEARCH_PATHS": "$(SRCROOT)/../../../../../build/\(presetName)/lib/$(CONFIGURATION)",
             "OTHER_LDFLAGS": "-lmapitron-ios",
         ]),
         additionalFiles: [
@@ -37,7 +37,7 @@ public func iosSampleScheme(name: String, presetName: String) -> Scheme {
             preActions: [
                 .executionAction(
                     title: "Build mapitron",
-                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../out/build/\(presetName)\" --config \"$CONFIGURATION\" --target mapitron",
+                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../build/\(presetName)\" --config \"$CONFIGURATION\" --target mapitron",
                     target: targetRef
                 )
             ]

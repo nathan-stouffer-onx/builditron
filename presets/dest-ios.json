@@ -54,28 +54,28 @@
       "name": "dest-ios-device-xcode",
       "inherits": "dest-env-ios-device-xcode",
       "cacheVariables": {
-        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
       }
     },
     {
       "name": "dest-ios-simulator-xcode",
       "inherits": "dest-env-ios-simulator-arm64-xcode",
       "cacheVariables": {
-        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
       }
     },
     {
       "name": "dest-ios-device-ninja",
       "inherits": "dest-env-ios-device-ninja",
       "cacheVariables": {
-        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
       }
     },
     {
       "name": "dest-ios-simulator-ninja",
       "inherits": "dest-env-ios-simulator-arm64-ninja",
       "cacheVariables": {
-        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/out/build/${presetName}/lib"
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
       }
     }
   ],

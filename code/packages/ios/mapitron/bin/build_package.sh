@@ -5,9 +5,9 @@ REPO_ROOT="$(cd "$(dirname "$0")/../../../../.." && pwd)"
 PACKAGE_DIR="$REPO_ROOT/code/packages/ios/mapitron"
 CONFIG="${1:-Release}"
 
-SIM_BUILD="$REPO_ROOT/out/build/dest-ios-simulator-ninja"
-DEVICE_BUILD="$REPO_ROOT/out/build/dest-ios-device-ninja"
-HEADERS_DIR="$REPO_ROOT/out/build/ios-package-headers"
+SIM_BUILD="$REPO_ROOT/build/dest-ios-simulator-ninja"
+DEVICE_BUILD="$REPO_ROOT/build/dest-ios-device-ninja"
+HEADERS_DIR="$REPO_ROOT/build/ios-package-headers"
 
 echo "Configuring CMake for simulator..."
 cmake --preset dest-ios-simulator-ninja -S "$REPO_ROOT"
