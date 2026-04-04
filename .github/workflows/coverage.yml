@@ -85,7 +85,7 @@ jobs:
           --export_type html:coverage
           --export_type cobertura:coverage.xml
           --
-          ctest --test-dir out/build/dest-win-ninja-Debug
+          ctest --test-dir build/dest-win-ninja-Debug
           --output-on-failure
           --no-tests=error
 
