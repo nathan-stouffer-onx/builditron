@@ -42,13 +42,21 @@
       "name": "dest-env-ios-device-ninja",
       "hidden": true,
       "inherits": "dest-deps-ios-device",
-      "generator": "Ninja Multi-Config"
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+      }
     },
     {
       "name": "dest-env-ios-simulator-arm64-ninja",
       "hidden": true,
       "inherits": "dest-deps-ios-simulator-arm64",
-      "generator": "Ninja Multi-Config"
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+      }
     },
     {
       "name": "dest-ios-device-xcode",
