@@ -43,6 +43,9 @@
 # Mac files
 .DS_STORE
 
+# Xcode user data
+xcuserdata/
+
 # LLMs
 .claude/
 
