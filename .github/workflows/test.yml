@@ -20,14 +20,16 @@ jobs:
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         # ubuntu-22.04: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
         host:
-          - { image: windows-2022, preset_prefix: host-win        }
-          - { image: macos-14,     preset_prefix: host-mac        }
-          - { image: ubuntu-22.04, preset_prefix: host-linux      }
-          - { image: windows-2022, preset_prefix: dest-win-ninja  }
-          - { image: macos-14,     preset_prefix: dest-mac-ninja  }
-          - { image: ubuntu-22.04, preset_prefix: dest-emscripten }
-          - { image: macos-14,     preset_prefix: dest-emscripten }
-          - { image: windows-2022, preset_prefix: dest-emscripten }
+          - { image: windows-2022, preset_prefix: host-win,                 run_tests: true  }
+          - { image: macos-14,     preset_prefix: host-mac,                 run_tests: true  }
+          - { image: ubuntu-22.04, preset_prefix: host-linux,               run_tests: true  }
+          - { image: windows-2022, preset_prefix: dest-win-ninja,           run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-mac-ninja,           run_tests: true  }
+          - { image: ubuntu-22.04, preset_prefix: dest-emscripten,          run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-emscripten,          run_tests: true  }
+          - { image: windows-2022, preset_prefix: dest-emscripten,          run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-ios-simulator-ninja, run_tests: false }
+          - { image: macos-14,     preset_prefix: dest-ios-device-ninja,    run_tests: false }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
@@ -136,4 +138,5 @@ jobs:
       - name: Test
         # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+        if: matrix.host.run_tests
         run: ctest --test-dir build/${{ steps.strings.outputs.build-preset }} --build-config ${{ matrix.build_type }} --output-on-failure --no-tests=error
