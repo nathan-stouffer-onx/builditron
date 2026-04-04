@@ -20,7 +20,11 @@
       "name": "dest-env-emscripten",
       "hidden": true,
       "inherits": "dest-deps-emscripten",
-      "generator": "Ninja Multi-Config"
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+      }
     },
     {
       "name": "dest-emscripten",
