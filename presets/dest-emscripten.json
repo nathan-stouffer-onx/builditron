@@ -20,53 +20,41 @@
       "name": "dest-env-emscripten",
       "hidden": true,
       "inherits": "dest-deps-emscripten",
-      "generator": "Ninja"
+      "generator": "Ninja Multi-Config"
     },
     {
+      "name": "dest-emscripten",
+      "inherits": "dest-env-emscripten"
+    }
+  ],
+  "buildPresets": [
+    {
       "name": "dest-emscripten-Debug",
-      "inherits": "dest-env-emscripten",
+      "configurePreset": "dest-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
       "name": "dest-emscripten-RelWithDebInfo",
-      "inherits": "dest-env-emscripten",
+      "configurePreset": "dest-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
     },
     {
       "name": "dest-emscripten-Release",
-      "inherits": "dest-env-emscripten",
+      "configurePreset": "dest-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
       "name": "dest-emscripten-MinSizeRel",
-      "inherits": "dest-env-emscripten",
+      "configurePreset": "dest-emscripten",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "MinSizeRel"
       }
-    }
-  ],
-  "buildPresets": [
-    {
-      "name": "dest-emscripten-Debug",
-      "configurePreset": "dest-emscripten-Debug"
-    },
-    {
-      "name": "dest-emscripten-RelWithDebInfo",
-      "configurePreset": "dest-emscripten-RelWithDebInfo"
-    },
-    {
-      "name": "dest-emscripten-Release",
-      "configurePreset": "dest-emscripten-Release"
-    },
-    {
-      "name": "dest-emscripten-MinSizeRel",
-      "configurePreset": "dest-emscripten-MinSizeRel"
     }
   ]
 }
