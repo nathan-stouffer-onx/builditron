@@ -23,8 +23,8 @@ jobs:
           - { image: windows-2022, preset_prefix: host-win,        multi_config: false }
           - { image: macos-14,     preset_prefix: host-mac,        multi_config: false }
           - { image: ubuntu-22.04, preset_prefix: host-linux,      multi_config: false }
-          - { image: windows-2022, preset_prefix: dest-win-ninja,  multi_config: false }
-          - { image: macos-14,     preset_prefix: dest-mac-ninja,  multi_config: false }
+          - { image: windows-2022, preset_prefix: dest-win-ninja,  multi_config: true  }
+          - { image: macos-14,     preset_prefix: dest-mac-ninja,  multi_config: true  }
           - { image: ubuntu-22.04, preset_prefix: dest-emscripten, multi_config: true  }
           - { image: macos-14,     preset_prefix: dest-emscripten, multi_config: true  }
           - { image: windows-2022, preset_prefix: dest-emscripten, multi_config: true  }
