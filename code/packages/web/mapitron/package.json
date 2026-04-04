@@ -36,19 +36,14 @@
     "README.md"
   ],
   "scripts": {
-    "build": "npm run configure:all && npm run build:all",
+    "build": "npm run configure && npm run build:all",
     "build:all": "npm run build:Debug && npm run build:Release && npm run build:RelWithDebInfo && npm run build:MinSizeRel",
     "build:Debug": "npm run _build:prefix -- --preset dest-emscripten-Debug",
     "build:Release": "npm run _build:prefix -- --preset dest-emscripten-Release",
     "build:RelWithDebInfo": "npm run _build:prefix -- --preset dest-emscripten-RelWithDebInfo",
     "build:MinSizeRel": "npm run _build:prefix -- --preset dest-emscripten-MinSizeRel",
-    "configure:all": "npm run _configure:Debug && npm run _configure:Release && npm run _configure:RelWithDebInfo && npm run _configure:MinSizeRel",
-    "_build:prefix": "cd ../../.. && cmake --build",
-    "_configure:Debug": "npm run _configure:prefix -- --preset dest-emscripten-Debug",
-    "_configure:Release": "npm run _configure:prefix -- --preset dest-emscripten-Release",
-    "_configure:RelWithDebInfo": "npm run _configure:prefix -- --preset dest-emscripten-RelWithDebInfo",
-    "_configure:MinSizeRel": "npm run _configure:prefix -- --preset dest-emscripten-MinSizeRel",
-    "_configure:prefix": "cd ../../.. && cmake"
+    "configure": "cd ../../../.. && cmake --preset dest-emscripten",
+    "_build:prefix": "cd ../../../.. && cmake --build"
   },
   "keywords": [
     "webassembly",

@@ -27,7 +27,7 @@
     "_cpp:watch:RelWithDebInfo": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:RelWithDebInfo\"",
     "_cpp:watch:MinSizeRel": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:MinSizeRel\"",
     "_cpp:watch:prefix": "chokidar \"../../src/**/*.{cpp,hpp}\" \"../../include/**/*.hpp\" -c",
-    "_cmake:configure": "cd ../../.. && cmake --preset dest-emscripten-Debug && cmake --preset dest-emscripten-Release && cmake --preset dest-emscripten-RelWithDebInfo && cmake --preset dest-emscripten-MinSizeRel",
+    "_cmake:configure": "cd ../../.. && cmake --preset dest-emscripten",
     "_cmake:build:all": "npm run _cmake:build:Debug && npm run _cmake:build:Release && npm run _cmake:build:RelWithDebInfo && npm run _cmake:build:MinSizeRel",
     "_cmake:build:Debug": "npm run _cmake:build:prefix -- --preset dest-emscripten-Debug",
     "_cmake:build:Release": "npm run _cmake:build:prefix -- --preset dest-emscripten-Release",
