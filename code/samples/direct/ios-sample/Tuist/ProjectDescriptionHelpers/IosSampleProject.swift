@@ -30,6 +30,16 @@ public func iosSampleTarget(name: String, platform: String, presetName: String) 
 
 public func iosSampleScheme(name: String, presetName: String) -> Scheme {
     let targetRef: TargetReference = .target(name)
+    let buildMapitron = """
+        export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+        unset IPHONEOS_DEPLOYMENT_TARGET TVOS_DEPLOYMENT_TARGET \\
+              WATCHOS_DEPLOYMENT_TARGET XROS_DEPLOYMENT_TARGET \\
+              MACOSX_DEPLOYMENT_TARGET DRIVERKIT_DEPLOYMENT_TARGET \\
+              SDKROOT
+        cmake --build "$SRCROOT/../../../../../build/\(presetName)" \\
+              --config "$CONFIGURATION" \\
+              --target mapitron
+        """
     return .scheme(
         name: name,
         buildAction: .buildAction(
@@ -37,7 +47,7 @@ public func iosSampleScheme(name: String, presetName: String) -> Scheme {
             preActions: [
                 .executionAction(
                     title: "Build mapitron",
-                    scriptText: "export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\"; cmake --build \"$SRCROOT/../../../../../build/\(presetName)\" --config \"$CONFIGURATION\" --target mapitron",
+                    scriptText: buildMapitron,
                     target: targetRef
                 )
             ]
