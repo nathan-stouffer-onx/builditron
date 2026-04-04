@@ -31,30 +31,22 @@
     {
       "name": "dest-emscripten-Debug",
       "configurePreset": "dest-emscripten",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
+      "configuration": "Debug"
     },
     {
       "name": "dest-emscripten-RelWithDebInfo",
       "configurePreset": "dest-emscripten",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
+      "configuration": "RelWithDebInfo"
     },
     {
       "name": "dest-emscripten-Release",
       "configurePreset": "dest-emscripten",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
+      "configuration": "Release"
     },
     {
       "name": "dest-emscripten-MinSizeRel",
       "configurePreset": "dest-emscripten",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "MinSizeRel"
-      }
+      "configuration": "MinSizeRel"
     }
   ]
 }
