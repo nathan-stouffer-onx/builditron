@@ -25,7 +25,7 @@
       "name": "dest-env-win-msvc-ninja",
       "hidden": true,
       "inherits": "dest-deps-win",
-      "generator": "Ninja",
+      "generator": "Ninja Multi-Config",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl",
         "CMAKE_CXX_COMPILER": "cl"
@@ -36,32 +36,8 @@
       "inherits": "dest-env-win-msvc-vs"
     },
     {
-      "name": "dest-win-ninja-Debug",
-      "inherits": "dest-env-win-msvc-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "dest-win-ninja-RelWithDebInfo",
-      "inherits": "dest-env-win-msvc-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    },
-    {
-      "name": "dest-win-ninja-Release",
-      "inherits": "dest-env-win-msvc-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-    {
-      "name": "dest-win-ninja-MinSizeRel",
-      "inherits": "dest-env-win-msvc-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "MinSizeRel"
-      }
+      "name": "dest-win-ninja",
+      "inherits": "dest-env-win-msvc-ninja"
     }
   ],
   "buildPresets": [
@@ -87,19 +63,23 @@
     },
     {
       "name": "dest-win-ninja-Debug",
-      "configurePreset": "dest-win-ninja-Debug"
+      "configurePreset": "dest-win-ninja",
+      "configuration": "Debug"
     },
     {
       "name": "dest-win-ninja-RelWithDebInfo",
-      "configurePreset": "dest-win-ninja-RelWithDebInfo"
+      "configurePreset": "dest-win-ninja",
+      "configuration": "RelWithDebInfo"
     },
     {
       "name": "dest-win-ninja-Release",
-      "configurePreset": "dest-win-ninja-Release"
+      "configurePreset": "dest-win-ninja",
+      "configuration": "Release"
     },
     {
       "name": "dest-win-ninja-MinSizeRel",
-      "configurePreset": "dest-win-ninja-MinSizeRel"
+      "configurePreset": "dest-win-ninja",
+      "configuration": "MinSizeRel"
     }
   ]
 }

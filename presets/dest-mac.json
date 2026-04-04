@@ -24,7 +24,7 @@
       "name": "dest-env-mac-clang-ninja",
       "hidden": true,
       "inherits": "dest-deps-mac",
-      "generator": "Ninja",
+      "generator": "Ninja Multi-Config",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang",
         "CMAKE_CXX_COMPILER": "clang++"
@@ -35,32 +35,8 @@
       "inherits": "dest-env-mac-clang-xcode"
     },
     {
-      "name": "dest-mac-ninja-Debug",
-      "inherits": "dest-env-mac-clang-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "dest-mac-ninja-RelWithDebInfo",
-      "inherits": "dest-env-mac-clang-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
-    },
-    {
-      "name": "dest-mac-ninja-Release",
-      "inherits": "dest-env-mac-clang-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-    {
-      "name": "dest-mac-ninja-MinSizeRel",
-      "inherits": "dest-env-mac-clang-ninja",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "MinSizeRel"
-      }
+      "name": "dest-mac-ninja",
+      "inherits": "dest-env-mac-clang-ninja"
     }
   ],
   "buildPresets": [
@@ -86,19 +62,23 @@
     },
     {
       "name": "dest-mac-ninja-Debug",
-      "configurePreset": "dest-mac-ninja-Debug"
+      "configurePreset": "dest-mac-ninja",
+      "configuration": "Debug"
     },
     {
       "name": "dest-mac-ninja-RelWithDebInfo",
-      "configurePreset": "dest-mac-ninja-RelWithDebInfo"
+      "configurePreset": "dest-mac-ninja",
+      "configuration": "RelWithDebInfo"
     },
     {
       "name": "dest-mac-ninja-Release",
-      "configurePreset": "dest-mac-ninja-Release"
+      "configurePreset": "dest-mac-ninja",
+      "configuration": "Release"
     },
     {
       "name": "dest-mac-ninja-MinSizeRel",
-      "configurePreset": "dest-mac-ninja-MinSizeRel"
+      "configurePreset": "dest-mac-ninja",
+      "configuration": "MinSizeRel"
     }
   ]
 }
