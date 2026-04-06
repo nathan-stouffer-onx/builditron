@@ -3,7 +3,6 @@
 - [ ] set up GHA for samples
 - [ ] support exceptions in wasm builds
 - [ ] add git hash as version
-- [ ] use Ninja Multi-Config for emscripten builds
 - [ ] add android project
 - [ ] simulate bgfx dependency
 - [ ] potentially consolidate host tool builds in GHA?
