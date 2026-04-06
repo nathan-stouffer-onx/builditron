@@ -15,4 +15,5 @@
 - [x] separate sample app that links local package
 - [x] generate iOS project via tuist
 - [x] update GHA config
-- [ ] clean up/READMEs
+- [x] READMEs
+- [ ] clean up
