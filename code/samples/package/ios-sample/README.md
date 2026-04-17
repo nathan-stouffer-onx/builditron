@@ -27,8 +27,10 @@ code/packages/ios/mapitron/bin/build_package.sh Debug
 
 ### 2. Generate and open the Xcode project
 
+From the repo root:
+
 ```
-tuist generate
+code/samples/package/ios-sample/bin/generate_project.sh
 ```
 
 Then open the generated `ios-sample.xcodeproj` and build.

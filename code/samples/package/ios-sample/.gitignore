@@ -1,1 +1,4 @@
+*.xcodeproj
+*.xcworkspace
+.tuist-derived
 Derived/
