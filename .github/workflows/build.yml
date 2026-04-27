@@ -133,7 +133,7 @@ jobs:
           ./emsdk activate latest
 
       - name: Setup Android
-        if: matrix.host.preset_prefix == 'dest-android'
+        if: startsWith(matrix.host.preset_prefix, 'dest-android')
         shell: bash
         run: |
           cd code/deps/android-ndk
