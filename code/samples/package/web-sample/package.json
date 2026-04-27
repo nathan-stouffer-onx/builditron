@@ -26,17 +26,17 @@
     "_cpp:watch:Release": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:Release\"",
     "_cpp:watch:RelWithDebInfo": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:RelWithDebInfo\"",
     "_cpp:watch:MinSizeRel": "npm run _cpp:watch:prefix -- \"npm run _cmake:build:MinSizeRel\"",
-    "_cpp:watch:prefix": "chokidar \"../../src/**/*.{cpp,hpp}\" \"../../include/**/*.hpp\" -c",
-    "_cmake:configure": "cd ../../.. && cmake --preset dest-emscripten",
+    "_cpp:watch:prefix": "chokidar \"../../../src/**/*.{cpp,hpp}\" \"../../../include/**/*.hpp\" -c",
+    "_cmake:configure": "cd ../../../.. && cmake --preset dest-emscripten",
     "_cmake:build:all": "npm run _cmake:build:Debug && npm run _cmake:build:Release && npm run _cmake:build:RelWithDebInfo && npm run _cmake:build:MinSizeRel",
     "_cmake:build:Debug": "npm run _cmake:build:prefix -- --preset dest-emscripten-Debug",
     "_cmake:build:Release": "npm run _cmake:build:prefix -- --preset dest-emscripten-Release",
     "_cmake:build:RelWithDebInfo": "npm run _cmake:build:prefix -- --preset dest-emscripten-RelWithDebInfo",
     "_cmake:build:MinSizeRel": "npm run _cmake:build:prefix -- --preset dest-emscripten-MinSizeRel",
-    "_cmake:build:prefix": "cd ../../.. && cmake --build --target mapitron-wasm"
+    "_cmake:build:prefix": "cd ../../../.. && cmake --build --target mapitron-wasm"
   },
   "dependencies": {
-    "mapitron": "file:../../packages/web/mapitron"
+    "mapitron": "file:../../../packages/web/mapitron"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

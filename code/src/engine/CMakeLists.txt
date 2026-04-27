@@ -21,6 +21,8 @@ cmrc_add_resource_library(
 
 add_library(engine ${ENGINE_FILES})
 
+find_package(protobuf CONFIG REQUIRED)
+
 target_include_directories(engine
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/include/public"
@@ -37,4 +39,5 @@ target_link_libraries(engine
     PRIVATE
         engine_assets
         shaderblobs
+        protobuf::libprotobuf
 )

@@ -1,0 +1,172 @@
+{
+  "version": 8,
+  "include": ["base.json"],
+  "configurePresets": [
+    {
+      "name": "dest-deps-ios-device",
+      "hidden": true,
+      "inherits": "dest-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-ios",
+        "CMAKE_SYSTEM_NAME": "iOS",
+        "CMAKE_OSX_SYSROOT": "iphoneos",
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "17.0"
+      }
+    },
+    {
+      "name": "dest-deps-ios-simulator-arm64",
+      "hidden": true,
+      "inherits": "dest-base",
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-ios-simulator",
+        "CMAKE_SYSTEM_NAME": "iOS",
+        "CMAKE_OSX_SYSROOT": "iphonesimulator",
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "17.0"
+      }
+    },
+    {
+      "name": "dest-env-ios-device-xcode",
+      "hidden": true,
+      "inherits": "dest-deps-ios-device",
+      "generator": "Xcode"
+    },
+    {
+      "name": "dest-env-ios-simulator-arm64-xcode",
+      "hidden": true,
+      "inherits": "dest-deps-ios-simulator-arm64",
+      "generator": "Xcode"
+    },
+    {
+      "name": "dest-env-ios-device-ninja",
+      "hidden": true,
+      "inherits": "dest-deps-ios-device",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "dest-env-ios-simulator-arm64-ninja",
+      "hidden": true,
+      "inherits": "dest-deps-ios-simulator-arm64",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_DEFAULT_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "dest-ios-device-xcode",
+      "inherits": "dest-env-ios-device-xcode",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
+      }
+    },
+    {
+      "name": "dest-ios-simulator-xcode",
+      "inherits": "dest-env-ios-simulator-arm64-xcode",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
+      }
+    },
+    {
+      "name": "dest-ios-device-ninja",
+      "inherits": "dest-env-ios-device-ninja",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
+      }
+    },
+    {
+      "name": "dest-ios-simulator-ninja",
+      "inherits": "dest-env-ios-simulator-arm64-ninja",
+      "cacheVariables": {
+        "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/${presetName}/lib"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "dest-ios-device-xcode-Debug",
+      "configurePreset": "dest-ios-device-xcode",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-device-xcode-RelWithDebInfo",
+      "configurePreset": "dest-ios-device-xcode",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-device-xcode-Release",
+      "configurePreset": "dest-ios-device-xcode",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-device-xcode-MinSizeRel",
+      "configurePreset": "dest-ios-device-xcode",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-ios-simulator-xcode-Debug",
+      "configurePreset": "dest-ios-simulator-xcode",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-simulator-xcode-RelWithDebInfo",
+      "configurePreset": "dest-ios-simulator-xcode",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-simulator-xcode-Release",
+      "configurePreset": "dest-ios-simulator-xcode",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-simulator-xcode-MinSizeRel",
+      "configurePreset": "dest-ios-simulator-xcode",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-ios-device-ninja-Debug",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-device-ninja-RelWithDebInfo",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-device-ninja-Release",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-device-ninja-MinSizeRel",
+      "configurePreset": "dest-ios-device-ninja",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-Debug",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "Debug"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-RelWithDebInfo",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-Release",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "Release"
+    },
+    {
+      "name": "dest-ios-simulator-ninja-MinSizeRel",
+      "configurePreset": "dest-ios-simulator-ninja",
+      "configuration": "MinSizeRel"
+    }
+  ]
+}

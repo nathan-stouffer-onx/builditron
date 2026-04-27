@@ -18,7 +18,7 @@ target_include_directories(mapitron
 
 target_compile_definitions(mapitron
     PUBLIC
-        MAPITRON_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+        MAPITRON_BUILD_TYPE="$<CONFIG>"
 )
 
 # add dependencies
@@ -28,6 +28,25 @@ target_link_libraries(mapitron
     PRIVATE
         engine
 )
+
+# For iOS, merge all static libraries into one for easy consumption by the sample app
+# and for packaging into an XCFramework
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_package(protobuf CONFIG REQUIRED)
+    add_custom_command(TARGET mapitron POST_BUILD
+        COMMAND libtool -static -o "$<TARGET_FILE_DIR:mapitron>/libmapitron-ios.a"
+            "$<TARGET_FILE:mapitron>"
+            "$<TARGET_FILE:engine>"
+            "$<TARGET_FILE:styling>"
+            "$<TARGET_FILE:shaders>"
+            "$<TARGET_FILE:shaderblobs>"
+            "$<TARGET_FILE:engine_assets>"
+            "$<TARGET_FILE:shaders_json>"
+            "$<TARGET_FILE:protobuf::libprotobuf>"
+        COMMENT "Merging static libraries into libmapitron-ios.a"
+        VERBATIM
+    )
+endif()
 
 # For Emscripten, create a WASM module executable
 if(EMSCRIPTEN)

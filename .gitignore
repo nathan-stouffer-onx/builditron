@@ -43,13 +43,15 @@
 # Mac files
 .DS_STORE
 
+# Xcode user data
+xcuserdata/
+
 # LLMs
 .claude/
 
 # build dirs
 build/
 .build/
-out/
 
 # User-specific CMake presets
 CMakeUserPresets.json
