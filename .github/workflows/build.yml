@@ -30,6 +30,8 @@ jobs:
           - { image: windows-2022, preset_prefix: dest-emscripten,          multi_config: true,  run_tests: true  }
           - { image: macos-14,     preset_prefix: dest-ios-simulator-ninja, multi_config: true,  run_tests: false }
           - { image: macos-14,     preset_prefix: dest-ios-device-ninja,    multi_config: true,  run_tests: false }
+          - { image: ubuntu-22.04, preset_prefix: dest-android-arm64,       multi_config: true,  run_tests: false }
+          - { image: ubuntu-22.04, preset_prefix: dest-android-x86_64,      multi_config: true,  run_tests: false }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
@@ -129,6 +131,13 @@ jobs:
           cd code/deps/emsdk
           ./emsdk install latest
           ./emsdk activate latest
+
+      - name: Setup Android
+        if: matrix.host.preset_prefix == 'dest-android'
+        shell: bash
+        run: |
+          cd code/deps/android-ndk
+          make
 
       - name: Configure CMake
         run: >
