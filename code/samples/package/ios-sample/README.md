@@ -37,5 +37,5 @@ Then open the generated `ios-sample.xcodeproj` and build.
 
 ## Rebuilding after C++ changes
 
-Re-run `build_package.sh` and rebuild in Xcode. There is no automatic rebuild step —
-the XCFramework must be regenerated manually whenever the C++ library changes.
+The Xcode scheme includes a pre-action that automatically runs `build_package.sh` before
+each build, so hitting Play keeps the XCFramework up to date without any manual steps.
