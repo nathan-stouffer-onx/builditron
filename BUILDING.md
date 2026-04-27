@@ -57,6 +57,9 @@ The following tools must be installed:
     - Visual Studio
 - Web
     - make
+- Android
+    - make
+    - curl
 
 Additional steps for each destination type are listed below.
 
@@ -70,6 +73,17 @@ Before your first web build, install and activate it:
 cd code/deps/emsdk
 ./emsdk install latest
 ./emsdk activate latest
+```
+
+#### Android
+
+To build for Android, the C++ code is compiled using the [Android NDK](https://developer.android.com/ndk).
+The NDK is installed locally at `code/deps/android-ndk`.
+Before your first Android build, install it:
+
+```
+cd code/deps/android-ndk
+make install
 ```
 
 ## Building

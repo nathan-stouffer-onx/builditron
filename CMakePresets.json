@@ -4,6 +4,7 @@
     "presets/base.json",
     "presets/dest-win.json",
     "presets/dest-mac.json",
+    "presets/dest-android.json",
     "presets/dest-emscripten.json",
     "presets/dest-ios.json",
     "presets/host-win.json",
