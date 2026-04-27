@@ -1,4 +1,4 @@
-name: test
+name: build
 
 on:
   push:
@@ -20,14 +20,16 @@ jobs:
         # macos-14:     https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
         # ubuntu-22.04: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
         host:
-          - { image: windows-2022, preset_prefix: host-win,        multi_config: false }
-          - { image: macos-14,     preset_prefix: host-mac,        multi_config: false }
-          - { image: ubuntu-22.04, preset_prefix: host-linux,      multi_config: false }
-          - { image: windows-2022, preset_prefix: dest-win-ninja,  multi_config: true  }
-          - { image: macos-14,     preset_prefix: dest-mac-ninja,  multi_config: true  }
-          - { image: ubuntu-22.04, preset_prefix: dest-emscripten, multi_config: true  }
-          - { image: macos-14,     preset_prefix: dest-emscripten, multi_config: true  }
-          - { image: windows-2022, preset_prefix: dest-emscripten, multi_config: true  }
+          - { image: windows-2022, preset_prefix: host-win,                 multi_config: false, run_tests: true  }
+          - { image: macos-14,     preset_prefix: host-mac,                 multi_config: false, run_tests: true  }
+          - { image: ubuntu-22.04, preset_prefix: host-linux,               multi_config: false, run_tests: true  }
+          - { image: windows-2022, preset_prefix: dest-win-ninja,           multi_config: true,  run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-mac-ninja,           multi_config: true,  run_tests: true  }
+          - { image: ubuntu-22.04, preset_prefix: dest-emscripten,          multi_config: true,  run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-emscripten,          multi_config: true,  run_tests: true  }
+          - { image: windows-2022, preset_prefix: dest-emscripten,          multi_config: true,  run_tests: true  }
+          - { image: macos-14,     preset_prefix: dest-ios-simulator-ninja, multi_config: true,  run_tests: false }
+          - { image: macos-14,     preset_prefix: dest-ios-device-ninja,    multi_config: true,  run_tests: false }
         build_type: [Debug, RelWithDebInfo, Release, MinSizeRel]
     
     env:
@@ -140,4 +142,5 @@ jobs:
       - name: Test
         # Execute tests defined by the CMake configuration. Note that --build-config is needed because there are multi-config generators
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-        run: ctest --test-dir out/build/${{ steps.strings.outputs.configure-preset }} --build-config ${{ matrix.build_type }} --output-on-failure --no-tests=error
+        if: matrix.host.run_tests
+        run: ctest --test-dir build/${{ steps.strings.outputs.configure-preset }} --build-config ${{ matrix.build_type }} --output-on-failure --no-tests=error
