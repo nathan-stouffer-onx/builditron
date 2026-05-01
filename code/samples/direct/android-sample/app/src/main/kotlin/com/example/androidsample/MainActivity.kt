@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.build_type).text = "build: ${Mapitron.buildType()}"
+        findViewById<TextView>(R.id.build_type).text = "build: ${Mapitron.build_type()}"
 
         val resultText = findViewById<TextView>(R.id.result)
         findViewById<Button>(R.id.button_add).setOnClickListener {
