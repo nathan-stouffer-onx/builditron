@@ -19,6 +19,10 @@ android {
         debug {
             isDebuggable = true
         }
+        create("relWithDebInfo") {
+            initWith(buildTypes.getByName("debug"))
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = true
             proguardFiles(

@@ -43,6 +43,10 @@ android {
     buildTypes {
         debug {
         }
+        create("relWithDebInfo") {
+            initWith(buildTypes.getByName("debug"))
+            externalNativeBuild { cmake { arguments("-DCMAKE_BUILD_TYPE=RelWithDebInfo") } }
+        }
         release {
             isMinifyEnabled = false
             consumerProguardFiles("consumer-rules.pro")
