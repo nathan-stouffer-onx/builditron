@@ -38,7 +38,6 @@ android {
     externalNativeBuild {
         cmake {
             path = repoRoot.resolve("CMakeLists.txt")
-            version = "3.28.6"
         }
     }
 
