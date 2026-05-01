@@ -45,6 +45,11 @@ android {
         debug {
             isDebuggable = true
         }
+        create("relWithDebInfo") {
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
+            externalNativeBuild { cmake { arguments("-DCMAKE_BUILD_TYPE=RelWithDebInfo") } }
+        }
         release {
             isMinifyEnabled = true
             proguardFiles(
