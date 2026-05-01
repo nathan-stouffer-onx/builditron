@@ -98,3 +98,12 @@ if(EMSCRIPTEN)
             "${NPM_PACKAGE_DIR}/mapitron.d.ts"
     )
 endif()
+
+if(ANDROID)
+    set(MAPITRON_JNI_FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/cpp/bindings/jnibind.cpp"
+    )
+
+    add_library(mapitron-jni SHARED ${MAPITRON_JNI_FILES})
+    target_link_libraries(mapitron-jni PRIVATE mapitron android log)
+endif()
