@@ -86,6 +86,22 @@ cd code/deps/android-ndk
 make install
 ```
 
+##### Android sample app
+
+The direct Android sample at `code/samples/direct/android-sample/` is an Android Studio project.
+Open that directory in Android Studio to build and run it.
+
+Before opening in Android Studio, run the init target to install the NDK and generate `local.properties`:
+
+```
+cd code/samples/direct/android-sample
+make init
+```
+
+The sample uses `externalNativeBuild` to drive the CMake build directly.
+Android Studio's bundled cmake is too old for this project, so `local.properties` must point at the system cmake.
+Set `cmake.dir` to the directory containing `cmake` on your `PATH`.
+
 ## Building
 
 Once all required tools are installed, it is possible to build `mapitron`!
