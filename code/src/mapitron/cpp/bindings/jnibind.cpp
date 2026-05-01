@@ -4,7 +4,7 @@
 extern "C" {
 
 JNIEXPORT jstring JNICALL
-Java_com_mapitron_Mapitron_build_type(JNIEnv* env, jobject)
+Java_com_mapitron_Mapitron_build_1type(JNIEnv* env, jobject)
 {
     auto result = mapitron::build_type();
     return env->NewStringUTF(result.c_str());
