@@ -8,7 +8,7 @@ find_package(GTest CONFIG REQUIRED)
 # codesigns the binary in a separate step after POST_BUILD scripts run, so the unsigned
 # binary is killed when the discovery script tries to execute it.
 # Locally with other generators, keep POST_BUILD so tests appear in the IDE immediately.
-if(DEFINED ENV{GITHUB_ACTIONS} OR CMAKE_GENERATOR STREQUAL "Xcode" OR CMAKE_SYSTEM_NAME STREQUAL "iOS")
+if(DEFINED ENV{GITHUB_ACTIONS} OR CMAKE_GENERATOR STREQUAL "Xcode" OR CMAKE_SYSTEM_NAME STREQUAL "iOS" OR ANDROID)
     set(GTEST_DISCOVER_SETTINGS DISCOVERY_MODE PRE_TEST DISCOVERY_TIMEOUT 30)
 else()
     set(GTEST_DISCOVER_SETTINGS DISCOVERY_MODE POST_BUILD)
